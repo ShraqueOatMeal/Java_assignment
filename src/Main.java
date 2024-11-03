@@ -1,5 +1,11 @@
+
+import assignment.Login;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        Login LoginFrame = new Login();
+        LoginFrame.setVisible(true);
+        LoginFrame.pack();
+        LoginFrame.setLocationRelativeTo(null);
     }
 }
