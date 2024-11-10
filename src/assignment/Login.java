@@ -9,7 +9,14 @@ import javax.swing.JOptionPane;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+
+import assignment.UserType;
+import assignment.Adminstrator.Administrator;
 import assignment.Adminstrator.adminstrator;
+import assignment.PurchaseManager.PurchaseManager;
+import assignment.PurchaseManager.purchaseManager;
+import assignment.SalesManager.SalesManager;
+import assignment.SalesManager.salesManager;
 
 /**
  *
@@ -154,33 +161,63 @@ public class Login extends javax.swing.JFrame {
   private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton2ActionPerformed
     String email = jTextField2.getText();
     String password = new String(jPasswordField1.getPassword());
-    if (authenticated(email, password)) {
-      JOptionPane.showMessageDialog(this, "Logged in successfully");
+
+    UserType user = authenticate(email, password);
+    if (user != null) {
+      JOptionPane.showMessageDialog(this, "Logged in successfully with access level" + user.getAccessLevel());
+    }
+
+    if (user instanceof Administrator) {
       adminstrator adminFrame = new adminstrator();
       adminFrame.setVisible(true);
       adminFrame.pack();
       adminFrame.setLocationRelativeTo(null);
       this.dispose();
+    } else if (user instanceof SalesManager) {
+      salesManager salesFrame = new salesManager();
+      salesFrame.setVisible(true);
+      salesFrame.pack();
+      salesFrame.setLocationRelativeTo(null);
+      this.dispose();
+    } else if (user instanceof PurchaseManager) {
+      purchaseManager purchaseFrame = new purchaseManager();
+      purchaseFrame.setVisible(true);
+      purchaseFrame.pack();
+      purchaseFrame.setLocationRelativeTo(null);
+      this.dispose();
+    } else {
+      JOptionPane.showMessageDialog(this, "Invalid email or password");
     }
   }// GEN-LAST:event_jButton2ActionPerformed
 
-  private boolean authenticated(String email, String password) {
+  private UserType authenticate(String email, String password) {
     try (BufferedReader br = new BufferedReader(new FileReader("src/assignment/database/users.txt"))) {
       String line;
       while ((line = br.readLine()) != null) {
         String[] user = line.split(",");
         if (user[1].equals(email) && user[3].equals(password)) {
-          return true;
-        } else {
-          JOptionPane.showMessageDialog(this, "Invalid email or password");
-          return false;
+          int acessLevel = Integer.parseInt(user[2]);
+          return createUserByAccessLevel(acessLevel);
         }
       }
     } catch (IOException e) {
       JOptionPane.showMessageDialog(this, "Cannot read file");
       e.printStackTrace();
     }
-    return false;
+    return null;
+  }
+
+  private UserType createUserByAccessLevel(int accessLevel) {
+    switch (accessLevel) {
+      case 1:
+        return new Administrator();
+      case 2:
+        return new PurchaseManager();
+      case 3:
+        return new SalesManager();
+      default:
+        return null;
+    }
   }
 
   private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton3ActionPerformed

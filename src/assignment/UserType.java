@@ -45,6 +45,16 @@ public abstract class UserType {
     return permissions.contains(permission);
   }
 
+  public void addPermission(String permission) {
+    if (!permissions.contains(permission)) {
+      permissions.add(permission);
+    }
+  }
+
+  public void removePermission(String permission) {
+    permissions.remove(permission);
+  }
+
   public void getDashboard() {
     // TODO: implement
   }
