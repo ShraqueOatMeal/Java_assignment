@@ -8,6 +8,19 @@ public class PurchaseManager extends UserType {
   private double approvalThreshold;
   // private List<Supplier> assignedSuppliers;
 
+  public PurchaseManager() {
+    super();
+    this.accessLevel = 3;
+    this.department = "Purchase";
+  }
+
+  @Override
+  protected void initializePermissions() {
+    permissions.add("VIEW_PURCHASE");
+    permissions.add("CREATE_ORDER");
+    permissions.add("APPROVE_PURCHASE");
+  }
+
   public void viewItems() {
     // Implementation
   }
