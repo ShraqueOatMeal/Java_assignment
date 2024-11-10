@@ -1,11 +1,19 @@
 package assignment;
 
 import java.util.List;
+import java.util.ArrayList;
 
 public abstract class UserType {
   protected int accessLevel;
   protected String department;
   protected List<String> permissions;
+
+  public UserType() {
+    permissions = new ArrayList<>();
+    initializePermissions();
+  }
+
+  protected abstract void initializePermissions();
 
   // Setters and getters
   public int getAccessLevel() {
@@ -46,7 +54,6 @@ public abstract class UserType {
   }
 
   public boolean validateAcess() {
-    // TODO: implement
-    return true;
+    return accessLevel > 0 && !permissions.isEmpty();
   }
 }
