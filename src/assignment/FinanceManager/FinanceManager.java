@@ -1,3 +1,7 @@
+package assignment.FinanceManager;
+
+import assignment.UserType;
+
 public class FinanceManager extends UserType {
   public FinanceManager() {
     super();
