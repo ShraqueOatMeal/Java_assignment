@@ -110,7 +110,8 @@ public class User {
   public void register() {
 
     // Validate fields
-    if (username == null || username.trim().isEmpty() || email == null || email.trim().isEmpty() || password == null
+    if (/* username == null || username.trim().isEmpty() || */ email == null || email.trim().isEmpty()
+        || password == null
         || password.trim().isEmpty()) {
       throw new IllegalArgumentException("All fields must be filled");
     }
