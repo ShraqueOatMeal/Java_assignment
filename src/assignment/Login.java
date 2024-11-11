@@ -17,6 +17,10 @@ import assignment.PurchaseManager.PurchaseManager;
 import assignment.PurchaseManager.purchaseManager;
 import assignment.SalesManager.SalesManager;
 import assignment.SalesManager.salesManager;
+import assignment.FinanceManager.FinanceManager;
+import assignment.FinanceManager.financeManager;
+import assignment.InventoryManager.InventoryManager;
+import assignment.InventoryManager.inventoryManager;
 
 /**
  *
@@ -185,6 +189,18 @@ public class Login extends javax.swing.JFrame {
       purchaseFrame.pack();
       purchaseFrame.setLocationRelativeTo(null);
       this.dispose();
+    } else if (user instanceof FinanceManager) {
+      financeManager financeFrame = new financeManager();
+      financeFrame.setVisible(true);
+      financeFrame.pack();
+      financeFrame.setLocationRelativeTo(null);
+      this.dispose();
+    } else if (user instanceof InventoryManager) {
+      inventoryManager inventoryFrame = new inventoryManager();
+      inventoryFrame.setVisible(true);
+      inventoryFrame.pack();
+      inventoryFrame.setLocationRelativeTo(null);
+      this.dispose();
     } else {
       JOptionPane.showMessageDialog(this, "Invalid email or password");
     }
@@ -215,6 +231,10 @@ public class Login extends javax.swing.JFrame {
         return new PurchaseManager();
       case 3:
         return new SalesManager();
+      case 4:
+        return new FinanceManager();
+      case 5:
+        return new InventoryManager();
       default:
         return null;
     }

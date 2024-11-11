@@ -5,7 +5,7 @@ import assignment.UserType;
 public class InventoryManager extends UserType {
   public InventoryManager() {
     super();
-    this.accessLevel = 3;
+    this.accessLevel = 5;
     this.department = "Inventory";
   }
 
