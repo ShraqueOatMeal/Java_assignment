@@ -7,6 +7,7 @@ package assignment.FinanceManager;
 
 import assignment.SalesManager.viewPurchaseOrder;
 import assignment.Login;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -47,7 +48,7 @@ public class financeManager extends javax.swing.JFrame {
     jPanel1.setBackground(new java.awt.Color(0, 255, 204));
 
     backButton.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-    backButton.setText("<-");
+    backButton.setText("<");
     backButton.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         backButtonActionPerformed(evt);
@@ -200,12 +201,15 @@ public class financeManager extends javax.swing.JFrame {
   }// GEN-LAST:event_jButton7ActionPerformed
 
   private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_backButtonActionPerformed
-    Login loginFrame = new Login();
-    loginFrame.setVisible(true);
-    loginFrame.pack();
-    loginFrame.setLocationRelativeTo(null);
-    this.dispose();
-  }// GEN-LAST:event_backButtonActionPerformed
+    if (JOptionPane.showConfirmDialog(null, "Are you sure you want to log out?", "Confirm Logout",
+        JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+      Login loginFrame = new Login();
+      loginFrame.setVisible(true);
+      loginFrame.pack();
+      loginFrame.setLocationRelativeTo(null);
+      this.dispose();
+    }
+  } // GEN-LAST:event_backButtonActionPerformed
 
   /**
    * @param args the command line arguments

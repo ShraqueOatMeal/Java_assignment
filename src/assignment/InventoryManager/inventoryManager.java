@@ -6,6 +6,7 @@
 package assignment.InventoryManager;
 
 import assignment.Login;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -47,7 +48,7 @@ public class inventoryManager extends javax.swing.JFrame {
     backButton.setBackground(new java.awt.Color(0, 0, 0));
     backButton.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
     backButton.setForeground(new java.awt.Color(204, 204, 204));
-    backButton.setText("<-");
+    backButton.setText("<");
     backButton.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         backButtonActionPerformed(evt);
@@ -210,12 +211,15 @@ public class inventoryManager extends javax.swing.JFrame {
   }// GEN-LAST:event_jButton6ActionPerformed
 
   private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_backButtonActionPerformed
-    Login loginFrame = new Login();
-    loginFrame.setVisible(true);
-    loginFrame.pack();
-    loginFrame.setLocationRelativeTo(null);
-    this.dispose();
-  }// GEN-LAST:event_backButtonActionPerformed
+    if (JOptionPane.showConfirmDialog(null, "Are you sure you want to log out?", "Confirm Logout",
+        JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+      Login loginFrame = new Login();
+      loginFrame.setVisible(true);
+      loginFrame.pack();
+      loginFrame.setLocationRelativeTo(null);
+      this.dispose();
+    }
+  } // GEN-LAST:event_backButtonActionPerformed
 
   /**
    * @param args the command line arguments

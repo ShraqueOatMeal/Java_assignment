@@ -2,6 +2,9 @@ package assignment.PurchaseManager;
 
 import assignment.UserType;
 import java.util.List;
+
+import javax.swing.JOptionPane;
+
 import assignment.Login;
 
 /**
@@ -86,7 +89,7 @@ public class purchaseManager extends javax.swing.JFrame {
 
     backButton.setBackground(new java.awt.Color(255, 204, 204));
     backButton.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-    backButton.setText("<-");
+    backButton.setText("<");
     backButton.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         backButtonActionPerformed(evt);
@@ -213,11 +216,14 @@ public class purchaseManager extends javax.swing.JFrame {
   }// GEN-LAST:event_jButton5ActionPerformed
 
   private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_backButtonActionPerformed
-    Login loginFrame = new Login();
-    loginFrame.setVisible(true);
-    loginFrame.pack();
-    loginFrame.setLocationRelativeTo(null);
-    this.dispose();
+    if (JOptionPane.showConfirmDialog(null, "Are you sure you want to log out?", "Confirm Logout",
+        JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+      Login loginFrame = new Login();
+      loginFrame.setVisible(true);
+      loginFrame.pack();
+      loginFrame.setLocationRelativeTo(null);
+      this.dispose();
+    }
   } // GEN-LAST:event_backButtonActionPerformed
 
   /**

@@ -100,7 +100,7 @@ public class User {
     this.userType.setPermissions(user.userType.getPermissions());
 
     // Return true if login is successful
-    return user.getUserType().validateAcess();
+    return user.getUserType().validateAccess();
   }
 
   public void logout() {

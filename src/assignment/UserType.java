@@ -63,7 +63,7 @@ public abstract class UserType {
     // TODO: implement
   }
 
-  public boolean validateAcess() {
+  public boolean validateAccess() {
     return accessLevel > 0 && !permissions.isEmpty();
   }
 }

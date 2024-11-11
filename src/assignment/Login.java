@@ -212,8 +212,8 @@ public class Login extends javax.swing.JFrame {
       while ((line = br.readLine()) != null) {
         String[] user = line.split(",");
         if (user[1].equals(email) && user[3].equals(password)) {
-          int acessLevel = Integer.parseInt(user[2]);
-          return createUserByAccessLevel(acessLevel);
+          int accessLevel = Integer.parseInt(user[2]);
+          return createUserByAccessLevel(accessLevel);
         }
       }
     } catch (IOException e) {
