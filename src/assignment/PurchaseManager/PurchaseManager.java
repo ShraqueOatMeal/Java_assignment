@@ -10,7 +10,7 @@ public class PurchaseManager extends UserType {
 
   public PurchaseManager() {
     super();
-    this.accessLevel = 3;
+    this.accessLevel = 2;
     this.department = "Purchase";
   }
 

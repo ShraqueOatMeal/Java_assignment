@@ -1,0 +1,5 @@
+admin,admin@admin.com,1,password
+admin,sales@sales.com,3,password
+admin,purchase@purchase.com,2,password
+admin,finance@finance.com,4,password
+admin,inventory@inventory.com,5,password
