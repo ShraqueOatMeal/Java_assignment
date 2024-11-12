@@ -1,12 +1,16 @@
 package assignment.SalesManager;
 
 import assignment.UserType;
+import assignment.FileHandler;
 
 public class SalesManager extends UserType {
+  private FileHandler fileHandler;
+
   public SalesManager() {
     super();
     this.accessLevel = 3;
     this.department = "Sales";
+    this.fileHandler = new FileHandler("src/assignment/database/requisition.txt");
   }
 
   @Override
@@ -20,7 +24,8 @@ public class SalesManager extends UserType {
   }
 
   public void createRequisition(String itemName, int quantity) {
-    System.out.println(itemName + quantity);
+    int newRequisitionID = fileHandler.getLastId() + 1;
+    fileHandler.addRecord(newRequisitionID, itemName, String.valueOf(quantity));
   }
 
   public void viewItems() {
@@ -41,5 +46,9 @@ public class SalesManager extends UserType {
 
   public void viewPurchaseOrders() {
     // Implementation
+  }
+
+  public void saveAll() {
+    fileHandler.saveAllRecords();
   }
 }

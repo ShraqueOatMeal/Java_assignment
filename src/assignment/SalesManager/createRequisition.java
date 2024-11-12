@@ -404,6 +404,7 @@ public class createRequisition extends javax.swing.JFrame {
 
     SalesManager salesManager = new SalesManager();
     salesManager.createRequisition(itemName, quantity);
+    salesManager.saveAll();
 
     createSuccess createSuccessFrame = new createSuccess();
     createSuccessFrame.setVisible(true);

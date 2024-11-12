@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.List;
 
 import assignment.UserType;
 import assignment.Adminstrator.Administrator;
@@ -207,20 +208,31 @@ public class Login extends javax.swing.JFrame {
   }// GEN-LAST:event_jButton2ActionPerformed
 
   private UserType authenticate(String email, String password) {
-    try (BufferedReader br = new BufferedReader(new FileReader("src/assignment/database/users.txt"))) {
-      String line;
-      while ((line = br.readLine()) != null) {
-        String[] user = line.split(",");
-        if (user[1].equals(email) && user[3].equals(password)) {
-          int accessLevel = Integer.parseInt(user[2]);
-          return createUserByAccessLevel(accessLevel);
-        }
+    FileHandler fileHandler = new FileHandler("src/assignment/database/users.txt");
+    List<String[]> users = fileHandler.readUserData();
+
+    for (String[] user : users) {
+      if (user[1].equals(email) && user[3].equals(password)) {
+        int accessLevel = Integer.parseInt(user[2]);
+        return createUserByAccessLevel(accessLevel);
       }
-    } catch (IOException e) {
-      JOptionPane.showMessageDialog(this, "Cannot read file");
-      e.printStackTrace();
     }
     return null;
+    // try (BufferedReader br = new BufferedReader(new
+    // FileReader("src/assignment/database/users.txt"))) {
+    // String line;
+    // while ((line = br.readLine()) != null) {
+    // String[] user = line.split(",");
+    // if (user[1].equals(email) && user[3].equals(password)) {
+    // int accessLevel = Integer.parseInt(user[2]);
+    // return createUserByAccessLevel(accessLevel);
+    // }
+    // }
+    // } catch (IOException e) {
+    // JOptionPane.showMessageDialog(this, "Cannot read file");
+    // e.printStackTrace();
+    // }
+    // return null;
   }
 
   private UserType createUserByAccessLevel(int accessLevel) {
