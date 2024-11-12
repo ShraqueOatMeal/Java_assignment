@@ -16,7 +16,7 @@ import assignment.Adminstrator.adminstrator;
 import assignment.PurchaseManager.PurchaseManager;
 import assignment.PurchaseManager.purchaseManager;
 import assignment.SalesManager.SalesManager;
-import assignment.SalesManager.salesManager;
+import assignment.SalesManager.salesManagerPage;
 import assignment.FinanceManager.FinanceManager;
 import assignment.FinanceManager.financeManager;
 import assignment.InventoryManager.InventoryManager;
@@ -178,7 +178,7 @@ public class Login extends javax.swing.JFrame {
       adminFrame.setLocationRelativeTo(null);
       this.dispose();
     } else if (user instanceof SalesManager) {
-      salesManager salesFrame = new salesManager();
+      salesManagerPage salesFrame = new salesManagerPage();
       salesFrame.setVisible(true);
       salesFrame.pack();
       salesFrame.setLocationRelativeTo(null);

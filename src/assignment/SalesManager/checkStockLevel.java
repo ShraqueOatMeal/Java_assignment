@@ -245,7 +245,7 @@ public class checkStockLevel extends javax.swing.JFrame {
   }// </editor-fold>//GEN-END:initComponents
 
   private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton2ActionPerformed
-    salesManager salesManagerFrame = new salesManager();
+    salesManagerPage salesManagerFrame = new salesManagerPage();
     salesManagerFrame.setVisible(true);
     salesManagerFrame.pack();
     salesManagerFrame.setLocationRelativeTo(null);

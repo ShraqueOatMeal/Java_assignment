@@ -19,8 +19,8 @@ public class SalesManager extends UserType {
     permissions.add("View Purchase Orders");
   }
 
-  public void createRequisition() {
-    // Implementation
+  public void createRequisition(String itemName, int quantity) {
+    System.out.println(itemName + quantity);
   }
 
   public void viewItems() {
