@@ -26,18 +26,18 @@ public class FileHandler {
     }
   }
 
-  public List<String[]> readUserData() {
-    List<String[]> users = new ArrayList<>();
+  public List<String[]> readData() {
+    List<String[]> datas = new ArrayList<>();
     try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
       String line;
       while ((line = br.readLine()) != null) {
-        String[] user = line.split(",");
-        users.add(user);
+        String[] data = line.split(",");
+        datas.add(data);
       }
     } catch (IOException e) {
       e.printStackTrace();
     }
-    return users;
+    return datas;
   }
 
   public int getLastId() {

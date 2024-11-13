@@ -1,1 +1,2 @@
-1,Washing Machine,2
+1,Washing Machine,2,Pending
+2,Dishwasher,10,Pending

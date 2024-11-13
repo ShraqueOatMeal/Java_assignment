@@ -58,7 +58,7 @@ public class generateSalesReport extends javax.swing.JFrame {
 
     jButton7.setBackground(new java.awt.Color(204, 255, 204));
     jButton7.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-    jButton7.setText("H");
+    jButton7.setText("<");
     jButton7.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jButton7ActionPerformed(evt);

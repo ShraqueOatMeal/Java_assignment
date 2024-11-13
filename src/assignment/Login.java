@@ -97,7 +97,7 @@ public class Login extends javax.swing.JFrame {
     jLabel1.setBounds(530, 60, 100, 50);
 
     jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-    jLabel2.setText("Email");
+    jLabel2.setText("Username or Email");
     jPanel1.add(jLabel2);
     jLabel2.setBounds(440, 154, 40, 20);
 
@@ -204,35 +204,21 @@ public class Login extends javax.swing.JFrame {
       this.dispose();
     } else {
       JOptionPane.showMessageDialog(this, "Invalid email or password");
+      jPasswordField1.setText("");
     }
   }// GEN-LAST:event_jButton2ActionPerformed
 
   private UserType authenticate(String email, String password) {
     FileHandler fileHandler = new FileHandler("src/assignment/database/users.txt");
-    List<String[]> users = fileHandler.readUserData();
+    List<String[]> users = fileHandler.readData();
 
     for (String[] user : users) {
-      if (user[1].equals(email) && user[3].equals(password)) {
+      if ((user[0].equals(email) || user[1].equals(email)) && user[3].equals(password)) {
         int accessLevel = Integer.parseInt(user[2]);
         return createUserByAccessLevel(accessLevel);
       }
     }
     return null;
-    // try (BufferedReader br = new BufferedReader(new
-    // FileReader("src/assignment/database/users.txt"))) {
-    // String line;
-    // while ((line = br.readLine()) != null) {
-    // String[] user = line.split(",");
-    // if (user[1].equals(email) && user[3].equals(password)) {
-    // int accessLevel = Integer.parseInt(user[2]);
-    // return createUserByAccessLevel(accessLevel);
-    // }
-    // }
-    // } catch (IOException e) {
-    // JOptionPane.showMessageDialog(this, "Cannot read file");
-    // e.printStackTrace();
-    // }
-    // return null;
   }
 
   private UserType createUserByAccessLevel(int accessLevel) {

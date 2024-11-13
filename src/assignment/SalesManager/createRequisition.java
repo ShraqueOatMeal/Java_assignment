@@ -5,6 +5,9 @@
  */
 package assignment.SalesManager;
 
+import assignment.FileHandler;
+import java.util.List;
+
 /**
  *
  * @author Admin
@@ -35,7 +38,7 @@ public class createRequisition extends javax.swing.JFrame {
     jLabel2 = new javax.swing.JLabel();
     jLabel3 = new javax.swing.JLabel();
     jLabel4 = new javax.swing.JLabel();
-    jTextField1 = new javax.swing.JTextField();
+    quantityLabel = new javax.swing.JLabel();
     createButton = new javax.swing.JButton();
     jPanel2 = new javax.swing.JPanel();
     backButton = new javax.swing.JButton();
@@ -45,74 +48,10 @@ public class createRequisition extends javax.swing.JFrame {
     jButton6 = new javax.swing.JButton();
     jButton4 = new javax.swing.JButton();
     jButton5 = new javax.swing.JButton();
-    jLabel5 = new javax.swing.JLabel();
     jTextField2 = new javax.swing.JTextField();
 
-    String[] requisitionItems = {
-        // Home Appliances
-        "Washing Machine",
-        "Refrigerator",
-        "Microwave Oven",
-        "Air Conditioner",
-        "Water Purifier",
-        "Vacuum Cleaner",
-        "Dishwasher",
-        "Clothes Dryer",
-        "Electric Kettle",
-        "Iron & Garment Steamer",
-
-        // Electronics
-        "Television (LED/LCD/OLED)",
-        "Home Theatre System",
-        "Soundbar",
-        "Portable Bluetooth Speaker",
-        "Laptop",
-        "Desktop Computer",
-        "Tablet",
-        "Smartphone",
-        "Smartwatch",
-        "Digital Camera",
-
-        // Kitchen Appliances
-        "Blender & Mixer",
-        "Rice Cooker",
-        "Electric Cooker",
-        "Toaster",
-        "Coffee Maker",
-        "Food Processor",
-        "Air Fryer",
-        "Slow Cooker",
-        "Bread Maker",
-        "Juicer",
-
-        // Home Essentials
-        "Ceiling Fan",
-        "Standing Fan",
-        "Electric Heater",
-        "LED Light Bulbs",
-        "Extension Cord",
-        "Electric Water Heater",
-        "Power Bank",
-        "Home Security Camera",
-        "Smart Plug",
-        "Electric Mosquito Repellent",
-
-        // Cleaning Appliances
-        "Robot Vacuum Cleaner",
-        "Steam Mop",
-        "High-Pressure Cleaner",
-        "Handheld Vacuum Cleaner",
-        "Car Vacuum Cleaner",
-
-        // Personal Care Appliances
-        "Hair Dryer",
-        "Hair Straightener",
-        "Electric Shaver",
-        "Electric Toothbrush",
-        "Massage Chair",
-        "Air Humidifier",
-        "Air Purifier"
-    };
+    loadItemsBelowReorderLevel();
+    jComboBox1.addActionListener(e -> updateQuantityLabel());
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
     setPreferredSize(new java.awt.Dimension(950, 600));
@@ -123,8 +62,8 @@ public class createRequisition extends javax.swing.JFrame {
     jLabel1.setText("Create Requisition Page");
 
     jComboBox1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-    jComboBox1
-        .setModel(new javax.swing.DefaultComboBoxModel<>(requisitionItems));
+    // jComboBox1
+    // .setModel(new javax.swing.DefaultComboBoxModel<>(requisitionItems));
 
     jSpinner1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
 
@@ -132,12 +71,12 @@ public class createRequisition extends javax.swing.JFrame {
     jLabel2.setText("Select Item:");
 
     jLabel3.setFont(new java.awt.Font("Tahoma", 2, 24)); // NOI18N
-    jLabel3.setText("Select Quantity:");
+    jLabel3.setText("Add Quantity:");
 
     jLabel4.setFont(new java.awt.Font("Tahoma", 2, 24)); // NOI18N
     jLabel4.setText("Quantity Of Items: ");
 
-    jTextField1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+    quantityLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
 
     createButton.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
     createButton.setText("Create");
@@ -247,9 +186,6 @@ public class createRequisition extends javax.swing.JFrame {
                         javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 
-    jLabel5.setFont(new java.awt.Font("Tahoma", 2, 24)); // NOI18N
-    jLabel5.setText("Item ID:");
-
     jTextField2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
 
     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -267,11 +203,9 @@ public class createRequisition extends javax.swing.JFrame {
                         .addGap(83, 83, 83)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 175,
-                                    javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED,
                                     javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 121,
+                                .addComponent(quantityLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 121,
                                     javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel2)
@@ -308,8 +242,7 @@ public class createRequisition extends javax.swing.JFrame {
                         javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE,
+                    .addComponent(quantityLabel, javax.swing.GroupLayout.PREFERRED_SIZE,
                         javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -341,6 +274,36 @@ public class createRequisition extends javax.swing.JFrame {
     pack();
     setLocationRelativeTo(null);
   }// </editor-fold>//GEN-END:initComponents
+
+  private void loadItemsBelowReorderLevel() {
+    FileHandler fileHandler = new FileHandler("src/assignment/database/stock.txt");
+    List<String[]> items = fileHandler.readData();
+    for (String[] itemData : items) {
+      String itemName = itemData[1];
+      int quantity = Integer.parseInt(itemData[2]);
+      int reorderLevel = Integer.parseInt(itemData[3]);
+
+      // Check if quantity is below reorder level
+      if (quantity < reorderLevel) {
+        jComboBox1.addItem(itemName); // Display name with quantity
+      }
+    }
+  }
+
+  private void updateQuantityLabel() {
+    String selectedItem = (String) jComboBox1.getSelectedItem();
+    if (selectedItem != null) {
+      // Extract and display quantity from the selected item's text
+      FileHandler fileHandler = new FileHandler("src/assignment/database/stock.txt");
+      List<String[]> items = fileHandler.readData();
+      for (String[] itemData : items) {
+        if (itemData[1].equals(selectedItem)) {
+          quantityLabel.setText(String.valueOf(Integer.parseInt(itemData[2])));
+          break;
+        }
+      }
+    }
+  }
 
   private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton2ActionPerformed
     salesManagerPage salesManagerFrame = new salesManagerPage();
@@ -470,11 +433,10 @@ public class createRequisition extends javax.swing.JFrame {
   private javax.swing.JLabel jLabel2;
   private javax.swing.JLabel jLabel3;
   private javax.swing.JLabel jLabel4;
-  private javax.swing.JLabel jLabel5;
   private javax.swing.JPanel jPanel1;
   private javax.swing.JPanel jPanel2;
   private javax.swing.JSpinner jSpinner1;
-  private javax.swing.JTextField jTextField1;
+  private javax.swing.JLabel quantityLabel;
   private javax.swing.JTextField jTextField2;
   // End of variables declaration//GEN-END:variables
 }

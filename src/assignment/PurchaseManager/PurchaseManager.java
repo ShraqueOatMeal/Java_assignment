@@ -1,17 +1,20 @@
 package assignment.PurchaseManager;
 
 import assignment.UserType;
+import assignment.FileHandler;
 import java.util.List;
 
 public class PurchaseManager extends UserType {
   private double purchaseLimit;
   private double approvalThreshold;
+  private FileHandler fileHandler;
   // private List<Supplier> assignedSuppliers;
 
   public PurchaseManager() {
     super();
     this.accessLevel = 2;
     this.department = "Purchase";
+    this.fileHandler = new FileHandler("src/assignment/database/requisition.txt");
   }
 
   @Override
@@ -33,8 +36,8 @@ public class PurchaseManager extends UserType {
     // Implementation
   }
 
-  public void viewRequisitions() {
-    // Implementation
+  public List<String[]> viewRequisitions() {
+    return fileHandler.readData();
   }
 
   public void approvePurchaseOrder() {

@@ -56,7 +56,7 @@ public class enterDailySales extends javax.swing.JFrame {
     jPanel3.setBackground(new java.awt.Color(255, 255, 153));
 
     jButton2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-    jButton2.setText("H");
+    jButton2.setText("<");
     jButton2.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jButton2ActionPerformed(evt);
