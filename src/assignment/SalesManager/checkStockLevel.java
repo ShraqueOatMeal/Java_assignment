@@ -5,6 +5,10 @@
  */
 package assignment.SalesManager;
 
+import assignment.SalesManager.SalesManager;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Admin
@@ -16,6 +20,7 @@ public class checkStockLevel extends javax.swing.JFrame {
    */
   public checkStockLevel() {
     initComponents();
+    loadTable();
   }
 
   /**
@@ -156,13 +161,13 @@ public class checkStockLevel extends javax.swing.JFrame {
 
         },
         new String[] {
-            "Item ID", "Item Name", "Item Quantity", "Item Status"
+            "Item ID", "Item Name", "Item Quantity", "Restock Level"
         }) {
       Class[] types = new Class[] {
           java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class, java.lang.String.class
       };
       boolean[] canEdit = new boolean[] {
-          true, true, true, false
+          false, false, false, false
       };
 
       public Class getColumnClass(int columnIndex) {
@@ -299,6 +304,18 @@ public class checkStockLevel extends javax.swing.JFrame {
     viewPurchaseOrderFrame.setLocationRelativeTo(null);
     this.dispose();
   }// GEN-LAST:event_jButton8ActionPerformed
+
+  private void loadTable() {
+    SalesManager salesManager = new SalesManager();
+    List<String[]> stockData = salesManager.checkStockLevel();
+
+    DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+    model.setRowCount(0);
+
+    for (String[] row : stockData) {
+      model.addRow(row);
+    }
+  }
 
   /**
    * @param args the command line arguments
