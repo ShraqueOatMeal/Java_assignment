@@ -39,10 +39,10 @@ public class updateStockLevels extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        jButton7 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
+        updateStockTable = new javax.swing.JTable();
+        updateStockAddButton = new javax.swing.JButton();
+        updateStockSaveButton = new javax.swing.JButton();
+        updateStockDeleteButton = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -149,7 +149,7 @@ public class updateStockLevels extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel1.setText("Update Stock Levels ");
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        updateStockTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -165,13 +165,13 @@ public class updateStockLevels extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(updateStockTable);
 
-        jButton7.setText("Add");
+        updateStockAddButton.setText("Add");
 
-        jButton9.setText("Save");
+        updateStockSaveButton.setText("Save");
 
-        jButton11.setText("Delete");
+        updateStockDeleteButton.setText("Delete");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -186,9 +186,9 @@ public class updateStockLevels extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 577, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(61, 61, 61)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jButton7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton11, javax.swing.GroupLayout.Alignment.LEADING)))
+                    .addComponent(updateStockAddButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(updateStockSaveButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(updateStockDeleteButton, javax.swing.GroupLayout.Alignment.LEADING)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -199,11 +199,11 @@ public class updateStockLevels extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton7)
+                        .addComponent(updateStockAddButton)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton9)
+                        .addComponent(updateStockSaveButton)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton11))
+                        .addComponent(updateStockDeleteButton))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 94, Short.MAX_VALUE))
         );
@@ -296,19 +296,19 @@ public class updateStockLevels extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JButton updateStockAddButton;
+    private javax.swing.JButton updateStockDeleteButton;
+    private javax.swing.JButton updateStockSaveButton;
+    private javax.swing.JTable updateStockTable;
     // End of variables declaration//GEN-END:variables
 }
