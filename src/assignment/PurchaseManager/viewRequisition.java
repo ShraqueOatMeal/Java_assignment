@@ -296,7 +296,7 @@ public class viewRequisition extends javax.swing.JFrame {
   }// GEN-LAST:event_jButton8ActionPerformed
 
   private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton7ActionPerformed
-    purchaseManager purchaseManagerFrame = new purchaseManager();
+    purchaseManagerPage purchaseManagerFrame = new purchaseManagerPage();
     purchaseManagerFrame.setVisible(true);
     purchaseManagerFrame.pack();
     purchaseManagerFrame.setLocationRelativeTo(null);

@@ -13,15 +13,15 @@ import java.util.List;
 
 import assignment.UserType;
 import assignment.Adminstrator.Administrator;
-import assignment.Adminstrator.adminstrator;
+import assignment.Adminstrator.adminstratorPage;
 import assignment.PurchaseManager.PurchaseManager;
-import assignment.PurchaseManager.purchaseManager;
+import assignment.PurchaseManager.purchaseManagerPage;
 import assignment.SalesManager.SalesManager;
 import assignment.SalesManager.salesManagerPage;
 import assignment.FinanceManager.FinanceManager;
-import assignment.FinanceManager.financeManager;
+import assignment.FinanceManager.financeManagerPage;
 import assignment.InventoryManager.InventoryManager;
-import assignment.InventoryManager.inventoryManager;
+import assignment.InventoryManager.inventoryManagerPage;
 
 /**
  *
@@ -173,7 +173,7 @@ public class Login extends javax.swing.JFrame {
     }
 
     if (user instanceof Administrator) {
-      adminstrator adminFrame = new adminstrator();
+      adminstratorPage adminFrame = new adminstratorPage();
       adminFrame.setVisible(true);
       adminFrame.pack();
       adminFrame.setLocationRelativeTo(null);
@@ -185,19 +185,19 @@ public class Login extends javax.swing.JFrame {
       salesFrame.setLocationRelativeTo(null);
       this.dispose();
     } else if (user instanceof PurchaseManager) {
-      purchaseManager purchaseFrame = new purchaseManager();
+      purchaseManagerPage purchaseFrame = new purchaseManagerPage();
       purchaseFrame.setVisible(true);
       purchaseFrame.pack();
       purchaseFrame.setLocationRelativeTo(null);
       this.dispose();
     } else if (user instanceof FinanceManager) {
-      financeManager financeFrame = new financeManager();
+      financeManagerPage financeFrame = new financeManagerPage();
       financeFrame.setVisible(true);
       financeFrame.pack();
       financeFrame.setLocationRelativeTo(null);
       this.dispose();
     } else if (user instanceof InventoryManager) {
-      inventoryManager inventoryFrame = new inventoryManager();
+      inventoryManagerPage inventoryFrame = new inventoryManagerPage();
       inventoryFrame.setVisible(true);
       inventoryFrame.pack();
       inventoryFrame.setLocationRelativeTo(null);
