@@ -141,7 +141,7 @@ public class signUp extends javax.swing.JFrame {
   }// GEN-LAST:event_handleSignUp
 
   private void saveUserToFile(User user) {
-    try (FileWriter writer = new FileWriter("users.txt", true)) {
+    try (FileWriter writer = new FileWriter("src/assignment/database/users.txt", true)) {
       writer.write(user.getUserId() + "," + user.getUsername() + "," + user.getEmail() + "," + user.getPassword() + ","
           + user.getUserType().getAccessLevel() + "," + user.getUserType().getDepartment() + ","
           + user.getUserType().getPermissions() + "\n");

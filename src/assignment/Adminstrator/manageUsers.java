@@ -112,7 +112,7 @@ public class manageUsers extends javax.swing.JFrame {
     jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
     jLabel1.setText("Manage Users");
 
-    String[] columnNames = { "User Name", "Email", "Access Level", "Password" };
+    String[] columnNames = { "ID", "User Name", "Email", "Access Level", "Password" };
     tableModel = new DefaultTableModel(columnNames, 0) {
       @Override
       public boolean isCellEditable(int row, int column) {
@@ -231,13 +231,13 @@ public class manageUsers extends javax.swing.JFrame {
 
   private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {
     // Create custom dialog for adding user
-    JDialog dialog = new JDialog(this, "Add New User", true);
+    dialog = new javax.swing.JDialog(this, "Add New User", true);
     dialog.setLayout(new GridLayout(5, 2, 10, 10));
 
-    JTextField usernameField = new JTextField();
-    JTextField emailField = new JTextField();
-    JTextField accessLevelField = new JTextField();
-    JPasswordField passwordField = new JPasswordField();
+    usernameField = new javax.swing.JTextField();
+    emailField = new javax.swing.JTextField();
+    accessLevelField = new javax.swing.JTextField();
+    passwordField = new javax.swing.JPasswordField();
 
     dialog.add(new JLabel("Username:"));
     dialog.add(usernameField);
@@ -248,7 +248,7 @@ public class manageUsers extends javax.swing.JFrame {
     dialog.add(new JLabel("Password:"));
     dialog.add(passwordField);
 
-    JButton submitButton = new JButton("Add User");
+    submitButton = new javax.swing.JButton("Add User");
     submitButton.addActionListener(e -> {
       try {
         String username = usernameField.getText().trim();
@@ -288,9 +288,9 @@ public class manageUsers extends javax.swing.JFrame {
       return;
     }
 
-    String username = (String) jTable2.getValueAt(selectedRow, 0);
-    String currentEmail = (String) jTable2.getValueAt(selectedRow, 1);
-    String currentAccessLevel = (String) jTable2.getValueAt(selectedRow, 2);
+    String username = (String) jTable2.getValueAt(selectedRow, 1);
+    String currentEmail = (String) jTable2.getValueAt(selectedRow, 2);
+    String currentAccessLevel = (String) jTable2.getValueAt(selectedRow, 3);
 
     // Create custom dialog for modifying user
     JDialog dialog = new JDialog(this, "Modify User", true);
@@ -344,7 +344,7 @@ public class manageUsers extends javax.swing.JFrame {
       return;
     }
 
-    String username = (String) jTable2.getValueAt(selectedRow, 0);
+    String username = (String) jTable2.getValueAt(selectedRow, 1);
 
     int confirm = JOptionPane.showConfirmDialog(
         this,
@@ -407,10 +407,16 @@ public class manageUsers extends javax.swing.JFrame {
   private javax.swing.JButton saveButton;
   private javax.swing.JButton backButton;
   private javax.swing.JButton modifyButton;
+  private javax.swing.JButton submitButton;
   private javax.swing.JLabel jLabel1;
   private javax.swing.JPanel jPanel1;
   private javax.swing.JPanel jPanel2;
   private javax.swing.JScrollPane jScrollPane2;
   private javax.swing.JTable jTable2;
+  private javax.swing.JDialog dialog;
+  private javax.swing.JTextField usernameField;
+  private javax.swing.JTextField emailField;
+  private javax.swing.JTextField accessLevelField;
+  private javax.swing.JPasswordField passwordField;
   // End of variables declaration//GEN-END:variables
 }

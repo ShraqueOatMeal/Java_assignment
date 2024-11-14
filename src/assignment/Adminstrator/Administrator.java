@@ -26,7 +26,7 @@ public class Administrator extends UserType {
       // Check if username already exists
       List<String[]> users = userFileHandler.readData();
       for (String[] user : users) {
-        if (user[0].equals(username)) {
+        if (user[1].equals(username)) {
           JOptionPane.showMessageDialog(null,
               "Username already exists!",
               "Error",
@@ -35,7 +35,6 @@ public class Administrator extends UserType {
         }
       }
 
-      // Add new user
       String record = String.format("%s,%s,%d,%s",
           username, email, accessLevel, password);
       userFileHandler.addRecord(users.size() + 1, record);
@@ -62,7 +61,7 @@ public class Administrator extends UserType {
       boolean userFound = false;
 
       for (String[] user : users) {
-        if (!user[0].equals(username)) {
+        if (!user[1].equals(username)) {
           updatedRecords.add(String.join(",", user));
         } else {
           userFound = true;
@@ -77,12 +76,13 @@ public class Administrator extends UserType {
         return false;
       }
 
-      userFileHandler = new FileHandler("users.txt");
-      for (int i = 0; i < updatedRecords.size(); i++) {
-        String[] parts = updatedRecords.get(i).split(",");
-        userFileHandler.addRecord(i + 1, updatedRecords.get(i));
-      }
-      userFileHandler.saveAllRecords();
+      userFileHandler = new FileHandler("src/assignment/database/users.txt");
+      userFileHandler.clearFileContents();
+      // for (int i = 0; i < updatedRecords.size(); i++) {
+      // String[] parts = updatedRecords.get(i).split(",");
+      // userFileHandler.addRecord(i + 1, updatedRecords.get(i));
+      // }
+      userFileHandler.writeRecords(updatedRecords);
 
       JOptionPane.showMessageDialog(null,
           "User removed successfully!",
@@ -105,13 +105,14 @@ public class Administrator extends UserType {
       boolean userFound = false;
 
       for (String[] user : users) {
-        if (user[0].equals(username)) {
+        if (user[1].equals(username)) {
           // Update user information
-          String updatedRecord = String.format("%s,%s,%d,%s",
+          String updatedRecord = String.format("%s,%s,%s,%d,%s",
+              user[0],
               username,
-              newEmail.isEmpty() ? user[1] : newEmail,
-              newAccessLevel == 0 ? Integer.parseInt(user[2]) : newAccessLevel,
-              newPassword.isEmpty() ? user[3] : newPassword);
+              newEmail.isEmpty() ? user[2] : newEmail,
+              newAccessLevel == 0 ? Integer.parseInt(user[3]) : newAccessLevel,
+              newPassword.isEmpty() ? user[4] : newPassword);
           updatedRecords.add(updatedRecord);
           userFound = true;
         } else {
@@ -128,11 +129,12 @@ public class Administrator extends UserType {
       }
 
       // Create new FileHandler instance and save updated records
-      userFileHandler = new FileHandler("users.txt");
-      for (int i = 0; i < updatedRecords.size(); i++) {
-        userFileHandler.addRecord(i + 1, updatedRecords.get(i));
-      }
-      userFileHandler.saveAllRecords();
+      userFileHandler = new FileHandler("src/assignment/database/users.txt");
+      userFileHandler.clearFileContents();
+      // for (int i = 0; i < updatedRecords.size(); i++) {
+      // userFileHandler.addRecord(i + 1, updatedRecords.get(i));
+      // }
+      userFileHandler.writeRecords(updatedRecords);
 
       JOptionPane.showMessageDialog(null,
           "User profile updated successfully!",
