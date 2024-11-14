@@ -111,7 +111,7 @@ public class manageUsers extends javax.swing.JFrame {
 
         manageUserDelete.setText("Delete");
 
-        manageUserSave.setText("Save");
+        manageUserSave.setText("Edit");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
