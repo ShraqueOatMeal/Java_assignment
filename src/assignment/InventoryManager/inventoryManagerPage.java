@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  *
  * @author Admin
  */
-public class inventoryManager extends javax.swing.JFrame {
+public class inventoryManagerPage extends javax.swing.JFrame {
 
   /**
    * Creates new form inventoryManager

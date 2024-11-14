@@ -11,7 +11,7 @@ import assignment.Login;
  *
  * @author Admin
  */
-public class purchaseManager extends javax.swing.JFrame {
+public class purchaseManagerPage extends javax.swing.JFrame {
 
   /**
    * Creates new form purchaseManager

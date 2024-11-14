@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  *
  * @author Admin
  */
-public class adminstrator extends javax.swing.JFrame {
+public class adminstratorPage extends javax.swing.JFrame {
 
   /**
    * Creates new form adminstrator

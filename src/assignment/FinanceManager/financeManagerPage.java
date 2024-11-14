@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
  *
  * @author Admin
  */
-public class financeManager extends javax.swing.JFrame {
+public class financeManagerPage extends javax.swing.JFrame {
 
   /**
    * Creates new form financeManager
