@@ -2,6 +2,7 @@ package assignment.SalesManager;
 
 import assignment.UserType;
 import assignment.FileHandler;
+import java.util.List;
 
 public class SalesManager extends UserType {
   private FileHandler fileHandler;
@@ -41,8 +42,9 @@ public class SalesManager extends UserType {
     // Implementation
   }
 
-  public void checkStockLevel() {
-    // Implementation
+  public List<String[]> checkStockLevel() {
+    FileHandler fileHandler = new FileHandler("src/assignment/database/stock.txt");
+    return fileHandler.readData();
   }
 
   public void viewPurchaseOrders() {

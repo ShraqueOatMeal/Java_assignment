@@ -5,6 +5,13 @@
  */
 package assignment.SalesManager;
 
+import assignment.SalesManager.SalesManager;
+import assignment.FileHandler;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JOptionPane;
+import java.io.IOException;
+
 /**
  *
  * @author Admin
@@ -16,6 +23,7 @@ public class checkStockLevel extends javax.swing.JFrame {
    */
   public checkStockLevel() {
     initComponents();
+    loadTable();
   }
 
   /**
@@ -40,9 +48,10 @@ public class checkStockLevel extends javax.swing.JFrame {
     jButton8 = new javax.swing.JButton();
     jScrollPane1 = new javax.swing.JScrollPane();
     jTable1 = new javax.swing.JTable();
-    jLabel2 = new javax.swing.JLabel();
-    jTextField1 = new javax.swing.JTextField();
-    jButton7 = new javax.swing.JButton();
+    searchLabel = new javax.swing.JLabel();
+    searchTextField = new javax.swing.JTextField();
+    searchButton = new javax.swing.JButton();
+    belowThresholdButton = new javax.swing.JToggleButton();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
     setPreferredSize(new java.awt.Dimension(950, 600));
@@ -156,13 +165,13 @@ public class checkStockLevel extends javax.swing.JFrame {
 
         },
         new String[] {
-            "Item ID", "Item Name", "Item Quantity", "Item Status"
+            "Item ID", "Item Name", "Item Quantity", "Restock Level"
         }) {
       Class[] types = new Class[] {
           java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class, java.lang.String.class
       };
       boolean[] canEdit = new boolean[] {
-          true, true, true, false
+          false, false, false, false
       };
 
       public Class getColumnClass(int columnIndex) {
@@ -175,13 +184,26 @@ public class checkStockLevel extends javax.swing.JFrame {
     });
     jScrollPane1.setViewportView(jTable1);
 
-    jLabel2.setFont(new java.awt.Font("Tahoma", 2, 24)); // NOI18N
-    jLabel2.setText("Enter Item ID:");
+    searchLabel.setFont(new java.awt.Font("Tahoma", 2, 24)); // NOI18N
+    searchLabel.setText("Enter Item ID or Item Name:");
 
-    jTextField1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+    searchTextField.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
 
-    jButton7.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-    jButton7.setText("S");
+    searchButton.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+    searchButton.setText("Search");
+    searchButton.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        searchButtonActionPerformed(evt);
+      }
+    });
+
+    belowThresholdButton.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+    belowThresholdButton.setText("Below Threshold");
+    belowThresholdButton.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        belowThresholdButtonActionPerformed(evt);
+      }
+    });
 
     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
     jPanel1.setLayout(jPanel1Layout);
@@ -195,12 +217,14 @@ public class checkStockLevel extends javax.swing.JFrame {
                         .addGap(25, 25, 25)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
+                                .addComponent(searchLabel)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 183,
+                                .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 183,
                                     javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton7))
+                                .addComponent(searchButton)
+                                .addGap(18, 18, 18)
+                                .addComponent(belowThresholdButton))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 800,
                                 javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -216,10 +240,11 @@ public class checkStockLevel extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(70, 70, 70)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE,
+                    .addComponent(searchLabel)
+                    .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE,
                         javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton7))
+                    .addComponent(searchButton)
+                    .addComponent(belowThresholdButton))
                 .addGap(29, 29, 29)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 196,
                     javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -243,6 +268,79 @@ public class checkStockLevel extends javax.swing.JFrame {
     pack();
     setLocationRelativeTo(null);
   }// </editor-fold>//GEN-END:initComponents
+
+  private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_searchButtonActionPerformed
+    String searchText = searchTextField.getText().trim();
+    if (!searchText.isEmpty()) {
+      searchAndDisplayResult(searchText);
+    } else {
+      JOptionPane.showMessageDialog(this, "Please enter an item ID or Item Name", "Error", JOptionPane.ERROR_MESSAGE);
+    }
+  }
+
+  private void searchAndDisplayResult(String searchText) {
+    FileHandler fileHandler = new FileHandler("src/assignment/database/stock.txt");
+    DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+    model.setRowCount(0); // Clear existing rows
+
+    List<String[]> lines = fileHandler.readData(); // Read all lines from stock.txt
+    for (String[] data : lines) {
+      if (data.length >= 4 && (data[0].trim().equals(searchText)) || (data[1].trim().equals(searchText))) {
+        model.addRow(new Object[] {
+            data[0].trim(), // Item ID
+            data[1].trim(), // Item Name
+            data[2].trim(), // Item Quantity
+            data[3].trim() // Restock Level
+        });
+      }
+    }
+    if (model.getRowCount() == 0) {
+      JOptionPane.showMessageDialog(this, "No matching items found", "No Matching Items", JOptionPane.ERROR_MESSAGE);
+    }
+  }
+
+  private void belowThresholdButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_belowThresholdButtonActionPerformed
+    FileHandler fileHandler = new FileHandler("src/assignment/database/stock.txt");
+    DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+
+    if (belowThresholdButton.isSelected()) {
+      belowThresholdButton.setText("Show All");
+      model.setRowCount(0); // Clear existing rows
+      List<String[]> lines = fileHandler.readData();
+
+      for (String[] data : lines) {
+        if (data.length >= 4) {
+          try {
+            int quantity = Integer.parseInt(data[2].trim());
+            int threshold = Integer.parseInt(data[3].trim());
+
+            if (quantity < threshold) {
+              model.addRow(new Object[] {
+                  data[0].trim(), // Item ID
+                  data[1].trim(), // Item Name
+                  data[2].trim(), // Item Quantity
+                  data[3].trim() // Restock Level
+              });
+            }
+          } catch (NumberFormatException e) {
+            // Skip invalid number formats
+            continue;
+          }
+        }
+      }
+
+      if (model.getRowCount() == 0) {
+        JOptionPane.showMessageDialog(this,
+            "No items are currently below their restock level",
+            "Stock Status",
+            JOptionPane.INFORMATION_MESSAGE);
+        belowThresholdButton.setSelected(false);
+      }
+    } else {
+      belowThresholdButton.setText("Below Threshold");
+      loadTable();
+    }
+  }
 
   private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton2ActionPerformed
     salesManagerPage salesManagerFrame = new salesManagerPage();
@@ -300,6 +398,18 @@ public class checkStockLevel extends javax.swing.JFrame {
     this.dispose();
   }// GEN-LAST:event_jButton8ActionPerformed
 
+  private void loadTable() {
+    SalesManager salesManager = new SalesManager();
+    List<String[]> stockData = salesManager.checkStockLevel();
+
+    DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+    model.setRowCount(0);
+
+    for (String[] row : stockData) {
+      model.addRow(row);
+    }
+  }
+
   /**
    * @param args the command line arguments
    */
@@ -346,14 +456,15 @@ public class checkStockLevel extends javax.swing.JFrame {
   private javax.swing.JButton jButton4;
   private javax.swing.JButton jButton5;
   private javax.swing.JButton jButton6;
-  private javax.swing.JButton jButton7;
+  private javax.swing.JButton searchButton;
   private javax.swing.JButton jButton8;
   private javax.swing.JLabel jLabel1;
-  private javax.swing.JLabel jLabel2;
+  private javax.swing.JLabel searchLabel;
   private javax.swing.JPanel jPanel1;
   private javax.swing.JPanel jPanel2;
   private javax.swing.JScrollPane jScrollPane1;
   private javax.swing.JTable jTable1;
-  private javax.swing.JTextField jTextField1;
+  private javax.swing.JTextField searchTextField;
+  private javax.swing.JToggleButton belowThresholdButton;
   // End of variables declaration//GEN-END:variables
 }
