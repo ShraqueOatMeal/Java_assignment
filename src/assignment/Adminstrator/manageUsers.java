@@ -237,7 +237,7 @@ public class manageUsers extends javax.swing.JFrame {
     usernameField = new javax.swing.JTextField();
     emailField = new javax.swing.JTextField();
     accessLevelField = new javax.swing.JTextField();
-    passwordField = new javax.swing.JPasswordField();
+    passwordField = new javax.swing.JTextField();
 
     dialog.add(new JLabel("Username:"));
     dialog.add(usernameField);
@@ -254,7 +254,7 @@ public class manageUsers extends javax.swing.JFrame {
         String username = usernameField.getText().trim();
         String email = emailField.getText().trim();
         int accessLevel = Integer.parseInt(accessLevelField.getText().trim());
-        String password = new String(passwordField.getPassword());
+        String password = new String(passwordField.getText());
 
         if (username.isEmpty() || email.isEmpty() || password.isEmpty()) {
           JOptionPane.showMessageDialog(dialog, "All fields are required!");
@@ -291,6 +291,7 @@ public class manageUsers extends javax.swing.JFrame {
     String username = (String) jTable2.getValueAt(selectedRow, 1);
     String currentEmail = (String) jTable2.getValueAt(selectedRow, 2);
     String currentAccessLevel = (String) jTable2.getValueAt(selectedRow, 3);
+    String currentPassword = (String) jTable2.getValueAt(selectedRow, 4);
 
     // Create custom dialog for modifying user
     JDialog dialog = new JDialog(this, "Modify User", true);
@@ -298,7 +299,7 @@ public class manageUsers extends javax.swing.JFrame {
 
     JTextField emailField = new JTextField(currentEmail);
     JTextField accessLevelField = new JTextField(currentAccessLevel);
-    JPasswordField passwordField = new JPasswordField();
+    JTextField passwordField = new JTextField(currentPassword);
 
     dialog.add(new JLabel("Username:"));
     dialog.add(new JLabel(username));
@@ -314,7 +315,7 @@ public class manageUsers extends javax.swing.JFrame {
       try {
         String newEmail = emailField.getText().trim();
         int newAccessLevel = Integer.parseInt(accessLevelField.getText().trim());
-        String newPassword = new String(passwordField.getPassword());
+        String newPassword = new String(passwordField.getText());
 
         if (newAccessLevel < 1 || newAccessLevel > 5) {
           JOptionPane.showMessageDialog(dialog, "Access level must be between 1 and 5!");
@@ -417,6 +418,6 @@ public class manageUsers extends javax.swing.JFrame {
   private javax.swing.JTextField usernameField;
   private javax.swing.JTextField emailField;
   private javax.swing.JTextField accessLevelField;
-  private javax.swing.JPasswordField passwordField;
+  private javax.swing.JTextField passwordField;
   // End of variables declaration//GEN-END:variables
 }
