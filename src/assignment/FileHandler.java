@@ -71,4 +71,20 @@ public class FileHandler {
       System.err.println("Error saving records: " + e.getMessage());
     }
   }
+
+  public void writeRecords(List<String> records) throws IOException {
+    try (FileWriter writer = new FileWriter(filePath, false)) {
+      for (String record : records) {
+        writer.write(record + System.lineSeparator());
+      }
+    }
+  }
+
+  public void clearFileContents() {
+    try (FileWriter writer = new FileWriter(filePath, false)) {
+      writer.close();
+    } catch (IOException e) {
+      System.err.println("Error clearing file contents: " + e.getMessage());
+    }
+  }
 }
