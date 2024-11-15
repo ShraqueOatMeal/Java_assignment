@@ -53,7 +53,7 @@ public class createRequisition extends javax.swing.JFrame {
         quantityLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1050, 600));
+        setPreferredSize(new java.awt.Dimension(950, 600));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
