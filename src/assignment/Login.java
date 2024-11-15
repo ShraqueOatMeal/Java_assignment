@@ -213,8 +213,8 @@ public class Login extends javax.swing.JFrame {
     List<String[]> users = fileHandler.readData();
 
     for (String[] user : users) {
-      if ((user[0].equals(email) || user[1].equals(email)) && user[3].equals(password)) {
-        int accessLevel = Integer.parseInt(user[2]);
+      if ((user[1].equals(email) || user[2].equals(email)) && user[4].equals(password)) {
+        int accessLevel = Integer.parseInt(user[3]);
         return createUserByAccessLevel(accessLevel);
       }
     }

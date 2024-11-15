@@ -47,10 +47,6 @@ public class SalesManager extends UserType {
     return fileHandler.readData();
   }
 
-  public void viewPurchaseOrders() {
-    // Implementation
-  }
-
   public void saveAll() {
     fileHandler.saveAllRecords();
   }
