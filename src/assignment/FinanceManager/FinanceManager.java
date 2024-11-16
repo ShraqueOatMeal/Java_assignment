@@ -1,5 +1,7 @@
 package assignment.FinanceManager;
 
+import java.util.List;
+
 import assignment.UserType;
 
 public class FinanceManager extends UserType {
@@ -15,4 +17,9 @@ public class FinanceManager extends UserType {
     permissions.add("EDIT_FINANCE");
     permissions.add("GENERATE_REPORTS");
   }
+
+public List<String[]> checkStockStatus() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'checkStockStatus'");
+}
 }
