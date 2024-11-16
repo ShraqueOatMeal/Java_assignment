@@ -184,7 +184,7 @@ public class viewPurchaseOrder extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 
     jLabel2.setFont(new java.awt.Font("Tahoma", 2, 24)); // NOI18N
-    jLabel2.setText("Enter Item Name: ");
+    jLabel2.setText("Enter Item ID/Name/Status: ");
 
     searchTextField.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
 
