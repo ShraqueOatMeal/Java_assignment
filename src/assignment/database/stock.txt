@@ -1,4 +1,4 @@
-1,Washing Machine,10,5
+1,Washing Machine,10,4,1
 2,Refrigerator,15,5
 3,Microwave Oven,20,5
 4,Air Conditioner,8,5
@@ -7,23 +7,23 @@
 7,Dishwasher,12,5
 8,Clothes Dryer,10,5
 9,Electric Kettle,50,5
-10,Iron & Garment Steamer,40,5
+10,Iron & Garment Steamer,40,4
 11,Television (LED/LCD/OLED),10,5
 12,Home Theatre System,5,5
 13,Soundbar,15,5
-14,Portable Bluetooth Speaker,25,5
+14,Portable Bluetooth Speaker,25,1
 15,Laptop,20,5
 16,Desktop Computer,18,5
 17,Tablet,30,5
 18,Smartphone,50,5
 19,Smartwatch,40,5
 20,Digital Camera,15,5
-21,Blender & Mixer,30,5
+21,Blender & Mixer,30,2
 22,Rice Cooker,20,5
 23,Electric Cooker,15,5
 24,Toaster,25,5
 25,Coffee Maker,40,5
-26,Food Processor,12,5
+26,Food Processor,12,3
 27,Air Fryer,10,5
 28,Slow Cooker,15,5
 29,Bread Maker,5,5
