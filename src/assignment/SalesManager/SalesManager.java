@@ -6,6 +6,7 @@ import java.util.List;
 
 public class SalesManager extends UserType {
   private FileHandler fileHandler;
+  private String username;
 
   public SalesManager() {
     super();
@@ -22,6 +23,14 @@ public class SalesManager extends UserType {
     permissions.add("Generate Sales Report");
     permissions.add("Check Stock Level");
     permissions.add("View Purchase Orders");
+  }
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+  public String getUsername() {
+    return username;
   }
 
   public void createRequisition(String itemName, int quantity) {

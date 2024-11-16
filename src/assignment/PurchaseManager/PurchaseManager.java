@@ -8,6 +8,7 @@ public class PurchaseManager extends UserType {
   private double purchaseLimit;
   private double approvalThreshold;
   private FileHandler fileHandler;
+  private String username;
   // private List<Supplier> assignedSuppliers;
 
   public PurchaseManager() {
@@ -22,6 +23,14 @@ public class PurchaseManager extends UserType {
     permissions.add("VIEW_PURCHASE");
     permissions.add("CREATE_ORDER");
     permissions.add("APPROVE_PURCHASE");
+  }
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+  public String getUsername() {
+    return username;
   }
 
   public void viewItems() {

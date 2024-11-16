@@ -22,6 +22,7 @@ import assignment.FinanceManager.FinanceManager;
 import assignment.FinanceManager.financeManagerPage;
 import assignment.InventoryManager.InventoryManager;
 import assignment.InventoryManager.inventoryManagerPage;
+import assignment.Session;
 
 /**
  *
@@ -29,10 +30,18 @@ import assignment.InventoryManager.inventoryManagerPage;
  */
 public class Login extends javax.swing.JFrame {
 
+  private Session session;
+
   /**
    * Creates new form Login
    */
+  public Login(Session session) {
+    initComponents();
+    this.session = session;
+  }
+
   public Login() {
+    this(Session.getInstance());
     initComponents();
   }
 
@@ -125,6 +134,7 @@ public class Login extends javax.swing.JFrame {
     jButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
     jButton2.setText("Login");
     jButton2.addActionListener(new java.awt.event.ActionListener() {
+      @Override
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jButton2ActionPerformed(evt);
       }
@@ -164,44 +174,51 @@ public class Login extends javax.swing.JFrame {
   }// GEN-LAST:event_jTextField2ActionPerformed
 
   private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton2ActionPerformed
-    String email = jTextField2.getText();
-    String password = new String(jPasswordField1.getPassword());
+    String email = jTextField2.getText().trim();
+    String password = new String(jPasswordField1.getPassword()).trim();
+
+    System.out.println("Email: " + email + "Password: " + password);
+
+    if (email.isEmpty() || password.isEmpty()) {
+      JOptionPane.showMessageDialog(this, "Please enter both email and password");
+      return;
+    }
 
     UserType user = authenticate(email, password);
     if (user != null) {
+      session.setSessionData(user.getUser().getUsername(), user, user.getAccessLevel());
       JOptionPane.showMessageDialog(this, "Logged in successfully with access level" + user.getAccessLevel());
-    }
-
-    if (user instanceof Administrator) {
-      adminstratorPage adminFrame = new adminstratorPage();
-      adminFrame.setVisible(true);
-      adminFrame.pack();
-      adminFrame.setLocationRelativeTo(null);
-      this.dispose();
-    } else if (user instanceof SalesManager) {
-      salesManagerPage salesFrame = new salesManagerPage();
-      salesFrame.setVisible(true);
-      salesFrame.pack();
-      salesFrame.setLocationRelativeTo(null);
-      this.dispose();
-    } else if (user instanceof PurchaseManager) {
-      purchaseManagerPage purchaseFrame = new purchaseManagerPage();
-      purchaseFrame.setVisible(true);
-      purchaseFrame.pack();
-      purchaseFrame.setLocationRelativeTo(null);
-      this.dispose();
-    } else if (user instanceof FinanceManager) {
-      financeManagerPage financeFrame = new financeManagerPage();
-      financeFrame.setVisible(true);
-      financeFrame.pack();
-      financeFrame.setLocationRelativeTo(null);
-      this.dispose();
-    } else if (user instanceof InventoryManager) {
-      inventoryManagerPage inventoryFrame = new inventoryManagerPage();
-      inventoryFrame.setVisible(true);
-      inventoryFrame.pack();
-      inventoryFrame.setLocationRelativeTo(null);
-      this.dispose();
+      if (user instanceof Administrator) {
+        adminstratorPage adminFrame = new adminstratorPage();
+        adminFrame.setVisible(true);
+        adminFrame.pack();
+        adminFrame.setLocationRelativeTo(null);
+        this.dispose();
+      } else if (user instanceof SalesManager) {
+        salesManagerPage salesFrame = new salesManagerPage();
+        salesFrame.setVisible(true);
+        salesFrame.pack();
+        salesFrame.setLocationRelativeTo(null);
+        this.dispose();
+      } else if (user instanceof PurchaseManager) {
+        purchaseManagerPage purchaseFrame = new purchaseManagerPage();
+        purchaseFrame.setVisible(true);
+        purchaseFrame.pack();
+        purchaseFrame.setLocationRelativeTo(null);
+        this.dispose();
+      } else if (user instanceof FinanceManager) {
+        financeManagerPage financeFrame = new financeManagerPage();
+        financeFrame.setVisible(true);
+        financeFrame.pack();
+        financeFrame.setLocationRelativeTo(null);
+        this.dispose();
+      } else if (user instanceof InventoryManager) {
+        inventoryManagerPage inventoryFrame = new inventoryManagerPage();
+        inventoryFrame.setVisible(true);
+        inventoryFrame.pack();
+        inventoryFrame.setLocationRelativeTo(null);
+        this.dispose();
+      }
     } else {
       JOptionPane.showMessageDialog(this, "Invalid email or password");
       jPasswordField1.setText("");
@@ -213,9 +230,15 @@ public class Login extends javax.swing.JFrame {
     List<String[]> users = fileHandler.readData();
 
     for (String[] user : users) {
+      System.out.println("Username: " + user[1] + "Password: " + user[4] + "Keyed in Username: " + email
+          + "Keyed in Password: " + password);
       if ((user[1].equals(email) || user[2].equals(email)) && user[4].equals(password)) {
         int accessLevel = Integer.parseInt(user[3]);
-        return createUserByAccessLevel(accessLevel);
+        UserType userType = createUserByAccessLevel(accessLevel);
+        if (userType != null) {
+          userType.setUser(new User(user[0], user[1], user[2], user[4], userType));
+        }
+        return userType;
       }
     }
     return null;
@@ -281,7 +304,8 @@ public class Login extends javax.swing.JFrame {
     /* Create and display the form */
     java.awt.EventQueue.invokeLater(new Runnable() {
       public void run() {
-        Login LoginFrame = new Login();
+        Session session = Session.getInstance();
+        Login LoginFrame = new Login(session);
         LoginFrame.setVisible(true);
         LoginFrame.pack();
         LoginFrame.setLocationRelativeTo(null);

@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 
 public class Administrator extends UserType {
   private FileHandler userFileHandler;
+  private String username;
 
   public Administrator() {
     super();
@@ -19,6 +20,14 @@ public class Administrator extends UserType {
   @Override
   protected void initializePermissions() {
     permissions.add("ALL");
+  }
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+  public String getUsername() {
+    return username;
   }
 
   public boolean addUser(String username, String email, int accessLevel, String password) {

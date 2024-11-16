@@ -3,6 +3,7 @@ package assignment.SalesManager;
 import assignment.UserType;
 import assignment.Login;
 import javax.swing.JOptionPane;
+import assignment.Session;
 
 /**
  *
@@ -248,6 +249,7 @@ public class salesManagerPage extends javax.swing.JFrame {
   private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_backButtonActionPerformed
     if (JOptionPane.showConfirmDialog(null, "Are you sure you want to log out?", "Confirm Logout",
         JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+      Session.getInstance().clearSession();
       Login loginFrame = new Login();
       loginFrame.setVisible(true);
       loginFrame.pack();
