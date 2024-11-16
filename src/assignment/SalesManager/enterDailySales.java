@@ -31,7 +31,7 @@ public class enterDailySales extends javax.swing.JFrame {
     jPanel1 = new javax.swing.JPanel();
     jLabel1 = new javax.swing.JLabel();
     jPanel3 = new javax.swing.JPanel();
-    jButton2 = new javax.swing.JButton();
+    backButton = new javax.swing.JButton();
     jButton1 = new javax.swing.JButton();
     jButton6 = new javax.swing.JButton();
     jButton3 = new javax.swing.JButton();
@@ -55,11 +55,11 @@ public class enterDailySales extends javax.swing.JFrame {
 
     jPanel3.setBackground(new java.awt.Color(255, 255, 153));
 
-    jButton2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-    jButton2.setText("<");
-    jButton2.addActionListener(new java.awt.event.ActionListener() {
+    backButton.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+    backButton.setText("<");
+    backButton.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
-        jButton2ActionPerformed(evt);
+        backButtonActionPerformed(evt);
       }
     });
 
@@ -117,7 +117,7 @@ public class enterDailySales extends javax.swing.JFrame {
         jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton2)
+                .addComponent(backButton)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -149,7 +149,7 @@ public class enterDailySales extends javax.swing.JFrame {
                             javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 50,
                             javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton2))
+                    .addComponent(backButton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 
     jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -236,7 +236,7 @@ public class enterDailySales extends javax.swing.JFrame {
     setLocationRelativeTo(null);
   }// </editor-fold>//GEN-END:initComponents
 
-  private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton2ActionPerformed
+  private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_backButtonActionPerformed
     salesManagerPage salesManagerFrame = new salesManagerPage();
     salesManagerFrame.setVisible(true);
     salesManagerFrame.pack();
@@ -336,7 +336,7 @@ public class enterDailySales extends javax.swing.JFrame {
   private javax.swing.JButton jButton10;
   private javax.swing.JButton jButton11;
   private javax.swing.JButton jButton12;
-  private javax.swing.JButton jButton2;
+  private javax.swing.JButton backButton;
   private javax.swing.JButton jButton3;
   private javax.swing.JButton jButton4;
   private javax.swing.JButton jButton5;

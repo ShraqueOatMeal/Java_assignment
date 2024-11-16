@@ -40,8 +40,8 @@ public class SalesManager extends UserType {
     fileHandler.addRecord(record);
   }
 
-  public void viewItems() {
-    // Implementation
+  public List<String[]> viewPurchaseOrder() {
+    return fileHandler.readData();
   }
 
   public void enterDailySales() {
