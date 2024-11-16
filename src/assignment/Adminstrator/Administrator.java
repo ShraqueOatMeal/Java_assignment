@@ -30,7 +30,7 @@ public class Administrator extends UserType {
     return username;
   }
 
-  public boolean addUser(String username, String email, int accessLevel, String password) {
+  public boolean addUser(String userId, String username, String email, int accessLevel, String password) {
     try {
       // Check if username already exists
       List<String[]> users = userFileHandler.readData();
@@ -44,9 +44,10 @@ public class Administrator extends UserType {
         }
       }
 
-      String record = String.format("%s,%s,%d,%s",
+      String record = String.format("%s,%s,%s,%d,%s",
+          userId,
           username, email, accessLevel, password);
-      userFileHandler.addRecord(users.size() + 1, record);
+      userFileHandler.addRecord(record);
       userFileHandler.saveAllRecords();
 
       JOptionPane.showMessageDialog(null,

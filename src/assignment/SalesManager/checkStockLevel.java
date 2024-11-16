@@ -189,7 +189,7 @@ public class checkStockLevel extends javax.swing.JFrame {
     jScrollPane1.setViewportView(jTable1);
 
     searchLabel.setFont(new java.awt.Font("Tahoma", 2, 24)); // NOI18N
-    searchLabel.setText(username + ", enter Item ID or Item Name:");
+    searchLabel.setText("Enter Item ID or Item Name:");
 
     searchTextField.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
 
