@@ -1,2 +1,2 @@
-1,Washing Machine,2,Pending
-2,Dishwasher,10,Pending
+1,Washing Machine,2,Pending,sales,1,20/10/2020
+2,Dishwasher,10,Pending,sales,1,20/10/2020
