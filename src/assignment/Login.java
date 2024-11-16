@@ -170,10 +170,6 @@ public class Login extends javax.swing.JFrame {
     String password = new String(jPasswordField1.getPassword());
 
     UserType user = authenticate(email, password);
-    if (user != null) {
-      JOptionPane.showMessageDialog(this, "Logged in successfully with access level" + user.getAccessLevel());
-    }
-
     if (user instanceof Administrator) {
       adminstratorPage adminFrame = new adminstratorPage();
       adminFrame.setVisible(true);
