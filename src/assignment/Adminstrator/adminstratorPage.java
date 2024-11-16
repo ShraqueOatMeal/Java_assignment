@@ -55,7 +55,7 @@ public class adminstratorPage extends javax.swing.JFrame {
     manageUserButton.setText("Manage Users");
     manageUserButton.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
-        jButton1ActionPerformed(evt);
+        manageUserActionPerformed(evt);
       }
     });
 
@@ -135,13 +135,13 @@ public class adminstratorPage extends javax.swing.JFrame {
     setLocationRelativeTo(null);
   }// </editor-fold>//GEN-END:initComponents
 
-  private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
+  private void manageUserActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
     manageUsers manageUsersFrame = new manageUsers();
     manageUsersFrame.setVisible(true);
     manageUsersFrame.pack();
     manageUsersFrame.setLocationRelativeTo(null);
     this.dispose();
-  }// GEN-LAST:event_jButton1ActionPerformed
+  }// GEN-LAST:event_manageUserActionPerformed
 
   private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton2ActionPerformed
     managePermissions managePermissionsFrame = new managePermissions();
