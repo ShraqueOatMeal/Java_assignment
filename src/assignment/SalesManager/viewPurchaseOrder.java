@@ -5,19 +5,25 @@
  */
 package assignment.SalesManager;
 
+import assignment.SalesManager.SalesManager;
 import assignment.SalesManager.salesManagerPage;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Admin
  */
 public class viewPurchaseOrder extends javax.swing.JFrame {
+  SalesManager salesManager = new SalesManager();
 
   /**
    * Creates new form viewPurchaseOrder
    */
   public viewPurchaseOrder() {
     initComponents();
+    loadTable();
   }
 
   /**
@@ -43,17 +49,12 @@ public class viewPurchaseOrder extends javax.swing.JFrame {
     jButton5 = new javax.swing.JButton();
     jButton8 = new javax.swing.JButton();
     jScrollPane2 = new javax.swing.JScrollPane();
-    jTable2 = new javax.swing.JTable();
     jLabel2 = new javax.swing.JLabel();
-    jTextField1 = new javax.swing.JTextField();
-    jButton7 = new javax.swing.JButton();
+    searchTextField = new javax.swing.JTextField();
+    searchButton = new javax.swing.JButton();
 
     jTable1.setModel(new javax.swing.table.DefaultTableModel(
         new Object[][] {
-            { null, null, null, null },
-            { null, null, null, null },
-            { null, null, null, null },
-            { null, null, null, null }
         },
         new String[] {
             "Item ID", "Item Name", "Item Quantity", "Item Status"
@@ -62,7 +63,7 @@ public class viewPurchaseOrder extends javax.swing.JFrame {
           java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class, java.lang.String.class
       };
       boolean[] canEdit = new boolean[] {
-          true, true, true, false
+          false, false, false, false
       };
 
       public Class getColumnClass(int columnIndex) {
@@ -73,7 +74,7 @@ public class viewPurchaseOrder extends javax.swing.JFrame {
         return canEdit[columnIndex];
       }
     });
-    jScrollPane1.setViewportView(jTable1);
+    jScrollPane2.setViewportView(jTable1);
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
     setPreferredSize(new java.awt.Dimension(950, 600));
@@ -182,29 +183,18 @@ public class viewPurchaseOrder extends javax.swing.JFrame {
                     .addComponent(backButton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 
-    jTable2.setModel(new javax.swing.table.DefaultTableModel(
-        new Object[][] {
-
-        },
-        new String[] {
-            "Date", "Item ID", "Item Name", "Purcahse Quantity"
-        }) {
-      Class[] types = new Class[] {
-          java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class
-      };
-
-      public Class getColumnClass(int columnIndex) {
-        return types[columnIndex];
-      }
-    });
-    jScrollPane2.setViewportView(jTable2);
-
     jLabel2.setFont(new java.awt.Font("Tahoma", 2, 24)); // NOI18N
     jLabel2.setText("Enter Item Name: ");
 
-    jTextField1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+    searchTextField.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
 
-    jButton7.setText("S");
+    searchButton.setText("Search");
+
+    searchButton.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        searchButtonActionPerformed(evt);
+      }
+    });
 
     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
     jPanel1.setLayout(jPanel1Layout);
@@ -225,10 +215,10 @@ public class viewPurchaseOrder extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(45, 45, 45)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 178,
+                                .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 178,
                                     javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton7)))))
+                                .addComponent(searchButton)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
     jPanel1Layout.setVerticalGroup(
         jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -240,13 +230,13 @@ public class viewPurchaseOrder extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(41, 41, 41)
-                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 34,
+                        .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34,
                             javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(44, 44, 44)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE,
+                            .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE,
                                 javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(48, 48, 48)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 187,
@@ -316,6 +306,15 @@ public class viewPurchaseOrder extends javax.swing.JFrame {
     this.dispose();
   }// GEN-LAST:event_jButton5ActionPerformed
 
+  private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_searchButtonActionPerformed
+    String searchText = searchTextField.getText().trim();
+    if (!searchText.isEmpty()) {
+      searchAndDisplayResult(searchText);
+    } else {
+      JOptionPane.showMessageDialog(this, "Please enter an item ID or Item Name", "Error", JOptionPane.ERROR_MESSAGE);
+    }
+  }
+
   private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton8ActionPerformed
     viewPurchaseOrder viewPurchaseOrderFrame = new viewPurchaseOrder();
     viewPurchaseOrderFrame.setVisible(true);
@@ -323,6 +322,38 @@ public class viewPurchaseOrder extends javax.swing.JFrame {
     viewPurchaseOrderFrame.setLocationRelativeTo(null);
     this.dispose();
   }// GEN-LAST:event_jButton8ActionPerformed
+
+  private void loadTable() {
+    List<String[]> requisitionData = salesManager.viewPurchaseOrder();
+
+    DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+    model.setRowCount(0);
+
+    for (String[] row : requisitionData) {
+      model.addRow(row);
+    }
+  }
+
+  private void searchAndDisplayResult(String searchText) {
+    DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+    model.setRowCount(0); // Clear existing rows
+
+    List<String[]> lines = salesManager.viewPurchaseOrder(); // Read all lines from stock.txt
+    for (String[] data : lines) {
+      if (data.length >= 4 && (data[0].trim().equals(searchText))
+          || (data[1].trim().equals(searchText) || data[3].trim().equals(searchText))) {
+        model.addRow(new Object[] {
+            data[0].trim(), // Item ID
+            data[1].trim(), // Item Name
+            data[2].trim(), // Item Quantity
+            data[3].trim() // Item Status
+        });
+      }
+    }
+    if (model.getRowCount() == 0) {
+      JOptionPane.showMessageDialog(this, "No matching items found", "No Matching Items", JOptionPane.ERROR_MESSAGE);
+    }
+  }
 
   /**
    * @param args the command line arguments
@@ -374,7 +405,7 @@ public class viewPurchaseOrder extends javax.swing.JFrame {
   private javax.swing.JButton jButton4;
   private javax.swing.JButton jButton5;
   private javax.swing.JButton jButton6;
-  private javax.swing.JButton jButton7;
+  private javax.swing.JButton searchButton;
   private javax.swing.JButton jButton8;
   private javax.swing.JLabel jLabel1;
   private javax.swing.JLabel jLabel2;
@@ -383,7 +414,6 @@ public class viewPurchaseOrder extends javax.swing.JFrame {
   private javax.swing.JScrollPane jScrollPane1;
   private javax.swing.JScrollPane jScrollPane2;
   private javax.swing.JTable jTable1;
-  private javax.swing.JTable jTable2;
-  private javax.swing.JTextField jTextField1;
+  private javax.swing.JTextField searchTextField;
   // End of variables declaration//GEN-END:variables
 }

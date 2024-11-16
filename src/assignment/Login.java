@@ -55,7 +55,7 @@ public class Login extends javax.swing.JFrame {
     jPasswordField1 = new javax.swing.JPasswordField();
     jTextField2 = new javax.swing.JTextField();
     jLabel4 = new javax.swing.JLabel();
-    jButton2 = new javax.swing.JButton();
+    loginButton = new javax.swing.JButton();
     jButton3 = new javax.swing.JButton();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -121,16 +121,18 @@ public class Login extends javax.swing.JFrame {
     jPanel1.add(jLabel4);
     jLabel4.setBounds(440, 420, 120, 14);
 
-    jButton2.setBackground(new java.awt.Color(255, 255, 255));
-    jButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-    jButton2.setText("Login");
-    jButton2.addActionListener(new java.awt.event.ActionListener() {
+    loginButton.setBackground(new java.awt.Color(255, 255, 255));
+    loginButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+    loginButton.setText("Login");
+    loginButton.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jButton2ActionPerformed(evt);
       }
     });
-    jPanel1.add(jButton2);
-    jButton2.setBounds(440, 350, 80, 40);
+    jPanel1.add(loginButton);
+    loginButton.setBounds(440, 350, 80, 40);
+
+    getRootPane().setDefaultButton(loginButton);
 
     jButton3.setText("Forget Password?");
     jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -290,7 +292,7 @@ public class Login extends javax.swing.JFrame {
   }
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
-  private javax.swing.JButton jButton2;
+  private javax.swing.JButton loginButton;
   private javax.swing.JButton jButton3;
   private javax.swing.JLabel jLabel1;
   private javax.swing.JLabel jLabel2;
