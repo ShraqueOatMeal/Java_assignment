@@ -1,2 +1,4 @@
-1,Washing Machine,2,Pending
-2,Dishwasher,10,Pending
+1,Washing Machine,2,Pending,2
+2,Dishwasher,10,Pending,2
+3,null,Hair Dryer,4,Pending
+4,null,Hair Dryer,2,Pending

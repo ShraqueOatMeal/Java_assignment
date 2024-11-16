@@ -50,11 +50,13 @@ public class FileHandler {
   }
 
   // add a record to the list
-  public void addRecord(int id, String... columns) {
+  public void addRecord(String... columns) {
     StringBuilder record = new StringBuilder();
-    record.append(id);
-    for (String column : columns) {
-      record.append(",").append(column);
+    for (int i = 0; i < columns.length; i++) {
+      if (i > 0) {
+        record.append(",");
+      }
+      record.append(columns[i]);
     }
     records.add(record.toString());
   }

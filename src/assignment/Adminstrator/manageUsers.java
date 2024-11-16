@@ -232,13 +232,16 @@ public class manageUsers extends javax.swing.JFrame {
   private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {
     // Create custom dialog for adding user
     dialog = new javax.swing.JDialog(this, "Add New User", true);
-    dialog.setLayout(new GridLayout(5, 2, 10, 10));
+    dialog.setLayout(new GridLayout(6, 2, 10, 10));
 
+    userIdField = new javax.swing.JTextField();
     usernameField = new javax.swing.JTextField();
     emailField = new javax.swing.JTextField();
     accessLevelField = new javax.swing.JTextField();
     passwordField = new javax.swing.JTextField();
 
+    dialog.add(new JLabel("User ID:"));
+    dialog.add(userIdField);
     dialog.add(new JLabel("Username:"));
     dialog.add(usernameField);
     dialog.add(new JLabel("Email:"));
@@ -251,12 +254,13 @@ public class manageUsers extends javax.swing.JFrame {
     submitButton = new javax.swing.JButton("Add User");
     submitButton.addActionListener(e -> {
       try {
+        String userId = userIdField.getText().trim();
         String username = usernameField.getText().trim();
         String email = emailField.getText().trim();
         int accessLevel = Integer.parseInt(accessLevelField.getText().trim());
         String password = new String(passwordField.getText());
 
-        if (username.isEmpty() || email.isEmpty() || password.isEmpty()) {
+        if (userId.isEmpty() || username.isEmpty() || email.isEmpty() || password.isEmpty()) {
           JOptionPane.showMessageDialog(dialog, "All fields are required!");
           return;
         }
@@ -266,7 +270,7 @@ public class manageUsers extends javax.swing.JFrame {
           return;
         }
 
-        if (administrator.addUser(username, email, accessLevel, password)) {
+        if (administrator.addUser(userId, username, email, accessLevel, password)) {
           dialog.dispose();
           loadUserData();
         }
@@ -288,6 +292,7 @@ public class manageUsers extends javax.swing.JFrame {
       return;
     }
 
+    String userId = (String) jTable2.getValueAt(selectedRow, 0);
     String username = (String) jTable2.getValueAt(selectedRow, 1);
     String currentEmail = (String) jTable2.getValueAt(selectedRow, 2);
     String currentAccessLevel = (String) jTable2.getValueAt(selectedRow, 3);
@@ -295,12 +300,14 @@ public class manageUsers extends javax.swing.JFrame {
 
     // Create custom dialog for modifying user
     JDialog dialog = new JDialog(this, "Modify User", true);
-    dialog.setLayout(new GridLayout(5, 2, 10, 10));
+    dialog.setLayout(new GridLayout(6, 2, 10, 10));
 
     JTextField emailField = new JTextField(currentEmail);
     JTextField accessLevelField = new JTextField(currentAccessLevel);
     JTextField passwordField = new JTextField(currentPassword);
 
+    dialog.add(new JLabel("User ID: "));
+    dialog.add(new JLabel(userId));
     dialog.add(new JLabel("Username:"));
     dialog.add(new JLabel(username));
     dialog.add(new JLabel("Email:"));
@@ -415,6 +422,7 @@ public class manageUsers extends javax.swing.JFrame {
   private javax.swing.JScrollPane jScrollPane2;
   private javax.swing.JTable jTable2;
   private javax.swing.JDialog dialog;
+  private javax.swing.JTextField userIdField;
   private javax.swing.JTextField usernameField;
   private javax.swing.JTextField emailField;
   private javax.swing.JTextField accessLevelField;

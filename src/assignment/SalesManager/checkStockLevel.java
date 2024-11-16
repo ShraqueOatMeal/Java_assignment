@@ -7,6 +7,7 @@ package assignment.SalesManager;
 
 import assignment.SalesManager.SalesManager;
 import assignment.FileHandler;
+import assignment.Session;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JOptionPane;
@@ -17,6 +18,7 @@ import java.io.IOException;
  * @author Admin
  */
 public class checkStockLevel extends javax.swing.JFrame {
+  private Session session;
 
   /**
    * Creates new form checkStockLevel
@@ -52,6 +54,8 @@ public class checkStockLevel extends javax.swing.JFrame {
     searchTextField = new javax.swing.JTextField();
     searchButton = new javax.swing.JButton();
     belowThresholdButton = new javax.swing.JToggleButton();
+    session = Session.getInstance();
+    String username = session.getUsername();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
     setPreferredSize(new java.awt.Dimension(950, 600));

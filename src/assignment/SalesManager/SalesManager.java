@@ -6,6 +6,7 @@ import java.util.List;
 
 public class SalesManager extends UserType {
   private FileHandler fileHandler;
+  private String username;
 
   public SalesManager() {
     super();
@@ -24,10 +25,19 @@ public class SalesManager extends UserType {
     permissions.add("View Purchase Orders");
   }
 
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+  public String getUsername() {
+    return username;
+  }
+
   public void createRequisition(String itemName, int quantity) {
     int newRequisitionID = fileHandler.getLastId() + 1;
     String status = "Pending";
-    fileHandler.addRecord(newRequisitionID, itemName, String.valueOf(quantity), status);
+    String[] record = { String.valueOf(newRequisitionID), username, itemName, String.valueOf(quantity), status };
+    fileHandler.addRecord(record);
   }
 
   public void viewItems() {

@@ -7,6 +7,7 @@ public abstract class UserType {
   protected int accessLevel;
   protected String department;
   protected List<String> permissions;
+  protected User user;
 
   public UserType() {
     permissions = new ArrayList<>();
@@ -53,6 +54,14 @@ public abstract class UserType {
 
   public void removePermission(String permission) {
     permissions.remove(permission);
+  }
+
+  public void setUser(User user) {
+    this.user = user;
+  }
+
+  public User getUser() {
+    return user;
   }
 
   public void getDashboard() {
