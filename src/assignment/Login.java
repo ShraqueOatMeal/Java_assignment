@@ -173,39 +173,52 @@ public class Login extends javax.swing.JFrame {
 
     UserType user = authenticate(email, password);
     if (user != null) {
-      session.setSessionData(user.getUser().getUsername(), user,
+
+      // Set session data
+      session.setSessionData(user.getUser().getUserId(), user.getUser().getUsername(), user,
           user.getAccessLevel());
-      JOptionPane.showMessageDialog(this, "Logged in successfully with access level" + user.getAccessLevel());
+
+      // Handle user type pages
       if (user instanceof Administrator) {
+
         adminstratorPage adminFrame = new adminstratorPage();
         adminFrame.setVisible(true);
         adminFrame.pack();
         adminFrame.setLocationRelativeTo(null);
         this.dispose();
+
       } else if (user instanceof SalesManager) {
+
         salesManagerPage salesFrame = new salesManagerPage();
         salesFrame.setVisible(true);
         salesFrame.pack();
         salesFrame.setLocationRelativeTo(null);
         this.dispose();
+
       } else if (user instanceof PurchaseManager) {
+
         purchaseManagerPage purchaseFrame = new purchaseManagerPage();
         purchaseFrame.setVisible(true);
         purchaseFrame.pack();
         purchaseFrame.setLocationRelativeTo(null);
         this.dispose();
+
       } else if (user instanceof FinanceManager) {
+
         financeManagerPage financeFrame = new financeManagerPage();
         financeFrame.setVisible(true);
         financeFrame.pack();
         financeFrame.setLocationRelativeTo(null);
         this.dispose();
+
       } else if (user instanceof InventoryManager) {
+
         inventoryManagerPage inventoryFrame = new inventoryManagerPage();
         inventoryFrame.setVisible(true);
         inventoryFrame.pack();
         inventoryFrame.setLocationRelativeTo(null);
         this.dispose();
+
       }
     } else {
       JOptionPane.showMessageDialog(this, "Invalid email or password");

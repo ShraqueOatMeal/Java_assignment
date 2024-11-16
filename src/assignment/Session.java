@@ -2,6 +2,7 @@ package assignment;
 
 public class Session {
   private static Session instance;
+  private String userID;
   private String username;
   private UserType userType;
   private int accessLevel;
@@ -16,7 +17,8 @@ public class Session {
     return instance;
   }
 
-  public void setSessionData(String username, UserType userType, int accessLevel) {
+  public void setSessionData(String userID, String username, UserType userType, int accessLevel) {
+    this.userID = userID;
     this.username = username;
     this.userType = userType;
     this.accessLevel = accessLevel;
