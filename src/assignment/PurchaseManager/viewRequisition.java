@@ -37,6 +37,7 @@ public class viewRequisition extends javax.swing.JFrame {
   // <editor-fold defaultstate="collapsed" desc="Generated
   // <editor-fold defaultstate="collapsed" desc="Generated
   // <editor-fold defaultstate="collapsed" desc="Generated
+  // <editor-fold defaultstate="collapsed" desc="Generated
   // Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
@@ -393,18 +394,16 @@ public class viewRequisition extends javax.swing.JFrame {
       if (found) {
         try {
           writeRecords(updatedRecords);
+          loadTable();
+          JOptionPane.showMessageDialog(this, "Requisition " + requisitionId + " has been " + newStatus.toLowerCase(),
+              "Status Updated",
+              JOptionPane.INFORMATION_MESSAGE);
           return;
         } catch (Exception e) {
           JOptionPane.showMessageDialog(this, "Requisition status could not be updated: " + e.getMessage(), "Error",
               JOptionPane.ERROR_MESSAGE);
         }
       }
-
-      loadTable();
-
-      JOptionPane.showMessageDialog(this, "Requisition " + requisitionId + " has been" + newStatus.toLowerCase(),
-          "Status Updated",
-          JOptionPane.INFORMATION_MESSAGE);
     } catch (Exception e) {
       JOptionPane.showMessageDialog(this, "Requisition status could not be updated: " + e.getMessage(), "Error",
           JOptionPane.ERROR_MESSAGE);
@@ -413,7 +412,7 @@ public class viewRequisition extends javax.swing.JFrame {
 
   private void writeRecords(List<String> records) {
     try {
-      FileHandler fileHandler = new FileHandler();
+      FileHandler fileHandler = new FileHandler("src/assignment/database/requisition.txt");
       fileHandler.writeRecords(records);
     } catch (Exception e) {
       JOptionPane.showMessageDialog(this, "Requisition status could not be updated: " + e.getMessage(), "Error",
