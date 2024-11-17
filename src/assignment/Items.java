@@ -51,7 +51,7 @@ public class Items {
     return supplier;
   }
 
-  public Supplier setSupplier(Supplier supplier) {
+  public void setSupplier(Supplier supplier) {
     this.supplier = supplier;
   }
 
