@@ -7,8 +7,10 @@ package assignment.PurchaseManager;
 
 import assignment.FileHandler;
 import assignment.PurchaseManager.PurchaseManager;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -31,14 +33,19 @@ public class viewRequisition extends javax.swing.JFrame {
    */
   @SuppressWarnings("unchecked")
   // <editor-fold defaultstate="collapsed" desc="Generated
+  // <editor-fold defaultstate="collapsed" desc="Generated
+  // <editor-fold defaultstate="collapsed" desc="Generated
+  // <editor-fold defaultstate="collapsed" desc="Generated
+  // <editor-fold defaultstate="collapsed" desc="Generated
+  // <editor-fold defaultstate="collapsed" desc="Generated
   // Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
     jButton6 = new javax.swing.JButton();
     jPanel1 = new javax.swing.JPanel();
     jLabel1 = new javax.swing.JLabel();
-    jButton1 = new javax.swing.JButton();
-    jButton2 = new javax.swing.JButton();
+    approveButton = new javax.swing.JButton();
+    rejectButton = new javax.swing.JButton();
     jPanel2 = new javax.swing.JPanel();
     jButton7 = new javax.swing.JButton();
     jButton4 = new javax.swing.JButton();
@@ -48,6 +55,11 @@ public class viewRequisition extends javax.swing.JFrame {
     jButton8 = new javax.swing.JButton();
     jScrollPane1 = new javax.swing.JScrollPane();
     jTable1 = new javax.swing.JTable();
+    searchTextField = new javax.swing.JTextField();
+    searchButton = new javax.swing.JButton();
+    searchLabel = new javax.swing.JLabel();
+    statusLabel = new javax.swing.JLabel();
+    statusCombo = new javax.swing.JComboBox<>();
 
     jButton6.setBackground(new java.awt.Color(255, 204, 204));
     jButton6.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
@@ -59,62 +71,90 @@ public class viewRequisition extends javax.swing.JFrame {
     jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
     jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-    jLabel1.setText("View Requisition Page");
+    jLabel1.setText("View Requisition");
 
-    jButton1.setText("Approve");
-    jButton1.addActionListener(new java.awt.event.ActionListener() {
+    approveButton.setBackground(new java.awt.Color(0, 0, 0));
+    approveButton.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+    approveButton.setForeground(new java.awt.Color(255, 255, 255));
+    approveButton.setText("Approve");
+    approveButton.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
-        jButton1ActionPerformed(evt);
+        approveButtonActionPerformed(evt);
       }
     });
 
-    jButton2.setText("Reject");
+    rejectButton.setBackground(new java.awt.Color(0, 0, 0));
+    rejectButton.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+    rejectButton.setForeground(new java.awt.Color(255, 255, 255));
+    rejectButton.setText("Reject");
+    rejectButton.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        rejectButtonActionPerformed(evt);
+      }
+    });
 
-    jPanel2.setBackground(new java.awt.Color(255, 153, 153));
+    jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
-    jButton7.setBackground(new java.awt.Color(255, 204, 204));
+    jButton7.setBackground(new java.awt.Color(0, 0, 0));
     jButton7.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+    jButton7.setForeground(new java.awt.Color(255, 255, 255));
     jButton7.setText("<");
+    jButton7.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
     jButton7.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jButton7ActionPerformed(evt);
       }
     });
 
-    jButton4.setBackground(new java.awt.Color(255, 204, 204));
+    jButton4.setBackground(new java.awt.Color(0, 0, 0));
+    jButton4.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+    jButton4.setForeground(new java.awt.Color(255, 255, 255));
     jButton4.setText("Approve Purchase Order");
+    jButton4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
     jButton4.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jButton4ActionPerformed(evt);
       }
     });
 
-    jButton3.setBackground(new java.awt.Color(255, 204, 204));
+    jButton3.setBackground(new java.awt.Color(0, 0, 0));
+    jButton3.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+    jButton3.setForeground(new java.awt.Color(255, 255, 255));
     jButton3.setText("View Items");
+    jButton3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
     jButton3.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jButton3ActionPerformed(evt);
       }
     });
 
-    jButton9.setBackground(new java.awt.Color(255, 204, 204));
+    jButton9.setBackground(new java.awt.Color(0, 0, 0));
+    jButton9.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+    jButton9.setForeground(new java.awt.Color(255, 255, 255));
     jButton9.setText("Create Purchase Order");
+    jButton9.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
     jButton9.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jButton9ActionPerformed(evt);
       }
     });
 
-    jButton5.setBackground(new java.awt.Color(255, 204, 204));
+    jButton5.setBackground(new java.awt.Color(0, 0, 0));
+    jButton5.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+    jButton5.setForeground(new java.awt.Color(255, 255, 255));
     jButton5.setText("View Requisitions");
+    jButton5.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
     jButton5.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jButton5ActionPerformed(evt);
       }
     });
 
-    jButton8.setBackground(new java.awt.Color(255, 204, 204));
+    jButton8.setBackground(new java.awt.Color(0, 0, 0));
+    jButton8.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+    jButton8.setForeground(new java.awt.Color(255, 255, 255));
     jButton8.setText("View Supplier");
+    jButton8.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
     jButton8.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jButton8ActionPerformed(evt);
@@ -130,15 +170,16 @@ public class viewRequisition extends javax.swing.JFrame {
                 .addComponent(jButton7)
                 .addGap(18, 18, 18)
                 .addComponent(jButton4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED,
+                    javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(39, 39, 39)
                 .addComponent(jButton9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(41, 41, 41)
                 .addComponent(jButton5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(55, 55, 55)
                 .addComponent(jButton8)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+                .addGap(92, 92, 92)));
     jPanel2Layout.setVerticalGroup(
         jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -163,14 +204,14 @@ public class viewRequisition extends javax.swing.JFrame {
 
         },
         new String[] {
-            "Item ID", "Item Name", "Item Quantity", "Item Status", "Sales Manager", "Supplier ID", "Date"
+            "PR ID", "Item Name", "Item Quantity", "Item Status", "SM ID", "Required Date", "Item ID", "Sup ID"
         }) {
       Class[] types = new Class[] {
           java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class, java.lang.String.class,
-          java.lang.String.class, java.lang.String.class, java.lang.String.class
+          java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
       };
       boolean[] canEdit = new boolean[] {
-          false, false, false, false, false, false, false
+          false, false, false, false, false, false, false, false
       };
 
       public Class getColumnClass(int columnIndex) {
@@ -181,45 +222,98 @@ public class viewRequisition extends javax.swing.JFrame {
         return canEdit[columnIndex];
       }
     });
+    jTable1.getTableHeader().setReorderingAllowed(false);
     jScrollPane1.setViewportView(jTable1);
+
+    searchTextField.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        searchTextFieldActionPerformed(evt);
+      }
+    });
+
+    searchButton.setText("Search");
+    searchButton.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        searchButtonActionPerformed(evt);
+      }
+    });
+
+    searchLabel.setText("Search:");
+
+    statusLabel.setText("Status:");
+
+    statusCombo
+        .setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Approved", "Rejected", "Pending" }));
+    statusCombo.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        statusComboActionPerformed(evt);
+      }
+    });
 
     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
     jPanel1.setLayout(jPanel1Layout);
     jPanel1Layout.setHorizontalGroup(
         jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 560,
-                            javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(72, 72, 72)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 73,
-                                javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(225, Short.MAX_VALUE))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
-                Short.MAX_VALUE));
+                Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(338, 338, 338))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(approveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 106,
+                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(rejectButton, javax.swing.GroupLayout.PREFERRED_SIZE, 92,
+                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 891,
+                            javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 387,
+                                    javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(searchButton))
+                            .addComponent(searchLabel))
+                        .addGap(86, 86, 86)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(statusLabel)
+                            .addComponent(statusCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 109,
+                                javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(29, Short.MAX_VALUE)));
     jPanel1Layout.setVerticalGroup(
         jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
                     javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(31, 31, 31)
                 .addComponent(jLabel1)
-                .addGap(109, 109, 109)
+                .addGap(37, 37, 37)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(searchLabel)
+                    .addComponent(statusLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE,
+                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchButton)
+                    .addComponent(statusCombo, javax.swing.GroupLayout.PREFERRED_SIZE,
+                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 196,
+                    javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(25, 25, 25)
-                        .addComponent(jButton2))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 196,
+                    .addComponent(rejectButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33,
+                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(approveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33,
                         javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(101, Short.MAX_VALUE)));
+                .addContainerGap(58, Short.MAX_VALUE)));
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
     getContentPane().setLayout(layout);
@@ -228,7 +322,7 @@ public class viewRequisition extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
                     javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE)));
+                .addGap(0, 1, Short.MAX_VALUE)));
     layout.setVerticalGroup(
         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -239,6 +333,171 @@ public class viewRequisition extends javax.swing.JFrame {
     pack();
     setLocationRelativeTo(null);
   }// </editor-fold>//GEN-END:initComponents
+
+  private void rejectButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_rejectButtonActionPerformed
+    int selectedRow = jTable1.getSelectedRow();
+    if (selectedRow == -1) {
+      JOptionPane.showMessageDialog(this, "Please select a requisition to reject", "No Selection",
+          JOptionPane.WARNING_MESSAGE);
+      return;
+    }
+
+    // Get current status
+    String currentStatus = jTable1.getValueAt(selectedRow, 3).toString();
+
+    if (currentStatus.equals("Approved")) {
+      JOptionPane.showMessageDialog(this, "Requisition is already approved", "No Change",
+          JOptionPane.INFORMATION_MESSAGE);
+      return;
+    }
+
+    if (currentStatus.equals("Rejected")) {
+      JOptionPane.showMessageDialog(this, "Cannot reject a rejected requisition", "Action Not Allowed",
+          JOptionPane.WARNING_MESSAGE);
+      return;
+    }
+
+    // Get requisition ID
+    String requisitionId = jTable1.getValueAt(selectedRow, 0).toString();
+
+    int confirm = JOptionPane.showConfirmDialog(this,
+        "Are you sure you want to reject requisition " + requisitionId + "?",
+        "Confirm Rejection", JOptionPane.YES_NO_OPTION);
+
+    if (confirm == JOptionPane.YES_OPTION) {
+      updateRequisitionStatus(requisitionId, "Rejected");
+    }
+  }// GEN-LAST:event_rejectButtonActionPerformed
+
+  private void updateRequisitionStatus(String requisitionId, String newStatus) {
+    try {
+      PurchaseManager purchaseManager = new PurchaseManager();
+      List<String[]> requisitionData = purchaseManager.viewRequisitions();
+      List<String> updatedRecords = new ArrayList<>();
+      boolean found = false;
+
+      for (String[] row : requisitionData) {
+        if (row[0].trim().equals(requisitionId)) {
+          row[3] = newStatus;
+          found = true;
+        }
+        StringBuilder record = new StringBuilder();
+        for (int i = 0; i < row.length; i++) {
+          record.append(row[i]);
+          if (i < row.length - 1) {
+            record.append(",");
+          }
+        }
+        updatedRecords.add(record.toString());
+      }
+
+      if (found) {
+        try {
+          writeRecords(updatedRecords);
+          loadTable();
+          JOptionPane.showMessageDialog(this, "Requisition " + requisitionId + " has been " + newStatus.toLowerCase(),
+              "Status Updated",
+              JOptionPane.INFORMATION_MESSAGE);
+          return;
+        } catch (Exception e) {
+          JOptionPane.showMessageDialog(this, "Requisition status could not be updated: " + e.getMessage(), "Error",
+              JOptionPane.ERROR_MESSAGE);
+        }
+      }
+    } catch (Exception e) {
+      JOptionPane.showMessageDialog(this, "Requisition status could not be updated: " + e.getMessage(), "Error",
+          JOptionPane.ERROR_MESSAGE);
+    }
+  }
+
+  private void writeRecords(List<String> records) {
+    try {
+      FileHandler fileHandler = new FileHandler("src/assignment/database/requisition.txt");
+      fileHandler.writeRecords(records);
+    } catch (Exception e) {
+      JOptionPane.showMessageDialog(this, "Requisition status could not be updated: " + e.getMessage(), "Error",
+          JOptionPane.ERROR_MESSAGE);
+    }
+  }
+
+  private void statusComboActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_statusComboActionPerformed
+    String selectedStatus = statusCombo.getSelectedItem().toString();
+    if (selectedStatus.equals("Select")) {
+      loadTable();
+    } else {
+      filterByStatus(selectedStatus);
+    }
+  }// GEN-LAST:event_statusComboActionPerformed
+
+  private void filterByStatus(String selectedStatus) {
+    PurchaseManager purchaseManager = new PurchaseManager();
+    DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+    model.setRowCount(0); // Clear existing rows
+    //
+    List<String[]> requisitionData = purchaseManager.viewRequisitions();
+    boolean foundMatching = false;
+
+    for (String[] row : requisitionData) {
+      if (row[3].trim().equals(selectedStatus)) {
+        model.addRow(row);
+        foundMatching = true;
+      }
+    }
+
+    if (!foundMatching) {
+      JOptionPane.showMessageDialog(this, "No requisitions found with status: " + selectedStatus,
+          "No Matching Requisitions", JOptionPane.ERROR_MESSAGE);
+    }
+  }
+
+  private void searchTextFieldActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_searchTextFieldActionPerformed
+    // TODO add your handling code here:
+  }// GEN-LAST:event_searchTextFieldActionPerformed
+
+  private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_searchButtonActionPerformed
+    String searchText = searchTextField.getText().trim();
+    if (!searchText.isEmpty()) {
+      searchAndDisplayResult(searchText);
+    } else {
+      JOptionPane.showMessageDialog(this, "Please enter an item ID or Item Name", "Error", JOptionPane.ERROR_MESSAGE);
+    }
+  }// GEN-LAST:event_searchButtonActionPerformed
+
+  private void searchAndDisplayResult(String searchText) {
+    String selectedStatus = statusCombo.getSelectedItem().toString();
+    PurchaseManager purchaseManager = new PurchaseManager();
+    DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+    model.setRowCount(0); // Clear existing rows
+
+    List<String[]> lines = purchaseManager.viewRequisitions(); // Read all lines from requisition.txt
+    boolean foundMatching = false;
+
+    for (String[] data : lines) {
+      boolean statusMatch = selectedStatus.equals("Select");
+      boolean searchMatch = data[0].trim().equals(searchText)
+          || data[4].trim().equals(searchText) || data[6].trim().equals(searchText)
+          || data[7].trim().equals(searchText);
+
+      if (data.length >= 4 && statusMatch && searchMatch) {
+        model.addRow(new Object[] {
+            data[0].trim(), // PR ID
+            data[1].trim(), // Item Name
+            data[2].trim(), // Item Quantity
+            data[3].trim(), // Item Status
+            data[4].trim(), // SM ID
+            data[5].trim(), // Required Date
+            data[6].trim(), // Item ID
+            data[7].trim(), // Sup ID
+        });
+        foundMatching = true;
+      }
+    }
+    if (!foundMatching) {
+      String message = selectedStatus.equals("Select") ? "No matching items found"
+          : "No requisitions found with status: " + selectedStatus;
+      JOptionPane.showMessageDialog(this, message, "No Results", JOptionPane.ERROR_MESSAGE);
+    }
+  }
 
   private void loadTable() {
     PurchaseManager purchaseManager = new PurchaseManager();
@@ -251,6 +510,41 @@ public class viewRequisition extends javax.swing.JFrame {
       model.addRow(row);
     }
   }
+
+  private void approveButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_approveButtonActionPerformed
+    int selectedRow = jTable1.getSelectedRow();
+    if (selectedRow == -1) {
+      JOptionPane.showMessageDialog(this, "Please select a requisition to approve", "No Selection",
+          JOptionPane.WARNING_MESSAGE);
+      return;
+    }
+
+    // Get current status
+    String currentStatus = jTable1.getValueAt(selectedRow, 3).toString();
+
+    if (currentStatus.equals("Approved")) {
+      JOptionPane.showMessageDialog(this, "Requisition is already approved", "No Change",
+          JOptionPane.INFORMATION_MESSAGE);
+      return;
+    }
+
+    if (currentStatus.equals("Rejected")) {
+      JOptionPane.showMessageDialog(this, "Cannot approve a rejected requisition", "Action Not Allowed",
+          JOptionPane.WARNING_MESSAGE);
+      return;
+    }
+
+    // Get requisition ID
+    String requisitionId = jTable1.getValueAt(selectedRow, 0).toString();
+
+    int confirm = JOptionPane.showConfirmDialog(this,
+        "Are you sure you want to approve requisition " + requisitionId + "?",
+        "Confirm Approval", JOptionPane.YES_NO_OPTION);
+
+    if (confirm == JOptionPane.YES_OPTION) {
+      updateRequisitionStatus(requisitionId, "Approved");
+    }
+  }// GEN-LAST:event_approveButtonActionPerformed
 
   private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
     // TODO add your handling code here:
@@ -344,8 +638,7 @@ public class viewRequisition extends javax.swing.JFrame {
   }
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
-  private javax.swing.JButton jButton1;
-  private javax.swing.JButton jButton2;
+  private javax.swing.JButton approveButton;
   private javax.swing.JButton jButton3;
   private javax.swing.JButton jButton4;
   private javax.swing.JButton jButton5;
@@ -358,5 +651,11 @@ public class viewRequisition extends javax.swing.JFrame {
   private javax.swing.JPanel jPanel2;
   private javax.swing.JScrollPane jScrollPane1;
   private javax.swing.JTable jTable1;
+  private javax.swing.JButton rejectButton;
+  private javax.swing.JButton searchButton;
+  private javax.swing.JLabel searchLabel;
+  private javax.swing.JTextField searchTextField;
+  private javax.swing.JComboBox<String> statusCombo;
+  private javax.swing.JLabel statusLabel;
   // End of variables declaration//GEN-END:variables
 }

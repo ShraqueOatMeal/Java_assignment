@@ -1,1 +1,2 @@
-1,Supplier 1,10
+S001,Supplier 1
+S002,Supplier 2

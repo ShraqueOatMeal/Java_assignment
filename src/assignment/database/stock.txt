@@ -1,52 +1,52 @@
-1,Washing Machine,10,5
-2,Refrigerator,15,5
-3,Microwave Oven,20,5
-4,Air Conditioner,8,5
-5,Water Purifier,25,5
-6,Vacuum Cleaner,30,5
-7,Dishwasher,12,5
-8,Clothes Dryer,10,5
-9,Electric Kettle,50,5
-10,Iron & Garment Steamer,40,5
-11,Television (LED/LCD/OLED),10,5
-12,Home Theatre System,5,5
-13,Soundbar,15,5
-14,Portable Bluetooth Speaker,25,5
-15,Laptop,20,5
-16,Desktop Computer,18,5
-17,Tablet,30,5
-18,Smartphone,50,5
-19,Smartwatch,40,5
-20,Digital Camera,15,5
-21,Blender & Mixer,30,5
-22,Rice Cooker,20,5
-23,Electric Cooker,15,5
-24,Toaster,25,5
-25,Coffee Maker,40,5
-26,Food Processor,12,5
-27,Air Fryer,10,5
-28,Slow Cooker,15,5
-29,Bread Maker,5,5
-30,Juicer,20,5
-31,Ceiling Fan,10,5
-32,Standing Fan,20,5
-33,Electric Heater,15,5
-34,LED Light Bulbs,100,5
-35,Extension Cord,80,5
-36,Electric Water Heater,10,5
-37,Power Bank,50,5
-38,Home Security Camera,15,5
-39,Smart Plug,30,5
-40,Electric Mosquito Repellent,40,5
-41,Robot Vacuum Cleaner,8,5
-42,Steam Mop,10,5
-43,High-Pressure Cleaner,5,5
-44,Handheld Vacuum Cleaner,25,5
-45,Car Vacuum Cleaner,30,5
-46,Hair Dryer,2,5
-47,Hair Straightener,40,5
-48,Electric Shaver,30,5
-49,Electric Toothbrush,50,5
-50,Massage Chair,3,5
-51,Air Humidifier,25,5
-52,Air Purifier,20,5
+1,Washing Machine,10,5,S001
+2,Refrigerator,15,5,S002
+3,Microwave Oven,20,5,S002
+4,Air Conditioner,8,5,S002
+5,Water Purifier,25,5,S003
+6,Vacuum Cleaner,30,5,S003
+7,Dishwasher,12,5,S002
+8,Clothes Dryer,10,5,S002
+9,Electric Kettle,50,5,S002
+10,Iron & Garment Steamer,40,5,S002
+11,Television (LED/LCD/OLED),10,5,S002
+12,Home Theatre System,5,5,S002
+13,Soundbar,15,5,S002
+14,Portable Bluetooth Speaker,25,5,S002
+15,Laptop,20,5,S002
+16,Desktop Computer,18,5,S002
+17,Tablet,30,5,S002
+18,Smartphone,50,5,S002
+19,Smartwatch,40,5,S002
+20,Digital Camera,15,5,S002
+21,Blender & Mixer,30,5,S002
+22,Rice Cooker,20,5,S002
+23,Electric Cooker,15,5,S002
+24,Toaster,25,5,S002
+25,Coffee Maker,40,5,S002
+26,Food Processor,12,5,S002
+27,Air Fryer,10,5,S002
+28,Slow Cooker,15,5,S002
+29,Bread Maker,5,5,S002
+30,Juicer,20,5,S002
+31,Ceiling Fan,10,5,S002
+32,Standing Fan,20,5,S002
+33,Electric Heater,15,5,S002
+34,LED Light Bulbs,100,5,S002
+35,Extension Cord,80,5,S002
+36,Electric Water Heater,10,5,S002
+37,Power Bank,50,5,S002
+38,Home Security Camera,15,5,S002
+39,Smart Plug,30,5,S002
+40,Electric Mosquito Repellent,40,5,S002
+41,Robot Vacuum Cleaner,8,5,S002
+42,Steam Mop,10,5,S002
+43,High-Pressure Cleaner,5,5,S002
+44,Handheld Vacuum Cleaner,25,5,S002
+45,Car Vacuum Cleaner,30,5,S002
+46,Hair Dryer,2,5,S002
+47,Hair Straightener,40,5,S002
+48,Electric Shaver,30,5,S002
+49,Electric Toothbrush,50,5,S002
+50,Massage Chair,3,5,S002
+51,Air Humidifier,25,5,S002
+52,Air Purifier,20,5,S002
