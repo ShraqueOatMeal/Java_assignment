@@ -39,6 +39,10 @@ public class manageUsers extends javax.swing.JFrame {
   // <editor-fold defaultstate="collapsed" desc="Generated
   // <editor-fold defaultstate="collapsed" desc="Generated
   // <editor-fold defaultstate="collapsed" desc="Generated
+  // <editor-fold defaultstate="collapsed" desc="Generated
+  // <editor-fold defaultstate="collapsed" desc="Generated
+  // <editor-fold defaultstate="collapsed" desc="Generated
+  // <editor-fold defaultstate="collapsed" desc="Generated
   // Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
@@ -59,37 +63,57 @@ public class manageUsers extends javax.swing.JFrame {
     searchButton = new javax.swing.JButton();
     roleCombo = new javax.swing.JComboBox<>();
     roleLabel = new javax.swing.JLabel();
+    jLabel2 = new javax.swing.JLabel();
+    jLabel3 = new javax.swing.JLabel();
+    jLabel4 = new javax.swing.JLabel();
+    jLabel5 = new javax.swing.JLabel();
+    jLabel6 = new javax.swing.JLabel();
+    jLabel7 = new javax.swing.JLabel();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
     jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-    jPanel2.setBackground(new java.awt.Color(102, 255, 51));
+    jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
-    backButton.setBackground(new java.awt.Color(204, 255, 204));
+    backButton.setBackground(new java.awt.Color(0, 0, 0));
     backButton.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+    backButton.setForeground(new java.awt.Color(255, 255, 255));
     backButton.setText("<");
+    backButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
     backButton.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         backButtonActionPerformed(evt);
       }
     });
 
+    jButton1.setBackground(new java.awt.Color(0, 0, 0));
+    jButton1.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+    jButton1.setForeground(new java.awt.Color(255, 255, 255));
     jButton1.setText("Manage Users");
+    jButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
     jButton1.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jButton1ActionPerformed(evt);
       }
     });
 
+    jButton2.setBackground(new java.awt.Color(0, 0, 0));
+    jButton2.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+    jButton2.setForeground(new java.awt.Color(255, 255, 255));
     jButton2.setText("Manage Permission");
+    jButton2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
     jButton2.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jButton2ActionPerformed(evt);
       }
     });
 
+    jButton3.setBackground(new java.awt.Color(0, 0, 0));
+    jButton3.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+    jButton3.setForeground(new java.awt.Color(255, 255, 255));
     jButton3.setText("Generate System Report");
+    jButton3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
     javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
     jPanel2.setLayout(jPanel2Layout);
@@ -98,13 +122,13 @@ public class manageUsers extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(backButton)
-                .addGap(18, 18, 18)
+                .addGap(41, 41, 41)
                 .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(80, 80, 80)
                 .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(83, 83, 83)
                 .addComponent(jButton3)
-                .addContainerGap(348, Short.MAX_VALUE)));
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
     jPanel2Layout.setVerticalGroup(
         jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -133,10 +157,29 @@ public class manageUsers extends javax.swing.JFrame {
         }));
     jScrollPane2.setViewportView(userTable);
 
+    addButton.setBackground(new java.awt.Color(0, 0, 0));
+    addButton.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+    addButton.setForeground(new java.awt.Color(255, 255, 255));
     addButton.setText("Add");
+    addButton.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        addButtonActionPerformed(evt);
+      }
+    });
 
+    deleteButton.setBackground(new java.awt.Color(0, 0, 0));
+    deleteButton.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+    deleteButton.setForeground(new java.awt.Color(255, 255, 255));
     deleteButton.setText("Delete");
+    deleteButton.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        deleteButtonActionPerformed(evt);
+      }
+    });
 
+    modifyButton.setBackground(new java.awt.Color(0, 0, 0));
+    modifyButton.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+    modifyButton.setForeground(new java.awt.Color(255, 255, 255));
     modifyButton.setText("Modify");
     modifyButton.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,11 +196,33 @@ public class manageUsers extends javax.swing.JFrame {
     });
 
     searchButton.setText("Search");
+    searchButton.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        searchButtonActionPerformed(evt);
+      }
+    });
 
     roleCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Admin", "Purchase Manager",
         "Sales Manager", "Finance Manager", "Inventory Manager" }));
+    roleCombo.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        roleComboActionPerformed(evt);
+      }
+    });
 
-    roleLabel.setText("Role:");
+    roleLabel.setText("Filter by Role:");
+
+    jLabel2.setText("Role Guide:");
+
+    jLabel3.setText("1 - Admin");
+
+    jLabel4.setText("2 - Purch Man");
+
+    jLabel5.setText("3 - Sales Man");
+
+    jLabel6.setText("4 - Fin Man");
+
+    jLabel7.setText("5 - Inv Man");
 
     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
     jPanel1.setLayout(jPanel1Layout);
@@ -166,60 +231,87 @@ public class manageUsers extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
                 Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(48, 48, 48)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73,
                             javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73,
+                        .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 82,
                             javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(modifyButton))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(256, 256, 256)
-                        .addComponent(jLabel1)
-                        .addGap(325, 325, 325)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 818,
-                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 818,
+                            javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 251,
-                                    javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(searchButton))
-                            .addComponent(searchLabel))
-                        .addGap(50, 50, 50)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(searchLabel)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 251,
+                                            javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(searchButton)))
+                                .addGap(62, 62, 62)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(roleLabel)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED,
+                                            javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(roleCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jLabel1)))
+                        .addGap(88, 88, 88)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(roleLabel)
-                            .addComponent(roleCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 102,
-                                javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel5)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(40, 40, 40)
+                                .addComponent(jLabel6))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel7)))))
+                .addGap(64, 64, 64)));
     jPanel1Layout.setVerticalGroup(
         jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
                     javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-                    javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(searchLabel)
-                    .addComponent(roleLabel))
-                .addGap(7, 7, 7)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE,
-                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(searchButton)
-                    .addComponent(roleCombo, javax.swing.GroupLayout.PREFERRED_SIZE,
-                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(searchLabel)
+                            .addComponent(roleLabel))
+                        .addGap(7, 7, 7)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(searchButton)
+                            .addComponent(roleCombo, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel7))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel5)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 184,
                     javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -244,7 +336,7 @@ public class manageUsers extends javax.swing.JFrame {
   }// </editor-fold>//GEN-END:initComponents
 
   private void searchTextFieldActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_searchTextFieldActionPerformed
-    // TODO add your handling code here:
+    searchButtonActionPerformed(evt);
   }// GEN-LAST:event_searchTextFieldActionPerformed
 
   private void roleComboActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_roleComboActionPerformed
@@ -263,30 +355,10 @@ public class manageUsers extends javax.swing.JFrame {
 
     List<String[]> users = administrator.viewUsers();
     boolean foundMatching = false;
-
-    switch (selectedRole) {
-      case "Admin":
-        selectedRole = "1";
-        break;
-      case "Purchase Manager":
-        selectedRole = "2";
-        break;
-      case "Sales Manager":
-        selectedRole = "3";
-        break;
-      case "Finance Manager":
-        selectedRole = "4";
-        break;
-      case "Inventory Manager":
-        selectedRole = "5";
-        break;
-      default:
-        selectedRole = "0";
-        break;
-    }
+    String roleNumber = getRoleNumber(selectedRole);
 
     for (String[] row : users) {
-      if (row[3].trim().equals(selectedRole)) {
+      if (row[3].trim().equals(roleNumber)) {
         model.addRow(row);
         foundMatching = true;
       }
@@ -295,8 +367,61 @@ public class manageUsers extends javax.swing.JFrame {
     if (!foundMatching) {
       JOptionPane.showMessageDialog(this, "No users found with role: " + selectedRole,
           "No Matching Users", JOptionPane.ERROR_MESSAGE);
+      loadUserData();
     }
   }
+
+  private String getRoleNumber(String role) {
+    switch (role) {
+      case "Admin":
+        return "1";
+      case "Purchase Manager":
+        return "2";
+      case "Sales Manager":
+        return "3";
+      case "Finance Manager":
+        return "4";
+      case "Inventory Manager":
+        return "5";
+      default:
+        return "0";
+    }
+  }
+
+  private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_searchButtonActionPerformed
+    String searchTerm = searchTextField.getText().trim();
+    String selectedRole = roleCombo.getSelectedItem().toString();
+
+    DefaultTableModel model = (DefaultTableModel) userTable.getModel();
+    model.setRowCount(0); // Clear existing rows
+
+    List<String[]> users = administrator.viewUsers();
+    boolean foundMatching = false;
+
+    for (String[] row : users) {
+      boolean matchesSearch = searchTerm.isEmpty() || row[1].trim().toLowerCase().contains(searchTerm.toLowerCase())
+          || row[2].trim().toLowerCase().contains(searchTerm.toLowerCase());
+
+      boolean matchesRole = selectedRole.equals("Select") || row[3].trim().equals(selectedRole);
+
+      if (matchesSearch && matchesRole) {
+        model.addRow(row);
+        foundMatching = true;
+      }
+
+      if (!foundMatching) {
+        JOptionPane.showMessageDialog(this, "No users found with role: " + selectedRole,
+            "No Matching Users", JOptionPane.ERROR_MESSAGE);
+        loadUserData();
+      }
+    }
+
+    if (!foundMatching) {
+      JOptionPane.showMessageDialog(this, "No users found with role: " + selectedRole,
+          "No Matching Users", JOptionPane.ERROR_MESSAGE);
+      loadUserData();
+    }
+  } // GEN-LAST:event_searchButtonActionPerformed
 
   private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
     manageUsers manageUsersFrame = new manageUsers();
@@ -382,7 +507,13 @@ public class manageUsers extends javax.swing.JFrame {
       }
     });
 
+    JButton cancelButton = new JButton("Cancel");
+    cancelButton.addActionListener(e -> {
+      dialog.dispose();
+    });
+
     dialog.add(submitButton);
+    dialog.add(cancelButton);
     dialog.setSize(300, 200);
     dialog.setLocationRelativeTo(this);
     dialog.setVisible(true);
@@ -442,7 +573,13 @@ public class manageUsers extends javax.swing.JFrame {
       }
     });
 
+    JButton cancelButton = new JButton("Cancel");
+    cancelButton.addActionListener(e -> {
+      dialog.dispose();
+    });
+
     dialog.add(submitButton);
+    dialog.add(cancelButton);
     dialog.setSize(300, 200);
     dialog.setLocationRelativeTo(this);
     dialog.setVisible(true);
@@ -517,6 +654,12 @@ public class manageUsers extends javax.swing.JFrame {
   private javax.swing.JButton jButton2;
   private javax.swing.JButton jButton3;
   private javax.swing.JLabel jLabel1;
+  private javax.swing.JLabel jLabel2;
+  private javax.swing.JLabel jLabel3;
+  private javax.swing.JLabel jLabel4;
+  private javax.swing.JLabel jLabel5;
+  private javax.swing.JLabel jLabel6;
+  private javax.swing.JLabel jLabel7;
   private javax.swing.JPanel jPanel1;
   private javax.swing.JPanel jPanel2;
   private javax.swing.JScrollPane jScrollPane2;
