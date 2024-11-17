@@ -281,7 +281,7 @@ public class checkStockStatus extends javax.swing.JFrame {
       }
       
 
-    List<String[]> lines = fileHandler.readData(); // Read all lines from transactions.txt
+    List<String[]> lines = fileHandler.readData();
     boolean found = false; // Flag to track matching data
     for (String[] data : lines) {
       if (data.length >= 4) {
