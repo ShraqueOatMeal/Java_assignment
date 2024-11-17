@@ -30,6 +30,10 @@ public class Session {
     this.accessLevel = 0;
   }
 
+  public String getUserId() {
+    return userID;
+  }
+
   public String getUsername() {
     return username;
   }

@@ -1,2 +1,3 @@
-1,Washing Machine,2,Pending,sales,1,20/10/2020
-2,Dishwasher,10,Pending,sales,1,20/10/2020
+1,Washing Machine,2,Pending,sales,1,2020/10/20
+2,Dishwasher,10,Pending,sales,1,2020/10/20
+3,Hair Dryer,2,Pending,sales,2,2025/03/30
