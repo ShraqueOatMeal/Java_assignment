@@ -1,2 +1,2 @@
-S001,Supplier 1
-S002,Supplier 2
+S001,Supplier 1,123 Main Street
+S002,Supplier 2,456 Main Street

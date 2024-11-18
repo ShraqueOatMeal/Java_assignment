@@ -7,10 +7,12 @@ public class Supplier {
 
   private String supplierId;
   private String name;
+  private String address;
 
-  public Supplier(String supplierId, String name) {
+  public Supplier(String supplierId, String name, String address) {
     this.supplierId = supplierId;
     this.name = name;
+    this.address = address;
   }
 
   public Supplier(String supplierId) {
@@ -34,5 +36,13 @@ public class Supplier {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public String getAddress() {
+    return address;
+  }
+
+  public void setAddress(String address) {
+    this.address = address;
   }
 }
