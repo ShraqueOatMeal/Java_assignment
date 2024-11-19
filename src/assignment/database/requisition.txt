@@ -1,6 +1,0 @@
-1,Washing Machine,2,Approved,SM001,2020/10/20,1,S001
-2,Dishwasher,10,Approved,SM002,2020/10/20,2,S002
-3,Hair Dryer,2,Rejected,SM002,2025/03/30,3,S001
-4,Hair Dryer,2,Approved,2,2024/01/01,46,S002
-5,Massage Chair,3,Approved,3,2024/01/01,50,S002
-6,Hair Dryer,3,Approved,3,2024/03/05,46,S002

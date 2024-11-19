@@ -82,6 +82,24 @@ public class FileHandler {
     }
   }
 
+  public void appendRecord(String record) throws IOException {
+    try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))) {
+      writer.write(record);
+      writer.newLine();
+    }
+  }
+
+  public List<String> readRecords() throws IOException {
+    List<String> lines = new ArrayList<>();
+    try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+      String line;
+      while ((line = reader.readLine()) != null) {
+        lines.add(line);
+      }
+    }
+    return lines;
+  }
+
   public void clearFileContents() {
     try (FileWriter writer = new FileWriter(filePath, false)) {
       writer.close();
