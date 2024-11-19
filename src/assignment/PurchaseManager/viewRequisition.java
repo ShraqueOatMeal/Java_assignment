@@ -245,7 +245,7 @@ public class viewRequisition extends javax.swing.JFrame {
     statusLabel.setText("Status:");
 
     statusCombo
-        .setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Approved", "Rejected", "Pending" }));
+        .setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Rejected", "Pending" }));
     statusCombo.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         statusComboActionPerformed(evt);
@@ -346,12 +346,6 @@ public class viewRequisition extends javax.swing.JFrame {
 
     // Get current status
     String currentStatus = jTable1.getValueAt(selectedRow, 3).toString();
-
-    if (currentStatus.equals("Approved")) {
-      JOptionPane.showMessageDialog(this, "Requisition is already approved", "No Change",
-          JOptionPane.INFORMATION_MESSAGE);
-      return;
-    }
 
     if (currentStatus.equals("Rejected")) {
       JOptionPane.showMessageDialog(this, "Cannot reject a rejected requisition", "Action Not Allowed",
@@ -524,12 +518,6 @@ public class viewRequisition extends javax.swing.JFrame {
     // Get current status
     String currentStatus = jTable1.getValueAt(selectedRow, 3).toString();
 
-    if (currentStatus.equals("Approved")) {
-      JOptionPane.showMessageDialog(this, "Requisition is already approved", "No Change",
-          JOptionPane.INFORMATION_MESSAGE);
-      return;
-    }
-
     if (currentStatus.equals("Rejected")) {
       JOptionPane.showMessageDialog(this, "Cannot approve a rejected requisition", "Action Not Allowed",
           JOptionPane.WARNING_MESSAGE);
@@ -548,11 +536,14 @@ public class viewRequisition extends javax.swing.JFrame {
         String[] rowData = new String[jTable1.getColumnCount()];
         for (int i = 0; i < jTable1.getColumnCount(); i++) {
           rowData[i] = jTable1.getValueAt(selectedRow, i).toString();
-          System.out.println(rowData[i]);
         }
+
+        rowData[3] = "Approved";
+
         appendToPurchaseOrder(rowData);
-        System.out.println();
+
         removeRequisitionRow(rowData[0]);
+
         loadTable();
         JOptionPane.showMessageDialog(this,
             "Requisition " + rowData[0] + " has been approved and move to Purchase Order",
