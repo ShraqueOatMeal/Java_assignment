@@ -5,6 +5,11 @@
  */
 package assignment.InventoryManager;
 
+import java.util.*;
+import assignment.FileHandler;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Admin
@@ -16,6 +21,7 @@ public class trackInventoryValue extends javax.swing.JFrame {
    */
   public trackInventoryValue() {
     initComponents();
+    loadTable();
   }
 
   /**
@@ -67,6 +73,12 @@ public class trackInventoryValue extends javax.swing.JFrame {
         jButton2ActionPerformed(evt);
       }
     });
+
+    jButton12.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+          jButton12ActionPerformed(evt);
+      }
+  });
 
     jButton1.setBackground(new java.awt.Color(0, 0, 0));
     jButton1.setForeground(new java.awt.Color(255, 255, 255));
@@ -238,6 +250,72 @@ public class trackInventoryValue extends javax.swing.JFrame {
 
     pack();
   }// </editor-fold>//GEN-END:initComponents
+
+  private void loadTable() {
+    InventoryManager inventoryManager = new InventoryManager();
+    List<String[]> trackInventoryValue = inventoryManager.trackInventoryValue();
+
+    // Initialize the table model again (if needed)
+    DefaultTableModel model = new DefaultTableModel(
+        new Object[][] {}, 
+        new String[] { "Item ID", "Item Name", "Item Status", "Item Quantity", "Item Price" }
+    );
+    jTable1.setModel(model);
+    
+    model.setRowCount(0); // Clear any existing rows
+
+    // Add rows to the table
+    for (String[] row : trackInventoryValue) {
+        model.addRow(row);
+    }
+  }
+
+  private void search(String searchText) {
+    FileHandler fileHandler = new FileHandler("src/assignment/database/stock.txt");
+    DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+    model.setRowCount(0); // Clear existing rows
+
+    try {
+      int status = Integer.parseInt(searchText.trim()); // Parse the input to an integer
+      if (status < 1 || status > 5) {
+          JOptionPane.showMessageDialog(this, "Please enter a number between 1 and 5", "Invalid Input", JOptionPane.ERROR_MESSAGE);
+          return;
+      }
+
+      List<String[]> lines = fileHandler.readData();
+      boolean found = false; // Flag to track matching data
+      for (String[] data : lines) {
+        if (data.length >= 4) {
+            String itemStatus = data[3].trim(); // Trim whitespace
+            if (itemStatus.equals(String.valueOf(status))) { // Compare as strings
+                model.addRow(new Object[]{
+                    data[0].trim(), // Item ID
+                    data[1].trim(), // Item Name
+                    data[2].trim(), // Item Quantity
+                    itemStatus,     // Item Status
+                    data[4].trim()  // Item Price
+                });
+              found = true;
+            }
+        }
+    }
+      // Show a message if no matching stock is found
+        if (!found) {
+          JOptionPane.showMessageDialog(this, "No matching stock found", "No Matching Stock", JOptionPane.ERROR_MESSAGE);
+      }
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "Please enter a valid number", "Invalid Input", JOptionPane.ERROR_MESSAGE);
+    }
+  }
+
+  private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton3ActionPerformed
+    String searchText = jTextField1.getText().trim();
+    if (!searchText.isEmpty()) {
+      search(searchText);
+    } else {
+      JOptionPane.showMessageDialog(this, "Please enter a Item ID", "Error", JOptionPane.ERROR_MESSAGE);
+    }
+  } 
 
   private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton2ActionPerformed
     manageSuppliers manageSuppliersFrame = new manageSuppliers();

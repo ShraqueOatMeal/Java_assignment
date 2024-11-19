@@ -4,18 +4,33 @@
  * and open the template in the editor.
  */
 package assignment.InventoryManager;
+import assignment.FileHandler;
+import javax.swing.table.DefaultTableModel;
+
+import java.util.List;
+import java.awt.*;
+
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
 
 /**
  *
  * @author Admin
  */
 public class manageItems extends javax.swing.JFrame {
+  private InventoryManager inventoryManager;
 
   /**
    * Creates new form manageItems
    */
   public manageItems() {
+    inventoryManager = new InventoryManager();
     initComponents();
+    loadTable();
   }
 
   /**
@@ -86,6 +101,11 @@ public class manageItems extends javax.swing.JFrame {
         jButton3ActionPerformed(evt);
       }
     });
+    jButton7.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton7ActionPerformed(evt);
+      }
+    });
 
     jButton4.setBackground(new java.awt.Color(0, 0, 0));
     jButton4.setForeground(new java.awt.Color(255, 255, 255));
@@ -102,6 +122,24 @@ public class manageItems extends javax.swing.JFrame {
     jButton6.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jButton6ActionPerformed(evt);
+      }
+    });
+
+    jButton9.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton9ActionPerformed(evt);
+      }
+    });
+
+    // jButton10.addActionListener(new java.awt.event.ActionListener() {
+    //   public void actionPerformed(java.awt.event.ActionEvent evt) {
+    //     jButton10ActionPerformed(evt);
+    //   }
+    // });
+
+    jButton11.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton11ActionPerformed(evt);
       }
     });
 
@@ -155,7 +193,7 @@ public class manageItems extends javax.swing.JFrame {
 
         },
         new String[] {
-            "Item ID", "Item Name", "Item Status", "Item Price", "Item Quantity"
+             "Item Name", "Item Status", "Item Price", "Item Quantity"
         }));
     jScrollPane1.setViewportView(jTable1);
 
@@ -230,6 +268,202 @@ public class manageItems extends javax.swing.JFrame {
     setLocationRelativeTo(null);
   }// </editor-fold>//GEN-END:initComponents
 
+  private void loadTable() {
+    InventoryManager inventoryManager = new InventoryManager();
+    List<String[]> manageItems = inventoryManager.updateStockLevels();
+
+    // Initialize the table model again (if needed)
+    DefaultTableModel model = new DefaultTableModel(
+        new Object[][] {}, 
+        new String[] { "Item ID", "Item Name", "Item Status", "Item Price", "Item Quantity" }
+    );
+    jTable1.setModel(model);
+    
+    model.setRowCount(0); // Clear any existing rows
+
+    // Add rows to the table
+    for (String[] row : manageItems) {
+        model.addRow(row);
+    }
+  }
+  
+
+  private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton7ActionPerformed
+    dialog = new javax.swing.JDialog(this, "Add New Item", true);
+
+    // Fields
+    itemNameField = new javax.swing.JTextField(15);
+    itemStatusField = new javax.swing.JTextField(15);
+    itemPriceField = new javax.swing.JTextField(15);
+    itemQuantityField = new javax.swing.JTextField(15);
+
+    // Labels
+    JLabel itemNameLabel = new JLabel("Item Name:");
+    JLabel itemStatusLabel = new JLabel("Item Status:");
+    JLabel itemPriceLabel = new JLabel("Item Price:");
+    JLabel itemQuantityLabel = new JLabel("Item Quantity:");
+
+    // Button
+    JButton buttonUpdate = new JButton("Update Item");
+    buttonUpdate.addActionListener(e -> {
+        try {
+            String itemName = itemNameField.getText().trim();
+            int itemStatus = Integer.parseInt(itemStatusField.getText().trim());
+            int itemPrice = Integer.parseInt(itemPriceField.getText().trim());
+            int itemQuantity = Integer.parseInt(itemQuantityField.getText().trim());
+
+            if (itemName.isEmpty() || itemStatus <= 0 || itemPrice <= 0) {
+                JOptionPane.showMessageDialog(dialog, "All fields are required!");
+                return;
+            }
+            if (inventoryManager.addItem(itemName, itemStatus, itemPrice, itemQuantity)) {
+                dialog.dispose();
+                loadTable();
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(dialog, "Error Adding Item");
+        }
+    });
+
+    // Set up layout
+    javax.swing.GroupLayout layout = new javax.swing.GroupLayout(dialog.getContentPane());
+    dialog.getContentPane().setLayout(layout);
+    layout.setAutoCreateGaps(true);
+    layout.setAutoCreateContainerGaps(true);
+
+    layout.setHorizontalGroup(
+        layout.createSequentialGroup()
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(itemNameLabel)
+                .addComponent(itemStatusLabel)
+                .addComponent(itemPriceLabel)
+                .addComponent(itemQuantityLabel))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(itemNameField)
+                .addComponent(itemStatusField)
+                .addComponent(itemPriceField)
+                .addComponent(itemQuantityField)
+                .addComponent(buttonUpdate))
+    );
+
+    layout.setVerticalGroup(
+        layout.createSequentialGroup()
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(itemNameLabel)
+                .addComponent(itemNameField))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(itemStatusLabel)
+                .addComponent(itemStatusField))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(itemPriceLabel)
+                .addComponent(itemPriceField))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(itemQuantityLabel)
+                .addComponent(itemQuantityField))
+            .addComponent(buttonUpdate)
+    );
+
+    dialog.pack();
+    dialog.setLocationRelativeTo(this);
+    dialog.setVisible(true);
+}
+
+
+
+private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {
+  // GEN-FIRST:event_jButton9ActionPerformed
+  int selectedRow = jTable1.getSelectedRow();
+  if (selectedRow == -1) {
+    JOptionPane.showMessageDialog(this, "Please select a item to delete");
+    return;
+  }
+
+  String itemname = (String) jTable1.getValueAt(selectedRow, 1);
+
+  int confirm = JOptionPane.showConfirmDialog(
+    this, 
+    "Are you sure you want to delete " 
+    + itemname 
+    + "?");
+
+  if (confirm == JOptionPane.YES_OPTION) {
+     if(inventoryManager.removeItem(itemname)){
+    loadTable();
+  }
+}}
+
+private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {
+  int selectedRow = jTable1.getSelectedRow();
+  if (selectedRow == -1) {
+      JOptionPane.showMessageDialog(this, "Please select an item to edit!");
+      return;
+  }
+
+  // Get the selected item's details
+  String itemID = (String) jTable1.getValueAt(selectedRow, 0);
+  String itemName = (String) jTable1.getValueAt(selectedRow, 1);
+  int itemStatus = Integer.parseInt(jTable1.getValueAt(selectedRow, 2).toString());
+  int itemPrice = Integer.parseInt(jTable1.getValueAt(selectedRow, 3).toString());
+  int itemQuantity = Integer.parseInt(jTable1.getValueAt(selectedRow, 4).toString());
+
+  // Create a dialog for editing the item
+  JDialog editDialog = new JDialog(this, "Edit Item", true);
+  editDialog.setLayout(new GridLayout(5, 2));
+
+  // Create text fields for editing
+  JTextField editItemNameField = new JTextField(itemName);
+  JTextField editItemStatusField = new JTextField(String.valueOf(itemStatus));
+  JTextField editItemPriceField = new JTextField(String.valueOf(itemPrice));
+  JTextField editItemQuantityField = new JTextField(String.valueOf(itemQuantity));
+
+  // Add components to the dialog
+  editDialog.add(new JLabel("Item Name:"));
+  editDialog.add(editItemNameField);
+  editDialog.add(new JLabel("Item Status:"));
+  editDialog.add(editItemStatusField);
+  editDialog.add(new JLabel("Item Price:"));
+  editDialog.add(editItemPriceField);
+  editDialog.add(new JLabel("Item Quantity:"));
+  editDialog.add(editItemQuantityField);
+
+  // Add an "Update" button
+  JButton submitButton = new JButton("Update");
+  submitButton.addActionListener(e -> {
+      try {
+          String newItemName = editItemNameField.getText().trim();
+          int newItemStatus = Integer.parseInt(editItemStatusField.getText().trim());
+          int newItemPrice = Integer.parseInt(editItemPriceField.getText().trim());
+          int newItemQuantity = Integer.parseInt(editItemQuantityField.getText().trim());
+
+          // Debugging logs
+          System.out.println("Updating item with ID: " + itemID);
+
+          // Update the item in the inventory manager
+          if (inventoryManager.updateItem(itemID, newItemName, newItemStatus, newItemPrice, newItemQuantity)) {
+              // Directly update the table
+              DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+              model.setValueAt(newItemName, selectedRow, 1);
+              model.setValueAt(newItemStatus, selectedRow, 2);
+              model.setValueAt(newItemPrice, selectedRow, 3);
+              model.setValueAt(newItemQuantity, selectedRow, 4);
+
+              editDialog.dispose();
+              JOptionPane.showMessageDialog(this, "Item updated successfully!");
+          } else {
+              JOptionPane.showMessageDialog(this, "Error updating item");
+          }
+      } catch (NumberFormatException ex) {
+          JOptionPane.showMessageDialog(this, "Invalid input. Please enter numbers for status, price, and quantity.");
+      }
+  });
+
+  editDialog.add(submitButton);
+  editDialog.pack();
+  editDialog.setLocationRelativeTo(this);
+  editDialog.setVisible(true);
+}
+
+
   private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton2ActionPerformed
     manageSuppliers manageSuppliersFrame = new manageSuppliers();
     manageSuppliersFrame.setVisible(true);
@@ -237,6 +471,7 @@ public class manageItems extends javax.swing.JFrame {
     manageSuppliersFrame.setLocationRelativeTo(null);
     this.dispose();
   }// GEN-LAST:event_jButton2ActionPerformed
+  
 
   private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
     manageItems manageItemsFrame = new manageItems();
@@ -325,5 +560,12 @@ public class manageItems extends javax.swing.JFrame {
   private javax.swing.JPanel jPanel2;
   private javax.swing.JScrollPane jScrollPane1;
   private javax.swing.JTable jTable1;
+  private javax.swing.JDialog dialog;
+  private javax.swing.JTextField itemNameField;
+  private javax.swing.JTextField itemStatusField;
+  private javax.swing.JTextField itemPriceField;
+  private javax.swing.JTextField itemQuantityField;
+  private javax.swing.JButton buttonUpdate;
+  private javax.swing.JButton submitButton;
   // End of variables declaration//GEN-END:variables
 }

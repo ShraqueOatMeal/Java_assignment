@@ -5,6 +5,11 @@
  */
 package assignment.InventoryManager;
 
+import java.util.*;
+import assignment.FileHandler;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Admin
@@ -16,6 +21,7 @@ public class updateStockLevels extends javax.swing.JFrame {
    */
   public updateStockLevels() {
     initComponents();
+    loadTable();
   }
 
   /**
@@ -222,6 +228,25 @@ public class updateStockLevels extends javax.swing.JFrame {
 
     pack();
   }// </editor-fold>//GEN-END:initComponents
+
+  private void loadTable() {
+    InventoryManager inventoryManager = new InventoryManager();
+    List<String[]> updateStockLevels = inventoryManager.updateStockLevels();
+
+    // Initialize the table model again (if needed)
+    DefaultTableModel model = new DefaultTableModel(
+        new Object[][] {}, 
+        new String[] { "Item ID", "Item Name", "Item Quantity", "Title Status" }
+    );
+    jTable2.setModel(model);
+    
+    model.setRowCount(0); // Clear any existing rows
+
+    // Add rows to the table
+    for (String[] row : updateStockLevels) {
+        model.addRow(row);
+    }
+  }
 
   private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton2ActionPerformed
     manageSuppliers manageSuppliersFrame = new manageSuppliers();

@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package assignment.InventoryManager;
+import java.util. List;
+import assignment.FileHandler;  
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -16,6 +19,7 @@ public class manageSuppliers extends javax.swing.JFrame {
    */
   public manageSuppliers() {
     initComponents();
+    loadTable();
   }
 
   /**
@@ -209,6 +213,25 @@ public class manageSuppliers extends javax.swing.JFrame {
 
     pack();
   }// </editor-fold>//GEN-END:initComponents
+
+  private void loadTable() {
+    InventoryManager inventoryManager = new InventoryManager();
+    List<String[]> manageSuppliers = inventoryManager.manageSuppliers();
+
+    // Initialize the table model again (if needed)
+    DefaultTableModel model = new DefaultTableModel(
+        new Object[][] {}, 
+        new String[] { "Supplier ID", "Supplier Name", "Supplier Status", "Supplier Item ID" }
+    );
+    jTable1.setModel(model);
+    
+    model.setRowCount(0); // Clear any existing rows
+
+    // Add rows to the table
+    for (String[] row : manageSuppliers) {
+        model.addRow(row);
+    }
+  }
 
   private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton2ActionPerformed
     manageSuppliers manageSuppliersFrame = new manageSuppliers();

@@ -47,6 +47,13 @@
 47,Hair Straightener,40,5
 48,Electric Shaver,30,5
 49,Electric Toothbrush,50,5
-50,Massage Chair,3,5
 51,Air Humidifier,25,5
 52,Air Purifier,20,5
+53,1,2,4,4
+53,1,2,4,4
+54,1,11,1,11,1
+55,123,1234,123,123,123
+56,1,112233,123,123,123
+57,1,abvc,123,123,123
+58,1,22,33,44,55
+59,122,1,1,1
