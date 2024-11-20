@@ -61,6 +61,7 @@ public class SalesManager extends UserType {
   }
 
   public List<String[]> viewPurchaseOrder() {
+    FileHandler fileHandler = new FileHandler("src/assignment/database/purchOrder.txt");
     return fileHandler.readData();
   }
 

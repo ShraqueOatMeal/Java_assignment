@@ -202,7 +202,7 @@ public class viewRequisition extends javax.swing.JFrame {
 
             },
             new String [] {
-                "PR ID", "Item Name", "Item Quantity", "Item Status", "SM ID", "Required Date", "Item ID", "Sup ID"
+                "PR ID", "Item Name", "Item Quantity", "Item Status", "Req ID", "Required Date", "Item ID", "Sup ID"
             }
         ) {
             Class[] types = new Class [] {
