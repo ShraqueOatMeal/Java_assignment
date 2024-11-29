@@ -11,8 +11,8 @@ import assignment.Items;
 import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.JOptionPane;
-import java.util.Set;
-import java.util.HashSet;
+import java.util.Map;
+import java.util.HashMap;
 
 /**
  *
@@ -460,18 +460,24 @@ public class createRequisition extends javax.swing.JFrame {
     }
 
     // Find all supplierIDs from bridge table that match the stockID
-    Set<String> linkedSupplierIDs = new HashSet<>();
+    Map<String, String> supplierPrices = new HashMap<>();
     for (String[] bridgeData : bridges) {
       if (bridgeData[0].equals(stockID)) {
-        linkedSupplierIDs.add(bridgeData[1]); // bridge[1] contains supplierID
+        String supplierID = bridgeData[1]; // bridge[1] contains supplierID
+        String price = bridgeData[2]; // bridge[2] contains supplierName
+
+        for (String[] supplierData : suppliers) {
+          if (supplierData[0].equals(supplierID)) {
+            String displayText = supplierData[1] + "- $" + price;
+            supplierPrices.put(supplierID, displayText);
+          }
+        }
       }
     }
 
     // Add only the supplier names that match the linked supplierIDs
-    for (String[] supplierData : suppliers) {
-      if (linkedSupplierIDs.contains(supplierData[0])) { // supplierData[0] is supplierID
-        supplierCombo.addItem(supplierData[1]); // supplierData[1] is supplierName
-      }
+    for (String displayText : supplierPrices.values()) {
+      supplierCombo.addItem(displayText);
     }
   }
 
