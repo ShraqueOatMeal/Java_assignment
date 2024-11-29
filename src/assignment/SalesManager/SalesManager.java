@@ -3,6 +3,7 @@ package assignment.SalesManager;
 import assignment.UserType;
 import assignment.FileHandler;
 import java.util.List;
+import java.util.Arrays;
 
 public class SalesManager extends UserType {
   private FileHandler fileHandler;
@@ -78,8 +79,23 @@ public class SalesManager extends UserType {
   }
 
   public List<String[]> checkStockLevel() {
-    FileHandler fileHandler = new FileHandler("src/assignment/database/stock.txt");
-    return fileHandler.readData();
+    FileHandler stockFile = new FileHandler("src/assignment/database/stock.txt");
+    FileHandler itemFile = new FileHandler("src/assignment/database/item.txt");
+    List<String[]> stockList = stockFile.readData();
+
+    // Get item itemName
+    List<String[]> itemList = itemFile.readData();
+    for (String[] item : itemList) {
+      String itemId = item[0];
+      String itemName = item[1];
+      for (String[] stock : stockList) {
+        if (stock[0].equals(itemId)) {
+
+        }
+      }
+    }
+    System.out.println(Arrays.deepToString(stockList.get(0)));
+    return stockList;
   }
 
   public void saveAll() {
