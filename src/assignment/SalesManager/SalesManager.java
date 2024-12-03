@@ -3,6 +3,7 @@ package assignment.SalesManager;
 import assignment.UserType;
 import assignment.FileHandler;
 import java.util.List;
+import java.util.Arrays;
 
 public class SalesManager extends UserType {
   private FileHandler fileHandler;
@@ -61,6 +62,7 @@ public class SalesManager extends UserType {
   }
 
   public List<String[]> viewPurchaseOrder() {
+    FileHandler fileHandler = new FileHandler("src/assignment/database/purchOrder.txt");
     return fileHandler.readData();
   }
 
@@ -77,8 +79,10 @@ public class SalesManager extends UserType {
   }
 
   public List<String[]> checkStockLevel() {
-    FileHandler fileHandler = new FileHandler("src/assignment/database/stock.txt");
-    return fileHandler.readData();
+    FileHandler stockFile = new FileHandler("src/assignment/database/stock.txt");
+    List<String[]> stockList = stockFile.readData();
+
+    return stockList;
   }
 
   public void saveAll() {

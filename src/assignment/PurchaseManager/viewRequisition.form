@@ -370,7 +370,7 @@
                     <Column editable="false" title="Item Name" type="java.lang.Object"/>
                     <Column editable="false" title="Item Quantity" type="java.lang.Integer"/>
                     <Column editable="false" title="Item Status" type="java.lang.String"/>
-                    <Column editable="false" title="SM ID" type="java.lang.Object"/>
+                    <Column editable="false" title="Req ID" type="java.lang.Object"/>
                     <Column editable="false" title="Required Date" type="java.lang.Object"/>
                     <Column editable="false" title="Item ID" type="java.lang.Object"/>
                     <Column editable="false" title="Sup ID" type="java.lang.Object"/>

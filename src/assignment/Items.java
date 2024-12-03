@@ -21,7 +21,6 @@ public class Items {
     for (String[] itemData : items) {
       if (itemData[1].equals(itemName)) {
         itemId = itemData[0];
-        supplier = new Supplier(itemData[4]);
       }
     }
   }
