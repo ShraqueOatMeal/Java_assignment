@@ -41,6 +41,7 @@ public class viewRequisition extends javax.swing.JFrame {
   // <editor-fold defaultstate="collapsed" desc="Generated
   // <editor-fold defaultstate="collapsed" desc="Generated
   // <editor-fold defaultstate="collapsed" desc="Generated
+  // <editor-fold defaultstate="collapsed" desc="Generated
   // Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
@@ -116,7 +117,6 @@ public class viewRequisition extends javax.swing.JFrame {
     jButton4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
     jButton4.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
-        jButton4ActionPerformed(evt);
       }
     });
 
@@ -592,14 +592,6 @@ public class viewRequisition extends javax.swing.JFrame {
   private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
     // TODO add your handling code here:
   }// GEN-LAST:event_jButton1ActionPerformed
-
-  private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton4ActionPerformed
-    approvePurchaseOrder approvePurchaseOrderFrame = new approvePurchaseOrder();
-    approvePurchaseOrderFrame.setVisible(true);
-    approvePurchaseOrderFrame.pack();
-    approvePurchaseOrderFrame.setLocationRelativeTo(null);
-    this.dispose();
-  }// GEN-LAST:event_jButton4ActionPerformed
 
   private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton3ActionPerformed
     viewItems viewItemsFrame = new viewItems();

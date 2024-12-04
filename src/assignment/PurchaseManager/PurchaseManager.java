@@ -35,8 +35,11 @@ public class PurchaseManager extends UserType {
     return username;
   }
 
-  public void viewItems() {
-    // Implementation
+  public List<String[]> checkStockLevel() {
+    FileHandler stockFile = new FileHandler("src/assignment/database/stock.txt");
+    List<String[]> stockList = stockFile.readData();
+
+    return stockList;
   }
 
   public void viewSuppliers() {
