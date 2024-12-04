@@ -465,7 +465,7 @@ public class createRequisition extends javax.swing.JFrame {
     for (String[] bridgeData : bridges) {
       if (bridgeData[0].equals(stockID)) {
         String supplierID = bridgeData[1]; // bridge[1] contains supplierID
-        String price = bridgeData[2]; // bridge[2] contains supplierName
+        String price = bridgeData[2]; // bridge[2] contains price
 
         for (String[] supplierData : suppliers) {
           if (supplierData[0].equals(supplierID)) {
@@ -605,6 +605,7 @@ public class createRequisition extends javax.swing.JFrame {
       String supplierId = "";
 
       String supplierName = (String) selectedSupplier.split("-")[0].trim();
+      String price = (String) selectedSupplier.split("\\$")[1].trim();
       for (String[] supplierData : suppliers) {
         if (supplierData[1].equals(supplierName)) {
           supplierId = supplierData[0];
@@ -620,7 +621,7 @@ public class createRequisition extends javax.swing.JFrame {
       }
 
       SalesManager salesManager = new SalesManager();
-      salesManager.createRequisition(itemName, quantity, userId, date, itemId, supplierId);
+      salesManager.createRequisition(itemName, quantity, userId, date, itemId, supplierId, price);
       salesManager.saveAll();
 
       createSuccess createSuccessFrame = new createSuccess();

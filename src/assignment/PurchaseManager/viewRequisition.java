@@ -202,14 +202,14 @@ public class viewRequisition extends javax.swing.JFrame {
 
             },
             new String [] {
-                "PR ID", "Item Name", "Item Quantity", "Item Status", "Req ID", "Required Date", "Item ID", "Sup ID"
+                "PR ID", "Item Name", "Item Quantity", "Item Status", "Req ID", "Required Date", "Item ID", "Sup ID", "Price per Item"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {

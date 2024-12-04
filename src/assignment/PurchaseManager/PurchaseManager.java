@@ -8,6 +8,7 @@ public class PurchaseManager extends UserType {
   private double purchaseLimit;
   private double approvalThreshold;
   private FileHandler fileHandler;
+  private FileHandler purchOrderHandler;
   private String username;
   // private List<Supplier> assignedSuppliers;
 
@@ -16,6 +17,7 @@ public class PurchaseManager extends UserType {
     this.accessLevel = 2;
     this.department = "Purchase";
     this.fileHandler = new FileHandler("src/assignment/database/requisition.txt");
+    this.purchOrderHandler = new FileHandler("src/assignment/database/purchOrder.txt");
   }
 
   @Override
@@ -50,12 +52,12 @@ public class PurchaseManager extends UserType {
   }
 
   public void createRequisition(String itemName, int quantity, String userId, String date, String itemId,
-      String supId) {
-    int newRequisitionID = fileHandler.getLastId() + 1;
+      String supId, String price) {
+    int newRequisitionID = purchOrderHandler.getLastId() + 1;
     String status = "Approved";
     String[] record = { String.valueOf(newRequisitionID), itemName, String.valueOf(quantity), status,
-        userId, date, itemId, supId };
-    fileHandler.addRecord(record);
+        userId, date, itemId, supId, price };
+    purchOrderHandler.addRecord(record);
   }
 
   public void approvePurchaseOrder() {
@@ -64,5 +66,6 @@ public class PurchaseManager extends UserType {
 
   public void saveAll() {
     fileHandler.saveAllRecords();
+    purchOrderHandler.saveAllRecords();
   }
 }

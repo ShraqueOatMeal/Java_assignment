@@ -1,1 +1,1 @@
-1,Massage Chair,5,Approved,2,2024/01/01,I050,S002
+1,Hair Dryer,3,Approved,3,2024/01/01,I046,S001,15

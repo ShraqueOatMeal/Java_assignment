@@ -68,7 +68,6 @@ public class FileHandler {
         writer.write(record);
         writer.newLine();
       }
-      System.out.println("All records saved successfully.");
     } catch (IOException e) {
       System.err.println("Error saving records: " + e.getMessage());
     }

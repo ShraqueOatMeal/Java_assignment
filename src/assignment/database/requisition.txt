@@ -1,2 +1,1 @@
-1,Hair Dryer,2,Pending,2,2024/01/01,I046,S001
-2,Massage Chair,3,Approved,3,2024/01/01,I050,S001
+1,Hair Dryer,2,Pending,2,2024/01/01,I046,S002,20

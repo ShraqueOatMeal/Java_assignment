@@ -428,8 +428,9 @@ public class createPurchaseOrder extends javax.swing.JFrame {
       FileHandler supplier = new FileHandler("src/assignment/database/suppliers.txt");
       List<String[]> suppliers = supplier.readData();
       String supplierId = "";
-
       String supplierName = (String) selectedSupplier.split("-")[0].trim();
+      String price = (String) selectedSupplier.split("\\$")[1].trim();
+
       for (String[] supplierData : suppliers) {
         if (supplierData[1].equals(supplierName)) {
           supplierId = supplierData[0];
@@ -439,13 +440,14 @@ public class createPurchaseOrder extends javax.swing.JFrame {
 
       Items item = new Items(itemName);
       String itemId = item.getItemId();
+
       if (itemId == null || supplierId == null || supplierId.isEmpty()) {
         JOptionPane.showMessageDialog(null, "Item or Supplier not found", "Error", JOptionPane.ERROR_MESSAGE);
         return;
       }
 
       PurchaseManager purchaseManager = new PurchaseManager();
-      purchaseManager.createRequisition(itemName, quantity, userId, date, itemId, supplierId);
+      purchaseManager.createRequisition(itemName, quantity, userId, date, itemId, supplierId, price);
       purchaseManager.saveAll();
 
       createSuccess createSuccessFrame = new createSuccess();
@@ -454,7 +456,8 @@ public class createPurchaseOrder extends javax.swing.JFrame {
       createSuccessFrame.setLocationRelativeTo(null);
       this.dispose();
     } catch (Exception e) {
-      JOptionPane.showMessageDialog(null, "Please select an item and quantity.");
+      e.printStackTrace();
+      JOptionPane.showMessageDialog(null, "Please select an item and quantity.", "Error", JOptionPane.ERROR_MESSAGE);
     }
 
   }// GEN-LAST:event_jButton1ActionPerformed
