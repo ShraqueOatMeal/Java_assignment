@@ -5,6 +5,13 @@
  */
 package assignment.PurchaseManager;
 
+import assignment.FileHandler;
+import javax.swing.table.DefaultTableModel;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.TableRowSorter;
+import javax.swing.RowFilter;
+
 /**
  *
  * @author Admin
@@ -16,6 +23,7 @@ public class viewSupplier extends javax.swing.JFrame {
    */
   public viewSupplier() {
     initComponents();
+    loadTable();
   }
 
   /**
@@ -27,6 +35,7 @@ public class viewSupplier extends javax.swing.JFrame {
   // <editor-fold defaultstate="collapsed" desc="Generated
   // <editor-fold defaultstate="collapsed" desc="Generated
   // <editor-fold defaultstate="collapsed" desc="Generated
+  // <editor-fold defaultstate="collapsed" desc="Generated
   // Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
@@ -35,7 +44,6 @@ public class viewSupplier extends javax.swing.JFrame {
     searchButton = new javax.swing.JButton();
     jPanel2 = new javax.swing.JPanel();
     jButton3 = new javax.swing.JButton();
-    jButton4 = new javax.swing.JButton();
     jButton5 = new javax.swing.JButton();
     jButton9 = new javax.swing.JButton();
     jButton6 = new javax.swing.JButton();
@@ -71,16 +79,6 @@ public class viewSupplier extends javax.swing.JFrame {
     jButton3.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jButton3ActionPerformed(evt);
-      }
-    });
-
-    jButton4.setBackground(new java.awt.Color(0, 0, 0));
-    jButton4.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
-    jButton4.setForeground(new java.awt.Color(255, 255, 255));
-    jButton4.setText("Approve Purchase Order");
-    jButton4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-    jButton4.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
       }
     });
 
@@ -135,15 +133,13 @@ public class viewSupplier extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButton3)
-                .addGap(34, 34, 34)
-                .addComponent(jButton4)
-                .addGap(37, 37, 37)
+                .addGap(18, 18, 18)
                 .addComponent(jButton5)
-                .addGap(33, 33, 33)
+                .addGap(18, 18, 18)
                 .addComponent(jButton9)
-                .addGap(37, 37, 37)
+                .addGap(18, 18, 18)
                 .addComponent(jButton6)
-                .addGap(46, 46, 46)
+                .addGap(18, 18, 18)
                 .addComponent(jButton8)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
     jPanel2Layout.setVerticalGroup(
@@ -152,8 +148,6 @@ public class viewSupplier extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 50,
-                            javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 50,
                             javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 50,
@@ -170,8 +164,16 @@ public class viewSupplier extends javax.swing.JFrame {
 
         },
         new String[] {
-            "Supplier Code", "Supplier Name", "Supplier Item ID", "Supplier Status", "Join Date"
-        }));
+            "Supplier ID", "Supplier Name", "Supplier Item ID", "Address", "Price per Item"
+        }) {
+      boolean[] canEdit = new boolean[] {
+          false, false, false, false, false
+      };
+
+      public boolean isCellEditable(int rowIndex, int columnIndex) {
+        return canEdit[columnIndex];
+      }
+    });
     jScrollPane1.setViewportView(jTable1);
 
     searchLabel.setText("Search:");
@@ -198,7 +200,7 @@ public class viewSupplier extends javax.swing.JFrame {
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 837,
                                 javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(searchLabel))))
-                .addContainerGap(41, Short.MAX_VALUE)));
+                .addContainerGap(74, Short.MAX_VALUE)));
     jPanel1Layout.setVerticalGroup(
         jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -284,8 +286,73 @@ public class viewSupplier extends javax.swing.JFrame {
   }// GEN-LAST:event_jButton8ActionPerformed
 
   private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_searchButtonActionPerformed
-    // TODO add your handling code here:
+    String searchQuery = searchTextField.getText().toLowerCase().trim();
+    DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+    TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(model);
+    jTable1.setRowSorter(sorter);
+
+    if (searchQuery.length() == 0) {
+      sorter.setRowFilter(null);
+    } else {
+      sorter.setRowFilter(new RowFilter<DefaultTableModel, Integer>() {
+        @Override
+        public boolean include(Entry<? extends DefaultTableModel, ? extends Integer> entry) {
+          for (int i = 0; i < entry.getValueCount(); i++) {
+            String value = entry.getStringValue(i);
+            if (value != null && value.toLowerCase().contains(searchQuery)) {
+              return true;
+            }
+          }
+          return false;
+        }
+      });
+    }
   }// GEN-LAST:event_searchButtonActionPerformed
+
+  private void loadTable() {
+    FileHandler supplier = new FileHandler("src/assignment/database/suppliers.txt");
+    FileHandler bridge = new FileHandler("src/assignment/database/bridge.txt");
+    FileHandler stock = new FileHandler("src/assignment/database/stock.txt");
+
+    List<String[]> suppliers = supplier.readData();
+    List<String[]> bridges = bridge.readData();
+    List<String[]> stocks = stock.readData();
+
+    jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        new Object[][] {
+
+        },
+        new String[] {
+            "Supplier ID", "Supplier Name", "Supplier Item ID", "Address", "Price per Item"
+        }) {
+      boolean[] canEdit = new boolean[] {
+          false, false, false, false, false
+      };
+
+      public boolean isCellEditable(int rowIndex, int columnIndex) {
+        return canEdit[columnIndex];
+      }
+    });
+
+    DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+
+    for (String[] bridgeData : bridges) {
+      String stockID = bridgeData[0];
+      String supplierID = bridgeData[1];
+      String price = bridgeData[2];
+
+      // Find matching supplier information
+      for (String[] supplierData : suppliers) {
+        if (supplierData[0].equals(supplierID)) {
+          String supplierName = supplierData[1];
+          String address = supplierData[2];
+
+          model.addRow(new Object[] { supplierID, supplierName, stockID, address, price });
+          break;
+        }
+      }
+    }
+  }
 
   /**
    * @param args the command line arguments
@@ -328,7 +395,6 @@ public class viewSupplier extends javax.swing.JFrame {
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton jButton3;
-  private javax.swing.JButton jButton4;
   private javax.swing.JButton jButton5;
   private javax.swing.JButton jButton6;
   private javax.swing.JButton jButton8;
