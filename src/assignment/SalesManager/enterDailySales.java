@@ -80,6 +80,7 @@ public class enterDailySales extends javax.swing.JFrame {
   // <editor-fold defaultstate="collapsed" desc="Generated
   // <editor-fold defaultstate="collapsed" desc="Generated
   // <editor-fold defaultstate="collapsed" desc="Generated
+  // <editor-fold defaultstate="collapsed" desc="Generated
   // Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
@@ -276,6 +277,11 @@ public class enterDailySales extends javax.swing.JFrame {
     });
 
     generateReportButton.setText("Generate");
+    generateReportButton.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        generateReportButtonActionPerformed(evt);
+      }
+    });
 
     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
     jPanel1.setLayout(jPanel1Layout);
@@ -361,6 +367,60 @@ public class enterDailySales extends javax.swing.JFrame {
     pack();
     setLocationRelativeTo(null);
   }// </editor-fold>//GEN-END:initComponents
+
+  private void generateReportButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_generateReportButtonActionPerformed
+    String selectedDate = (String) dateCombo.getSelectedItem();
+    String salesPerson = salesText.getText();
+
+    StringBuilder report = new StringBuilder();
+    report.append("Daily Sales Report\n");
+    report.append("Date: ").append(selectedDate).append("\n");
+    report.append("Sales Person: ").append(salesPerson).append("\n");
+    report.append("----------------------------------------\n\n");
+
+    double totalQuantity = 0;
+    double totalAmount = 0;
+    DecimalFormat df = new DecimalFormat("#,##0.00");
+
+    for (int i = 0; i < tableModel.getRowCount(); i++) {
+      String itemId = (String) tableModel.getValueAt(i, 0).toString();
+      String itemName = (String) tableModel.getValueAt(i, 1).toString();
+      double quantity = Double.parseDouble(tableModel.getValueAt(i, 2).toString());
+      double price = Double.parseDouble(tableModel.getValueAt(i, 3).toString().replace(",", ""));
+      double total = Double.parseDouble(tableModel.getValueAt(i, 4).toString().replace(",", ""));
+
+      report.append("Item ID: ").append(itemId).append("\n");
+      report.append("Item Name: ").append(itemName).append("\n");
+      report.append("Quantity: ").append(df.format(quantity)).append("\n");
+      report.append("Price per Item: RM").append(df.format(price)).append("\n");
+      report.append("Total: RM").append(df.format(total)).append("\n");
+      report.append("----------------------------------------\n");
+
+      totalQuantity += quantity;
+      totalAmount += total;
+    }
+
+    report.append("\nSummary:\n");
+    report.append("Total Items Sold: ").append(df.format(totalQuantity)).append("\n");
+    report.append("Total Sales Amount: RM").append(df.format(totalAmount)).append("\n");
+
+    String fileName = "sales_report_" + selectedDate + "_" + salesPerson.replace(" ", "_") + ".txt";
+    try {
+      File directory = new File("src/assignment/reports");
+      if (!directory.exists()) {
+        directory.mkdir();
+      }
+
+      String filePath = "src/assignment/reports/" + fileName;
+      try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+        writer.write(report.toString());
+      }
+      JOptionPane.showMessageDialog(this, "Report generated successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
+    } catch (IOException e) {
+      e.printStackTrace();
+      JOptionPane.showMessageDialog(this, "Error generating report", "Error", JOptionPane.ERROR_MESSAGE);
+    }
+  }// GEN-LAST:event_generateReportButtonActionPerformed
 
   private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_deleteButtonActionPerformed
     int selectedRow = jTable1.getSelectedRow();
