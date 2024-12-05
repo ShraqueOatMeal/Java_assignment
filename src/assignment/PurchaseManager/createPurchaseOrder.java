@@ -441,6 +441,16 @@ public class createPurchaseOrder extends javax.swing.JFrame {
         return;
       }
 
+      FileHandler requisition = new FileHandler("src/assignment/database/requisition.txt");
+      List<String[]> requisitions = requisition.readData();
+      String existingItemID = "";
+      for (String[] requisitionData : requisitions) {
+        if (requisitionData[6].equals(itemId)) {
+          JOptionPane.showMessageDialog(null, "Requisition already exists", "Error", JOptionPane.ERROR_MESSAGE);
+          return;
+        }
+      }
+
       PurchaseManager purchaseManager = new PurchaseManager();
       purchaseManager.createRequisition(itemName, quantity, userId, date, itemId, supplierId, price);
       purchaseManager.saveAll();
