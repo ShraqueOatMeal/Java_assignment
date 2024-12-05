@@ -1,1 +1,3 @@
-I001,Washing Machine,10,20,200,sales,2024-11-05
+I001,Washing Machine,8.00,20.00,160.00,sales,2024-11-05
+I004,Air Conditioner,4.00,5.00,20.00,sales,2024-12-05
+I050,Massage Chair,8.00,30.00,240.00,sales,2024-12-05
