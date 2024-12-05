@@ -1,0 +1,1 @@
+I001,Washing Machine,10,20,200,sales,2024-11-05
