@@ -50,9 +50,9 @@ public class SalesReportPreview extends JDialog {
       grandTotal += Double.parseDouble(total.replace(",", ""));
     }
 
-    report.append("---------------------------------------------------\n");
+    report.append("---------------------------------------------------------\n");
     report.append(String.format("%54s %12s\n", "Grand Total:", df.format(grandTotal)));
-    report.append("===================================================\n");
+    report.append("========================================================\n");
 
     previewArea.setText(report.toString());
 
