@@ -1,2 +1,3 @@
-1,04-07-04,Good,1
-1,Beh,Good,1
+S001,Supplier 1,123 
+S002,Supplier 2,456 
+S3,S003,Supplier 3

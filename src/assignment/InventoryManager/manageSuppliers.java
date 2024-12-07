@@ -5,7 +5,14 @@
  */
 package assignment.InventoryManager;
 import java.util. List;
-import assignment.FileHandler;  
+import assignment.FileHandler;
+
+import javax.swing.GroupLayout;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -13,11 +20,13 @@ import javax.swing.table.DefaultTableModel;
  * @author Admin
  */
 public class manageSuppliers extends javax.swing.JFrame {
+  private InventoryManager inventoryManager;
 
   /**
    * Creates new form manageSuppliers
    */
   public manageSuppliers() {
+    inventoryManager = new InventoryManager();
     initComponents();
     loadTable();
   }
@@ -95,6 +104,12 @@ public class manageSuppliers extends javax.swing.JFrame {
             }
         });
 
+        jButton7.addActionListener(evt -> jButton7ActionPerformed(evt));
+        jButton9.addActionListener(evt -> jButton9ActionPerformed(evt));       
+        jButton11.addActionListener(evt -> jButton11ActionPerformed(evt));  
+
+        
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -134,7 +149,7 @@ public class manageSuppliers extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Supplier ID", "Supplier Name", "Supplier Status", "Supplier Item ID"
+                "Supplier ID", "Supplier Name", "Supplier Item ID"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -146,6 +161,8 @@ public class manageSuppliers extends javax.swing.JFrame {
         jButton10.setText("Save");
 
         jButton11.setText("Edit");
+
+        
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -200,7 +217,7 @@ public class manageSuppliers extends javax.swing.JFrame {
     // Initialize the table model again (if needed)
     DefaultTableModel model = new DefaultTableModel(
         new Object[][] {}, 
-        new String[] { "Supplier ID", "Supplier Name", "Supplier Status", "Supplier Item ID" }
+        new String[] { "Supplier ID", "Supplier Name",  "Supplier Item ID" }
     );
     jTable1.setModel(model);
     
@@ -211,6 +228,193 @@ public class manageSuppliers extends javax.swing.JFrame {
         model.addRow(row);
     }
   }
+
+  private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton7ActionPerformed
+    dialog = new javax.swing.JDialog(this, "Add New Supplier", true);
+
+    // Fields
+    supplierIDField = new javax.swing.JTextField(15);
+    supplierNameField = new javax.swing.JTextField(15);
+    supplierItemIDField = new javax.swing.JTextField(15);
+
+    // Labels
+    JLabel supplierIDLabel = new JLabel("Supplier ID:");
+    JLabel supplierNameLabel = new JLabel("Supplier Name:");
+    JLabel supplierItemIDLabel = new JLabel("Supplier Item ID:");
+
+    // Button
+    JButton buttonUpdate = new JButton("Update Supplier");
+    buttonUpdate.addActionListener(e -> {
+        try {
+            String supplierID = supplierIDField.getText().trim();
+            String supplierName = supplierNameField.getText().trim();
+            String supplierItemID = supplierItemIDField.getText().trim();
+
+            if (supplierID.isEmpty() || supplierName.isEmpty() || supplierItemID.isEmpty()) {
+                JOptionPane.showMessageDialog(dialog, "All fields are required!");
+                return;
+            }
+            if (inventoryManager.addSupplier(supplierID, supplierName, supplierItemID)) {
+                dialog.dispose();
+                loadTable();
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(dialog, "Error Adding Supplier");
+        }
+      });
+
+      // Set up layout
+      javax.swing.GroupLayout layout = new javax.swing.GroupLayout(dialog.getContentPane());
+      dialog.getContentPane().setLayout(layout);
+      layout.setAutoCreateGaps(true);
+      layout.setAutoCreateContainerGaps(true);
+
+      layout.setHorizontalGroup(
+        layout.createSequentialGroup()
+          .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(supplierIDLabel)
+            .addComponent(supplierNameLabel)
+            .addComponent(supplierItemIDLabel))
+          .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(supplierIDField)
+            .addComponent(supplierNameField)
+            .addComponent(supplierItemIDField)
+            .addComponent(buttonUpdate))
+      );
+
+      layout.setVerticalGroup(
+        layout.createSequentialGroup()
+          .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+            .addComponent(supplierIDLabel)
+            .addComponent(supplierIDField))
+          .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+            .addComponent(supplierNameLabel)
+            .addComponent(supplierNameField))
+          .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+            .addComponent(supplierItemIDLabel)
+            .addComponent(supplierItemIDField))
+          .addComponent(buttonUpdate)
+      );
+
+      dialog.pack();
+      dialog.setLocationRelativeTo(this);
+      dialog.setVisible(true);
+    }
+
+    public void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {
+      // GEN-FIRST:event_jButton9ActionPerformed
+      int selectedRow = jTable1.getSelectedRow();
+      if (selectedRow == -1) {
+        JOptionPane.showMessageDialog(this, "Please select a supplier to delete");
+        return;
+      }
+
+      String supplierID = (String) jTable1.getValueAt(selectedRow, 0);
+
+      int confirm = JOptionPane.showConfirmDialog(
+        this, 
+        "Are you sure you want to delete " 
+        + supplierID 
+        + "?");
+
+      if (confirm == JOptionPane.YES_OPTION) {
+        if(inventoryManager.removeSupplier(supplierID)){
+        loadTable();
+      }
+}}
+
+    public void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {
+      int selectedRow = jTable1.getSelectedRow();
+      if (selectedRow == -1) {
+          JOptionPane.showMessageDialog(this, "Please select a supplier to edit!");
+          return;
+      }
+
+      // Get the selected supplier's details
+      String supplierID = (String) jTable1.getValueAt(selectedRow, 0);
+      String supplierName = (String) jTable1.getValueAt(selectedRow, 1);
+      String supplierItemID = (String) jTable1.getValueAt(selectedRow, 2);
+
+      // Create a dialog for editing the supplier
+      JDialog editDialog = new JDialog(this, "Edit Supplier", true);
+      GroupLayout layout = new GroupLayout(editDialog.getContentPane());
+      editDialog.getContentPane().setLayout(layout);
+
+      layout.setAutoCreateGaps(true);
+      layout.setAutoCreateContainerGaps(true);
+
+      // Components
+      JLabel supplierIDLabel = new JLabel("Supplier ID:");
+      JTextField editSupplierIDField = new JTextField(supplierID);
+      JLabel supplierNameLabel = new JLabel("Supplier Name:");
+      JTextField editSupplierNameField = new JTextField(supplierName);
+      JLabel supplierItemIDLabel = new JLabel("Supplier Item ID:");
+      JTextField editSupplierItemIDField = new JTextField(supplierItemID);
+      JButton submitButton = new JButton("Update");
+
+      // Add components to the dialog
+      editDialog.add(new JLabel("Supplier ID:"));
+      editDialog.add(editSupplierIDField);      
+      editDialog.add(new JLabel("Supplier Name:"));
+      editDialog.add(editSupplierNameField);
+      editDialog.add(new JLabel("Supplier Item ID:"));
+      editDialog.add(editSupplierItemIDField);
+
+      // Add an "Update" button
+      // Button Action
+      submitButton.addActionListener(e -> {
+      String newSupplierID = editSupplierIDField.getText().trim();
+      String newSupplierName = editSupplierNameField.getText().trim();
+      String newSupplierItemID = editSupplierItemIDField.getText().trim();
+
+      if (inventoryManager.updateSupplier(newSupplierID, newSupplierName, newSupplierItemID)) {
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setValueAt(newSupplierID, selectedRow, 0);
+        model.setValueAt(newSupplierName, selectedRow, 1);
+        model.setValueAt(newSupplierItemID, selectedRow, 2);
+
+        editDialog.dispose();
+        JOptionPane.showMessageDialog(this, "Supplier updated successfully!");
+      } else {
+        JOptionPane.showMessageDialog(this, "Error updating supplier");
+      }
+      });
+
+      // Group Layout Horizontal
+layout.setHorizontalGroup(
+  layout.createSequentialGroup()
+      .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+          .addComponent(supplierIDLabel)
+          .addComponent(supplierNameLabel)
+          .addComponent(supplierItemIDLabel))
+      .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+          .addComponent(editSupplierIDField)
+          .addComponent(editSupplierNameField)
+          .addComponent(editSupplierItemIDField)
+          .addComponent(submitButton))
+);
+
+// Group Layout Vertical
+layout.setVerticalGroup(
+  layout.createSequentialGroup()
+      .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+          .addComponent(supplierIDLabel)
+          .addComponent(editSupplierIDField))
+      .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+          .addComponent(supplierNameLabel)
+          .addComponent(editSupplierNameField))
+      .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+          .addComponent(supplierItemIDLabel)
+          .addComponent(editSupplierItemIDField))
+      .addComponent(submitButton)
+);
+
+editDialog.pack();
+editDialog.setLocationRelativeTo(this);
+editDialog.setVisible(true);}
+
+    
+
 
   private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton2ActionPerformed
     manageSuppliers manageSuppliersFrame = new manageSuppliers();
@@ -297,5 +501,10 @@ public class manageSuppliers extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JDialog dialog;
+    private javax.swing.JTextField supplierIDField;
+    private javax.swing.JTextField supplierNameField;    
+    private javax.swing.JTextField supplierItemIDField;
+    
     // End of variables declaration//GEN-END:variables
 }

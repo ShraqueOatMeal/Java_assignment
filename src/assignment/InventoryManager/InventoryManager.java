@@ -149,6 +149,122 @@ public class InventoryManager extends UserType {
     }
   }
 
+  public boolean addSupplier(String supplierID, String supplierName, String supplierItemID) {
+    try {
+      //Check If item name already Exists
+      List<String[]> suppliers =  supplierFileHandler.readData();
+      for (String[] supplier : suppliers) {
+        if (supplier[1].equals(supplierName)) {
+          JOptionPane.showMessageDialog(null, 
+            "Supplier Name Already Exists", 
+           "Error",
+            JOptionPane.ERROR_MESSAGE);
+          return false;
+        }
+    }
+  
+  String record = String.format("%s,%s,%s",supplierID, supplierName, supplierItemID);
+  supplierFileHandler.addRecord(suppliers.size() + 1, record);  
+  supplierFileHandler.saveAllRecords();
+  
+  JOptionPane.showMessageDialog(null,
+    "Supplier Added Successfully",
+    "Success",
+    JOptionPane.INFORMATION_MESSAGE);
+    return true;
+    }catch (Exception e) {
+      JOptionPane.showMessageDialog(null,
+        "Error Adding Supplier",
+        "Error",
+        JOptionPane.ERROR_MESSAGE);
+      return false;
+    }
+    }
+    public boolean removeSupplier(String supplierID) { 
+      try {
+        List<String[]> suppliers = supplierFileHandler.readData();
+        List<String> updatedRecords = new java.util.ArrayList<>();
+        boolean supplierFound = false;
+        for (String[] supplier : suppliers) {
+          if (!supplier[1].equals(supplierID)) {
+            updatedRecords.add(String.join(",", supplier));
+          } else {
+            supplierFound = true;
+          }
+        }
+        if (!supplierFound) {
+          JOptionPane.showMessageDialog(null,
+            "Supplier Not Found",
+            "Error",
+            JOptionPane.ERROR_MESSAGE);
+          return false;
+        }
+        supplierFileHandler = new FileHandler("src/assignment/database/supplier.txt");
+        supplierFileHandler.clearFileContents();
+        
+        supplierFileHandler.writeRecords(updatedRecords);
+  
+        JOptionPane.showMessageDialog(null,
+          "Supplier Removed Successfully",
+          "Success",
+          JOptionPane.INFORMATION_MESSAGE);
+        return true;
+      } catch (Exception e) {
+        JOptionPane.showMessageDialog(null,
+          "Error Removing Supplier",
+          "Error",
+          JOptionPane.ERROR_MESSAGE);
+        return false;
+      }
+    } 
+    public boolean updateSupplier(String supplierID, String supplierName, String supplierItemID) {  
+      try {
+        //Check If item name already Exists
+        List<String[]> suppliers =  supplierFileHandler.readData();
+        List<String> updatedRecords = new java.util.ArrayList<>();
+        boolean supplierFound = false;
+  
+        for (String[] supplier : suppliers) {
+          if (supplier[1].equals(supplierName)) {
+            // Update item information
+            String updatedRecord = String.format("%s,%s,%s", supplierID, supplierName, supplierItemID);
+            updatedRecords.add(updatedRecord);
+            supplierFound = true;
+          } else {
+            updatedRecords.add(String.join(",", supplier));
+          }
+        }
+  
+        if (!supplierFound) {
+          JOptionPane.showMessageDialog(null,
+            "Supplier Not Found",
+            "Error",
+            JOptionPane.ERROR_MESSAGE);
+          return false;
+        }
+  
+        // Create new FileHandler instance and save updated records
+        supplierFileHandler = new FileHandler("src/assignment/database/supplier.txt");
+        supplierFileHandler.clearFileContents();
+        supplierFileHandler.writeRecords(updatedRecords);
+  
+        JOptionPane.showMessageDialog(null,
+          "Supplier Updated Successfully",
+          "Success",
+          JOptionPane.INFORMATION_MESSAGE);
+        return true;
+      } catch (Exception e) {
+        JOptionPane.showMessageDialog(null,
+          "Error Updating Supplier",
+          "Error",
+          JOptionPane.ERROR_MESSAGE);
+        return false;
+      }
+    } 
+    
+
+
+
     // Implementation
     public List<String[]> manageSuppliers() {
       return supplierFileHandler.readData();
