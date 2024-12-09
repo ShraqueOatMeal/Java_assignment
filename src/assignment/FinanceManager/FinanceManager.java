@@ -38,4 +38,9 @@ public class FinanceManager extends UserType {
     FileHandler fileHandler = new FileHandler("src/assignment/database/stock.txt");
     return fileHandler.readData();
   }
+
+  public List<String[]> manageSupplierPayment() {
+    FileHandler fileHandler = new FileHandler("src/assignment/database/approvedPurchaseOrder.txt");
+    return fileHandler.readData();
+  }
 }

@@ -158,6 +158,14 @@ public class financeManagerPage extends javax.swing.JFrame {
     checkStockStatusFrame.setLocationRelativeTo(null);
     this.dispose();
   }// GEN-LAST:event_jButton6ActionPerformed
+  
+  private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton6ActionPerformed
+    manageSupplierPayment manageSupplierPaymentFrame = new manageSupplierPayment();
+      manageSupplierPaymentFrame.setVisible(true);
+    manageSupplierPaymentFrame.pack();
+    manageSupplierPaymentFrame.setLocationRelativeTo(null);
+    this.dispose();
+  }// GEN-LAST:event_jButton6ActionPerformed
 
 
   private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_backButtonActionPerformed

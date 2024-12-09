@@ -4,18 +4,27 @@
  * and open the template in the editor.
  */
 package assignment.FinanceManager;
+import assignment.FileHandler;
+import java.util.*;
+
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Admin
  */
 public class manageSupplierPayment extends javax.swing.JFrame {
+  FinanceManager financemanager = new FinanceManager();
+  
 
   /**
    * Creates new form manageSupplierPayment
    */
   public manageSupplierPayment() {
+    
     initComponents();
+    loadTable();
   }
 
   /**
@@ -46,7 +55,6 @@ public class manageSupplierPayment extends javax.swing.JFrame {
         jLabel1.setText("Generate Financial Report");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(950, 600));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -119,7 +127,11 @@ public class manageSupplierPayment extends javax.swing.JFrame {
         jLabel3.setText("Enter Supplier ID:");
 
         jTextField1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("Search");
 
@@ -186,6 +198,10 @@ public class manageSupplierPayment extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
   private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
     approvePayment approvePaymentFrame = new approvePayment();
     approvePaymentFrame.setVisible(true);
@@ -211,7 +227,7 @@ public class manageSupplierPayment extends javax.swing.JFrame {
   }// GEN-LAST:event_jButton4ActionPerformed
 
 
-  }// GEN-LAST:event_jButton7ActionPerformed
+  // GEN-LAST:event_jButton7ActionPerformed
 
   private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton8ActionPerformed
     financeManagerPage financeManagerFrame = new financeManagerPage();
@@ -220,6 +236,50 @@ public class manageSupplierPayment extends javax.swing.JFrame {
     financeManagerFrame.setLocationRelativeTo(null);
     this.dispose();
   }// GEN-LAST:event_jButton8ActionPerformed
+
+  private void loadTable() {
+    List<String[]> purchaseOrderData = financemanager.manageSupplierPayment();
+
+    DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+    model.setRowCount(0);
+
+    for (String[] row : purchaseOrderData) {
+      model.addRow(row);
+    }
+  }
+
+  private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton5ActionPerformed
+    String searchText = jTextField1.getText().trim();
+    if (!searchText.isEmpty()) {
+      searchAndDisplayResult(searchText);
+    } else {
+      JOptionPane.showMessageDialog(this, "Please enter Sup ID", "Error", JOptionPane.ERROR_MESSAGE);
+    }
+  }
+
+  private void searchAndDisplayResult(String searchText) {
+    FileHandler fileHandler = new FileHandler("src/assignment/database/approvedPurchaseOrder.txt");
+    DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+    model.setRowCount(0); // Clear existing rows
+
+    List<String[]> lines = fileHandler.readData(); // Read all lines from approvedPurchaseOrder.txt
+    for (String[] data : lines) {
+      if (data.length >= 4 && (data[7].trim().equals(searchText))){
+        model.addRow(new Object[] {
+            data[0].trim(), // PO ID
+            data[1].trim(), // Payment History
+            data[2].trim(), // Status
+            data[3].trim(), // Item ID
+            data[4].trim(), // Req ID
+            data[5].trim(), // Date Before
+            data[6].trim(), // Item ID
+            data[7].trim(), // Sup ID
+            data[8].trim(), // Price Per Item
+            data[9].trim() // Payment History
+        });
+      }}
+    }
+
 
   /**
    * @param args the command line arguments
