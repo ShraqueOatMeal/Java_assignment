@@ -56,6 +56,7 @@ public class viewRequisition extends javax.swing.JFrame {
         jButton9 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
+        viewPurchaseButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         searchTextField = new javax.swing.JTextField();
@@ -153,6 +154,17 @@ public class viewRequisition extends javax.swing.JFrame {
             }
         });
 
+        viewPurchaseButton.setBackground(new java.awt.Color(0, 0, 0));
+        viewPurchaseButton.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+        viewPurchaseButton.setForeground(new java.awt.Color(255, 255, 255));
+        viewPurchaseButton.setText("View Purchase Order");
+        viewPurchaseButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        viewPurchaseButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewPurchaseButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -168,6 +180,8 @@ public class viewRequisition extends javax.swing.JFrame {
                 .addComponent(jButton5)
                 .addGap(18, 18, 18)
                 .addComponent(jButton8)
+                .addGap(18, 18, 18)
+                .addComponent(viewPurchaseButton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -179,7 +193,8 @@ public class viewRequisition extends javax.swing.JFrame {
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(viewPurchaseButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jButton7))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -307,6 +322,12 @@ public class viewRequisition extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void viewPurchaseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewPurchaseButtonActionPerformed
+    viewPurchaseOrder purchaseManagerFrame = new viewPurchaseOrder();
+    purchaseManagerFrame.setVisible(true);
+    purchaseManagerFrame.pack();
+    purchaseManagerFrame.setLocationRelativeTo(null);    }//GEN-LAST:event_viewPurchaseButtonActionPerformed
 
   private void rejectButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_rejectButtonActionPerformed
     int selectedRow = jTable1.getSelectedRow();
@@ -661,5 +682,6 @@ public class viewRequisition extends javax.swing.JFrame {
     private javax.swing.JTextField searchTextField;
     private javax.swing.JComboBox<String> statusCombo;
     private javax.swing.JLabel statusLabel;
+    private javax.swing.JButton viewPurchaseButton;
     // End of variables declaration//GEN-END:variables
 }
