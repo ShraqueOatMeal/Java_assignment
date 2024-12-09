@@ -89,6 +89,12 @@ public class manageSupplierPayment extends javax.swing.JFrame {
             }
         });
 
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -140,7 +146,7 @@ public class manageSupplierPayment extends javax.swing.JFrame {
 
             },
             new String [] {
-                "PO ID", "Payment History", "Supplier Status ", "Supplier Item ID", "Title 5", "Title 6", "Title 7", "Title 8", "Title 9", "Payment History"
+                "PO ID", "Payment History", "Quantity ", "PO Status", "Req ID", "Date Before", "Item ID", "Sup ID", "Price Per Item", "Payment History"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
