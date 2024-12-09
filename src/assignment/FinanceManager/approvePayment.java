@@ -5,17 +5,27 @@
  */
 package assignment.FinanceManager;
 
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
+import assignment.FileHandler;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Admin
  */
 public class approvePayment extends javax.swing.JFrame {
+  FinanceManager financeManager = new FinanceManager();
 
   /**
    * Creates new form approvePayment
    */
   public approvePayment() {
     initComponents();
+    loadTable();
   }
 
   /**
@@ -34,7 +44,6 @@ public class approvePayment extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
@@ -78,13 +87,6 @@ public class approvePayment extends javax.swing.JFrame {
             }
         });
 
-        jButton7.setText("Generate Financial Report");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -98,8 +100,6 @@ public class approvePayment extends javax.swing.JFrame {
                 .addComponent(jButton6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton7)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -110,8 +110,7 @@ public class approvePayment extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jButton8))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -210,13 +209,7 @@ public class approvePayment extends javax.swing.JFrame {
     this.dispose();
   }// GEN-LAST:event_jButton4ActionPerformed
 
-  private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton7ActionPerformed
-    generateFinancialReport generateFinancialReportFrame = new generateFinancialReport();
-    generateFinancialReportFrame.setVisible(true);
-    generateFinancialReportFrame.pack();
-    generateFinancialReportFrame.setLocationRelativeTo(null);
-    this.dispose();
-  }// GEN-LAST:event_jButton7ActionPerformed
+
 
   private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton8ActionPerformed
     financeManagerPage financeManagerFrame = new financeManagerPage();
@@ -225,6 +218,191 @@ public class approvePayment extends javax.swing.JFrame {
     financeManagerFrame.setLocationRelativeTo(null);
     this.dispose();
   }// GEN-LAST:event_jButton8ActionPerformed
+
+  private void loadTable() {
+    List<String[]> requisitionData = financeManager.approvePayment();
+
+    DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+    model.setRowCount(0);
+
+    for (String[] row : requisitionData) {
+      model.addRow(row);
+    }
+  }
+
+  private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton10ActionPerformed
+    int selectedRow = jTable1.getSelectedRow();
+    if (selectedRow == -1) {
+      JOptionPane.showMessageDialog(this, "Please select a purchase order to reject", "No Selection",
+          JOptionPane.WARNING_MESSAGE);
+      return;
+    }
+
+    // Get current status
+    String currentStatus = jTable1.getValueAt(selectedRow, 3).toString();
+
+    if (currentStatus.equals("Rejected")) {
+      JOptionPane.showMessageDialog(this, "Cannot reject a rejected purchase order", "Action Not Allowed",
+          JOptionPane.WARNING_MESSAGE);
+      return;
+    }
+
+    // Get purchase order
+    String purchaseOrder = jTable1.getValueAt(selectedRow, 0).toString();
+
+    int confirm = JOptionPane.showConfirmDialog(this,
+        "Are you sure you want to reject purchase order " + purchaseOrder + "?",
+        "Confirm Rejection", JOptionPane.YES_NO_OPTION);
+
+        if (confirm == JOptionPane.YES_OPTION) {
+          updatePurchaseOrderStatus(purchaseOrder, "Rejected");
+        }
+  }// GEN-LAST:event_jButton10ActionPerformed
+
+  private void updatePurchaseOrderStatus(String purchaseOrderId, String newStatus) {
+    try {
+      FinanceManager financeManager = new FinanceManager();
+      List<String[]> purchaseOrderData = financeManager.approvePayment();
+      boolean found = false;
+
+      if (newStatus.equals("Rejected")) {
+          // Remove the rejected purchase order from purchOrder.txt only
+          removePurchaseOrderRow(purchaseOrderId);
+          found = true;
+      } else {
+          // Update the status for non-rejected cases (e.g., Approved)
+          List<String> updatedRecords = new ArrayList<>();
+          for (String[] row : purchaseOrderData) {
+              if (row[0].trim().equals(purchaseOrderId)) {
+                  row[3] = newStatus; // Update the status
+                  found = true;
+              }
+              StringBuilder record = new StringBuilder();
+              for (int i = 0; i < row.length; i++) {
+                  record.append(row[i]);
+                  if (i < row.length - 1) {
+                      record.append(",");
+                  }
+              }
+              updatedRecords.add(record.toString());
+          }
+
+          if (found) {
+              try {
+                  writeRecords(updatedRecords); // Only writes for non-rejected updates
+              } catch (Exception e) {
+                  JOptionPane.showMessageDialog(this, "Error updating purchase order status: " + e.getMessage(),
+                      "Error", JOptionPane.ERROR_MESSAGE);
+              }
+          }
+      }
+
+      loadTable(); // Reload table after changes
+      if (found && newStatus.equals("Rejected")) {
+          JOptionPane.showMessageDialog(this, "Purchase Order " + purchaseOrderId + " has been rejected and removed.",
+              "Rejection Successful", JOptionPane.INFORMATION_MESSAGE);
+      } else if (found) {
+          JOptionPane.showMessageDialog(this, "Purchase Order " + purchaseOrderId + " has been " + newStatus.toLowerCase(),
+              "Status Updated", JOptionPane.INFORMATION_MESSAGE);
+      }
+  } catch (Exception e) {
+      JOptionPane.showMessageDialog(this, "Error updating purchase order status: " + e.getMessage(), "Error",
+          JOptionPane.ERROR_MESSAGE);
+  }
+}
+
+  private void writeRecords(List<String> records) {
+    try {
+      FileHandler fileHandler = new FileHandler("src/assignment/database/approvedPurchaseOrder.txt");
+      fileHandler.writeRecords(records);
+    } catch (Exception e) {
+      JOptionPane.showMessageDialog(this, "Purchase Order status could not be updated: " + e.getMessage(), "Error",
+          JOptionPane.ERROR_MESSAGE);
+    }
+  }
+
+
+  
+
+  private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton9ActionPerformed
+    int selectedRow = jTable1.getSelectedRow();
+    if (selectedRow == -1) {
+      JOptionPane.showMessageDialog(this, "Please select a Purchase Order to approve", "No Selection",
+          JOptionPane.WARNING_MESSAGE);
+      return;
+    }
+
+    // Get current status
+    String currentStatus = jTable1.getValueAt(selectedRow, 3).toString();
+
+    if (currentStatus.equals("Rejected")) {
+      JOptionPane.showMessageDialog(this, "Cannot approve a rejected Purchase Order", "Action Not Allowed",
+          JOptionPane.WARNING_MESSAGE);
+      return;
+    }
+
+    // Get Purchase Order
+    String purchaseOrder = jTable1.getValueAt(selectedRow, 0).toString();
+
+    int confirm = JOptionPane.showConfirmDialog(this,
+        "Are you sure you want to approve Purchase Order " + purchaseOrder + "?",
+        "Confirm Approval", JOptionPane.YES_NO_OPTION);
+
+    if (confirm == JOptionPane.YES_OPTION) {
+      try {
+        String[] rowData = new String[jTable1.getColumnCount()];
+        for (int i = 0; i < jTable1.getColumnCount(); i++) {
+          rowData[i] = jTable1.getValueAt(selectedRow, i).toString();
+        }   
+
+       rowData[3] = "Approved";
+
+      appendToApprovePurchaseOrder(rowData);
+
+      removePurchaseOrderRow(rowData[0]);
+
+      loadTable();
+      JOptionPane.showMessageDialog(this,
+            "Purchase Order " + rowData[0] + " has been approved and move to Purchase Order",
+            "Success",
+             JOptionPane.INFORMATION_MESSAGE);  
+          } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Purchase Order status could not be updated: " + e.getMessage(), "Error",
+                JOptionPane.ERROR_MESSAGE);
+          }
+        }
+  }// GEN-LAST:event_jButton9ActionPerformed
+
+  private void removePurchaseOrderRow(String poId) {
+    try {
+      FileHandler fileHandler = new FileHandler("src/assignment/database/purchOrder.txt");
+      List<String> lines = fileHandler.readRecords();
+
+      lines.removeIf(line -> line.startsWith(poId + ","));
+
+      fileHandler.writeRecords(lines);
+    } catch (Exception e) {
+      throw new RuntimeException("Purchase Order status could not be updated: " + e.getMessage());
+    }
+  }
+
+  private void appendToApprovePurchaseOrder(String[] rowData) {
+    try {
+      FileHandler fileHandler = new FileHandler("src/assignment/database/approvedPurchaseOrder.txt");
+
+      StringBuilder record = new StringBuilder();
+      for (int i = 0; i < rowData.length; i++) {
+        record.append(rowData[i]);
+        record.append(","); // Add a comma after each column value
+    }
+    record.append("Payment Approved"); // Add the new "Payment Status" column with "Approved"
+
+    fileHandler.appendRecord(record.toString());
+    } catch (Exception e) {
+      JOptionPane.showMessageDialog(this, "Purchase Order status could not be updated: " + e.getMessage(), "Error",
+          JOptionPane.ERROR_MESSAGE);
+    }
+  }
 
   /**
    * @param args the command line arguments
@@ -270,7 +448,6 @@ public class approvePayment extends javax.swing.JFrame {
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
