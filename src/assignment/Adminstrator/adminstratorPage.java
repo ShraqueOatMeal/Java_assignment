@@ -6,6 +6,8 @@
 package assignment.Adminstrator;
 
 import assignment.Login;
+import assignment.FinanceManager.financeManagerPage;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -65,6 +67,13 @@ public class adminstratorPage extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
 
         jButton3.setText("Generate System Report");
 
@@ -188,6 +197,13 @@ public class adminstratorPage extends javax.swing.JFrame {
       this.dispose();
     }
   } // GEN-LAST:event_backButtonActionPerformed
+
+  private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+    financeManagerPage financeManagerFrame = new financeManagerPage();
+    financeManagerFrame.setVisible(true);
+    financeManagerFrame.pack();
+    financeManagerFrame.setLocationRelativeTo(null);
+  }
 
   /**
    * @param args the command line arguments
