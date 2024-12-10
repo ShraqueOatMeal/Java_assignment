@@ -70,6 +70,12 @@ public class financeManagerPage extends javax.swing.JFrame {
             }
         });
 
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
@@ -168,7 +174,7 @@ public class financeManagerPage extends javax.swing.JFrame {
   }// GEN-LAST:event_jButton6ActionPerformed
 
 
-  private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_backButtonActionPerformed
+  private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_backButtonActionPerformed
     if (JOptionPane.showConfirmDialog(null, "Are you sure you want to log out?", "Confirm Logout",
         JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
       Login loginFrame = new Login();
