@@ -46,12 +46,6 @@ public class salesManagerPage extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
-        jButton6.addActionListener(new java.awt.event.ActionListener() { 
-            public void actionPerformed(java.awt.event.ActionEvent evt) { 
-                jButton6ActionPerformed(evt); 
-            } 
-        });
-
         jButton1.setBackground(new java.awt.Color(0, 0, 0));
         jButton1.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));

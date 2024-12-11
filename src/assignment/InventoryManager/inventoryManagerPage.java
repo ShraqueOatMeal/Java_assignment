@@ -102,12 +102,6 @@ public class inventoryManagerPage extends javax.swing.JFrame {
             }
         });
 
-        jButton5.addActionListener(new java.awt.event.ActionListener() { 
-            public void actionPerformed(java.awt.event.ActionEvent evt) { 
-                jButton5ActionPerformed(evt); 
-            } 
-        });
-
         jButton5.setText("Admin");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

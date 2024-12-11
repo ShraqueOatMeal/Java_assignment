@@ -46,13 +46,14 @@ public class financeManagerPage extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(950, 600));
 
-        jPanel1.setBackground(new java.awt.Color(0, 255, 204));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
+        jButton8.setBackground(new java.awt.Color(204, 204, 204));
         jButton8.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jButton8.setText("Log Out");
 
+        jButton1.setBackground(new java.awt.Color(204, 204, 204));
         jButton1.setText("Approve Payment");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,6 +61,7 @@ public class financeManagerPage extends javax.swing.JFrame {
             }
         });
 
+        jButton6.setBackground(new java.awt.Color(204, 204, 204));
         jButton6.setText("Check Stock Status");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,25 +69,13 @@ public class financeManagerPage extends javax.swing.JFrame {
             }
         });
 
+        jButton4.setBackground(new java.awt.Color(204, 204, 204));
         jButton4.setText("Manage Supplier Payment");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
-
-        jButton2.addActionListener(new java.awt.event.ActionListener() { 
-            public void actionPerformed(java.awt.event.ActionEvent evt) { 
-                jButton2ActionPerformed(evt); 
-            } 
-        });
-
-        jButton8.addActionListener(new java.awt.event.ActionListener() { 
-            public void actionPerformed(java.awt.event.ActionEvent evt) { 
-                jButton8ActionPerformed(evt); 
-            } 
-        });
-
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -115,6 +105,7 @@ public class financeManagerPage extends javax.swing.JFrame {
                 .addContainerGap(184, Short.MAX_VALUE))
         );
 
+        jButton2.setBackground(new java.awt.Color(204, 204, 204));
         jButton2.setText("Admin");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -276,6 +267,5 @@ private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextField1;
-  
     // End of variables declaration//GEN-END:variables
 }

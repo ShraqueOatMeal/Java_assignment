@@ -49,17 +49,17 @@ public class adminstratorPage extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(900, 600));
 
-        jPanel1.setBackground(new java.awt.Color(102, 255, 51));
+        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
 
-        jButton7.setBackground(new java.awt.Color(204, 255, 204));
+        jButton7.setBackground(new java.awt.Color(204, 204, 204));
         jButton7.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jButton7.setText("Main Page");
 
+        manageUser.setBackground(new java.awt.Color(204, 204, 204));
         manageUser.setText("Manage Users");
         manageUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,6 +67,7 @@ public class adminstratorPage extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(204, 204, 204));
         jButton2.setText("Manage Permission");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,31 +75,7 @@ public class adminstratorPage extends javax.swing.JFrame {
             }
         });
 
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-
-
+        jButton3.setBackground(new java.awt.Color(204, 204, 204));
         jButton3.setText("Generate System Report");
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -114,43 +91,58 @@ public class adminstratorPage extends javax.swing.JFrame {
             .addGap(0, 573, Short.MAX_VALUE)
         );
 
-        jButton1.setText("1");
+        jButton1.setBackground(new java.awt.Color(204, 204, 204));
+        jButton1.setText("FM");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
-        jButton4.setText("2");
+        jButton4.setBackground(new java.awt.Color(204, 204, 204));
+        jButton4.setText("IM");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
-        jButton5.setText("3");
+        jButton5.setBackground(new java.awt.Color(204, 204, 204));
+        jButton5.setText("SM");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
-        jButton6.setText("4");
-
-        jButton8.setText("5");
+        jButton6.setBackground(new java.awt.Color(204, 204, 204));
+        jButton6.setText("PM");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(43, 43, 43)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(43, 43, 43)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jButton7)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(manageUser, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE))))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(21, 21, 21)
-                            .addComponent(jButton1)
-                            .addGap(60, 60, 60)
-                            .addComponent(jButton4)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton5)))
+                    .addComponent(jButton7)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(manageUser, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
-                        .addComponent(jButton6)
-                        .addGap(70, 70, 70)
-                        .addComponent(jButton8)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton5)
+                            .addComponent(jButton1))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton6)
+                            .addComponent(jButton4))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -165,16 +157,15 @@ public class adminstratorPage extends javax.swing.JFrame {
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton5)
+                    .addComponent(jButton4))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton6)
-                    .addComponent(jButton8))
-                .addGap(91, 91, 91))
+                    .addComponent(jButton1))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
@@ -194,6 +185,34 @@ public class adminstratorPage extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        financeManagerPage financeManagerFrame = new financeManagerPage();
+    financeManagerFrame.setVisible(true);
+    financeManagerFrame.pack();
+    financeManagerFrame.setLocationRelativeTo(null);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        inventoryManagerPage inventoryManagerFrame = new inventoryManagerPage();
+    inventoryManagerFrame.setVisible(true);
+    inventoryManagerFrame.pack();
+    inventoryManagerFrame.setLocationRelativeTo(null);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        salesManagerPage salesManagerFrame = new salesManagerPage();
+    salesManagerFrame.setVisible(true);
+    salesManagerFrame.pack();
+    salesManagerFrame.setLocationRelativeTo(null);
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+         purchaseManagerPage purchaseManagerFrame = new purchaseManagerPage();
+    purchaseManagerFrame.setVisible(true);
+    purchaseManagerFrame.pack();    
+    purchaseManagerFrame.setLocationRelativeTo(null);
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     
 
@@ -224,33 +243,6 @@ public class adminstratorPage extends javax.swing.JFrame {
     }
   } // GEN-LAST:event_backButtonActionPerformed
 
-  private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
-    financeManagerPage financeManagerFrame = new financeManagerPage();
-    financeManagerFrame.setVisible(true);
-    financeManagerFrame.pack();
-    financeManagerFrame.setLocationRelativeTo(null);
-  }
-
-  private void jButton4ActionPerformed(java.awt.event.ActionEvent evt){
-    inventoryManagerPage inventoryManagerFrame = new inventoryManagerPage();
-    inventoryManagerFrame.setVisible(true);
-    inventoryManagerFrame.pack();
-    inventoryManagerFrame.setLocationRelativeTo(null);
-  }
-
-  private void jButton5ActionPerformed(java.awt.event.ActionEvent evt){
-    salesManagerPage salesManagerFrame = new salesManagerPage();
-    salesManagerFrame.setVisible(true);
-    salesManagerFrame.pack();
-    salesManagerFrame.setLocationRelativeTo(null);
-  }
-
-  private void jButton6ActionPerformed(java.awt.event.ActionEvent evt){
-    purchaseManagerPage purchaseManagerFrame = new purchaseManagerPage();
-    purchaseManagerFrame.setVisible(true);
-    purchaseManagerFrame.pack();    
-    purchaseManagerFrame.setLocationRelativeTo(null);
-  }
 
   /**
    * @param args the command line arguments
@@ -303,7 +295,6 @@ public class adminstratorPage extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JButton manageUser;
