@@ -123,6 +123,12 @@ public class adminstratorPage extends javax.swing.JFrame {
             }
         });
 
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -232,7 +238,7 @@ public class adminstratorPage extends javax.swing.JFrame {
     this.dispose();
   }// GEN-LAST:event_jButton2ActionPerformed
 
-  private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_backButtonActionPerformed
+  private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_backButtonActionPerformed
     if (JOptionPane.showConfirmDialog(null, "Are you sure you want to log out?", "Confirm Logout",
         JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
       Login loginFrame = new Login();

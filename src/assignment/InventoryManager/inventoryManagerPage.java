@@ -102,6 +102,18 @@ public class inventoryManagerPage extends javax.swing.JFrame {
             }
         });
 
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
         jButton5.setText("Admin");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -206,7 +218,7 @@ public class inventoryManagerPage extends javax.swing.JFrame {
     this.dispose();
   }// GEN-LAST:event_jButton6ActionPerformed
 
-  private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_backButtonActionPerformed
+  private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_backButtonActionPerformed
     if (JOptionPane.showConfirmDialog(null, "Are you sure you want to log out?", "Confirm Logout",
         JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
       Login loginFrame = new Login();
