@@ -7,6 +7,9 @@ package assignment.FinanceManager;
 
 import assignment.SalesManager.viewPurchaseOrder;
 import assignment.Login;
+import assignment.Session;
+import assignment.Adminstrator.adminstratorPage;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -70,6 +73,19 @@ public class financeManagerPage extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
+
+        jButton2.addActionListener(new java.awt.event.ActionListener() { 
+            public void actionPerformed(java.awt.event.ActionEvent evt) { 
+                jButton2ActionPerformed(evt); 
+            } 
+        });
+
+        jButton8.addActionListener(new java.awt.event.ActionListener() { 
+            public void actionPerformed(java.awt.event.ActionEvent evt) { 
+                jButton8ActionPerformed(evt); 
+            } 
+        });
+
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -167,7 +183,7 @@ public class financeManagerPage extends javax.swing.JFrame {
   
   private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton6ActionPerformed
     manageSupplierPayment manageSupplierPaymentFrame = new manageSupplierPayment();
-      manageSupplierPaymentFrame.setVisible(true);
+    manageSupplierPaymentFrame.setVisible(true);
     manageSupplierPaymentFrame.pack();
     manageSupplierPaymentFrame.setLocationRelativeTo(null);
     this.dispose();
@@ -184,6 +200,28 @@ public class financeManagerPage extends javax.swing.JFrame {
       this.dispose();
     }
   } // GEN-LAST:event_backButtonActionPerformed
+
+
+private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    // Get the current session instance
+    Session currentSession = Session.getInstance();
+
+    // Check if the current user's access level indicates admin (1 = Admin)
+    if (currentSession != null && currentSession.getAccessLevel() == 1) {
+        // Open the Admin page
+        adminstratorPage adminstratorPageFrame = new adminstratorPage();
+        adminstratorPageFrame.setVisible(true);
+        adminstratorPageFrame.pack();
+        adminstratorPageFrame.setLocationRelativeTo(null);
+        this.dispose(); // Close the current Finance Manager page
+    } else { 
+        // Show a message and prevent access to the Admin page
+        JOptionPane.showMessageDialog(this, "You do not have permission to access this page.");
+        jButton2.setVisible(false); // Hide the Admin button if the user is not an Admin
+    }
+}
+
+
 
   /**
    * @param args the command line arguments
@@ -238,5 +276,6 @@ public class financeManagerPage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextField1;
+  
     // End of variables declaration//GEN-END:variables
 }

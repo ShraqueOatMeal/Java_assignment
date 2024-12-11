@@ -1,11 +1,14 @@
 package assignment.PurchaseManager;
 
 import assignment.UserType;
+import assignment.Adminstrator.adminstratorPage;
+
 import java.util.List;
 
 import javax.swing.JOptionPane;
 
 import assignment.Login;
+import assignment.Session;
 
 /**
  *
@@ -46,6 +49,12 @@ public class purchaseManagerPage extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+
+        jButton6.addActionListener(new java.awt.event.ActionListener() { 
+            public void actionPerformed(java.awt.event.ActionEvent evt) { 
+                jButton6ActionPerformed(evt); 
+            } 
+        });
 
         jButton3.setBackground(new java.awt.Color(0, 0, 0));
         jButton3.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
@@ -219,6 +228,25 @@ public class purchaseManagerPage extends javax.swing.JFrame {
     viewSupplierFrame.setLocationRelativeTo(null);
     this.dispose();
   }// GEN-LAST:event_jButton5ActionPerformed
+
+  private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    // Get the current session instance
+    Session currentSession = Session.getInstance();
+
+    // Check if the current user's access level indicates admin (1 = Admin)
+    if (currentSession != null && currentSession.getAccessLevel() == 1) {
+        // Open the Admin page
+        adminstratorPage adminstratorPageFrame = new adminstratorPage();
+        adminstratorPageFrame.setVisible(true);
+        adminstratorPageFrame.pack();
+        adminstratorPageFrame.setLocationRelativeTo(null);
+        this.dispose(); // Close the current Finance Manager page
+    } else { 
+        // Show a message and prevent access to the Admin page
+        JOptionPane.showMessageDialog(this, "You do not have permission to access this page.");
+        jButton2.setVisible(false); // Hide the Admin button if the user is not an Admin
+    }
+}
 
   /**
    * @param args the command line arguments

@@ -7,6 +7,9 @@ package assignment.Adminstrator;
 
 import assignment.Login;
 import assignment.FinanceManager.financeManagerPage;
+import assignment.InventoryManager.inventoryManagerPage;
+import assignment.PurchaseManager.purchaseManagerPage;
+import assignment.SalesManager.salesManagerPage;
 
 import javax.swing.JOptionPane;
 
@@ -21,7 +24,10 @@ public class adminstratorPage extends javax.swing.JFrame {
    */
   public adminstratorPage() {
     initComponents();
+    
   }
+
+  
 
   /**
    * This method is called from within the constructor to initialize the form.
@@ -71,6 +77,24 @@ public class adminstratorPage extends javax.swing.JFrame {
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
             }
         });
 
@@ -171,6 +195,8 @@ public class adminstratorPage extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    
+
   private void manageUserActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
     manageUsers manageUsersFrame = new manageUsers();
     manageUsersFrame.setVisible(true);
@@ -203,6 +229,27 @@ public class adminstratorPage extends javax.swing.JFrame {
     financeManagerFrame.setVisible(true);
     financeManagerFrame.pack();
     financeManagerFrame.setLocationRelativeTo(null);
+  }
+
+  private void jButton4ActionPerformed(java.awt.event.ActionEvent evt){
+    inventoryManagerPage inventoryManagerFrame = new inventoryManagerPage();
+    inventoryManagerFrame.setVisible(true);
+    inventoryManagerFrame.pack();
+    inventoryManagerFrame.setLocationRelativeTo(null);
+  }
+
+  private void jButton5ActionPerformed(java.awt.event.ActionEvent evt){
+    salesManagerPage salesManagerFrame = new salesManagerPage();
+    salesManagerFrame.setVisible(true);
+    salesManagerFrame.pack();
+    salesManagerFrame.setLocationRelativeTo(null);
+  }
+
+  private void jButton6ActionPerformed(java.awt.event.ActionEvent evt){
+    purchaseManagerPage purchaseManagerFrame = new purchaseManagerPage();
+    purchaseManagerFrame.setVisible(true);
+    purchaseManagerFrame.pack();    
+    purchaseManagerFrame.setLocationRelativeTo(null);
   }
 
   /**
