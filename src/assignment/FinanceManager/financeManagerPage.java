@@ -23,6 +23,7 @@ public class financeManagerPage extends javax.swing.JFrame {
    */
   public financeManagerPage() {
     initComponents();
+    loginAdminPage();
   }
 
   /**
@@ -206,23 +207,23 @@ public class financeManagerPage extends javax.swing.JFrame {
 
 
 private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-    // Get the current session instance
-    Session currentSession = Session.getInstance();
 
-    // Check if the current user's access level indicates admin (1 = Admin)
-    if (currentSession != null && currentSession.getAccessLevel() == 1) {
-        // Open the Admin page
         adminstratorPage adminstratorPageFrame = new adminstratorPage();
         adminstratorPageFrame.setVisible(true);
         adminstratorPageFrame.pack();
         adminstratorPageFrame.setLocationRelativeTo(null);
         this.dispose(); // Close the current Finance Manager page
-    } else { 
-        // Show a message and prevent access to the Admin page
-        JOptionPane.showMessageDialog(this, "You do not have permission to access this page.");
-        jButton2.setVisible(false); // Hide the Admin button if the user is not an Admin
-    }
+
 }
+
+private void loginAdminPage() {
+    Session currentSession = Session.getInstance();
+    // Check if the current user's access level indicates admin (1 = Admin)
+    if (currentSession != null && currentSession.getAccessLevel() != 1) {
+      // Open the Admin page
+      jButton2.setVisible(false); // Hide the Admin button if the user is not an Admin
+    }
+  }
 
 
 
