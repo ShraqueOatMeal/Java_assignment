@@ -43,14 +43,14 @@ public class InventoryManager extends UserType {
     return fileHandler.readData();
   }
 
-  public boolean addItem(String itemName, int itemStatus, int itemPrice, int itemQuantity) {
+  public boolean addItem(String itemID,String itemName, int itemStatus, int itemPrice, int itemQuantity) {
     try {
       // Check If item name already Exists
       List<String[]> items = fileHandler.readData();
       for (String[] item : items) {
-        if (item[1].equals(itemName)) {
+        if (item[0].equals(itemID)) {
           JOptionPane.showMessageDialog(null,
-              "Item Name Already Exists",
+              "Item ID Already Exists",
               "Error",
               JOptionPane.ERROR_MESSAGE);
           return false;
@@ -76,13 +76,13 @@ public class InventoryManager extends UserType {
     }
   }
 
-  public boolean removeItem(String itemName) {
+  public boolean removeItem(String itemID) {
     try {
       List<String[]> items = fileHandler.readData();
       List<String> updatedRecords = new java.util.ArrayList<>();
       boolean itemFound = false;
       for (String[] item : items) {
-        if (!item[1].equals(itemName)) {
+        if (!item[0].equals(itemID)) {
           updatedRecords.add(String.join(",", item));
         } else {
           itemFound = true;

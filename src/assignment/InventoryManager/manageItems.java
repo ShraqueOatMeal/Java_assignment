@@ -311,6 +311,7 @@ public class manageItems extends javax.swing.JFrame {
                 .addComponent(itemPriceLabel)
                 .addComponent(itemQuantityLabel))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(itemIDField)
                 .addComponent(itemNameField)
                 .addComponent(itemStatusField)
                 .addComponent(itemPriceField)
@@ -353,16 +354,16 @@ private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {
     return;
   }
 
-  String itemname = (String) jTable1.getValueAt(selectedRow, 1);
+  String itemID = (String) jTable1.getValueAt(selectedRow, 0);
 
   int confirm = JOptionPane.showConfirmDialog(
     this, 
     "Are you sure you want to delete " 
-    + itemname 
+    + itemID
     + "?");
 
   if (confirm == JOptionPane.YES_OPTION) {
-     if(inventoryManager.removeItem(itemname)){
+     if(inventoryManager.removeItem(itemID)){
     loadTable();
   }
 }}

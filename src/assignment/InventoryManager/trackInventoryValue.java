@@ -91,6 +91,12 @@ public class trackInventoryValue extends javax.swing.JFrame {
             }
         });
 
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
+
         jButton6.setBackground(new java.awt.Color(0, 0, 0));
         jButton6.setForeground(new java.awt.Color(255, 255, 255));
         jButton6.setText("Update Stock Levels");
@@ -153,7 +159,7 @@ public class trackInventoryValue extends javax.swing.JFrame {
         jButton11.setText("Edit ");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel2.setText("Enter Item ID:");
+        jLabel2.setText("Enter Stock Quantity:");
 
         jTextField1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
 
