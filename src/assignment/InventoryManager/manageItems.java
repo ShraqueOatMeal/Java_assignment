@@ -111,6 +111,11 @@ public class manageItems extends javax.swing.JFrame {
             }
         });
 
+        jButton7.addActionListener(evt -> jButton7ActionPerformed(evt));
+        jButton9.addActionListener(evt -> jButton9ActionPerformed(evt));
+        jButton10.addActionListener(evt -> jButton10ActionPerformed(evt));
+        jButton11.addActionListener(evt -> jButton11ActionPerformed(evt));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -515,5 +520,10 @@ private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JDialog dialog;
+    private javax.swing.JTextField itemNameField;
+    private javax.swing.JTextField itemStatusField;
+    private javax.swing.JTextField itemPriceField;    
+    private javax.swing.JTextField itemQuantityField;
     // End of variables declaration//GEN-END:variables
 }
