@@ -104,12 +104,6 @@ public class manageSuppliers extends javax.swing.JFrame {
             }
         });
 
-        jButton7.addActionListener(evt -> jButton7ActionPerformed(evt));
-        jButton9.addActionListener(evt -> jButton9ActionPerformed(evt));       
-        jButton11.addActionListener(evt -> jButton11ActionPerformed(evt));  
-
-        
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -149,7 +143,7 @@ public class manageSuppliers extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Supplier ID", "Supplier Name", "Supplier Item ID"
+                "Supplier ID", "Supplier Name", "Supplier Status", "Supplier Item ID"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -161,8 +155,6 @@ public class manageSuppliers extends javax.swing.JFrame {
         jButton10.setText("Save");
 
         jButton11.setText("Edit");
-
-        
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -501,10 +493,5 @@ editDialog.setVisible(true);}
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JDialog dialog;
-    private javax.swing.JTextField supplierIDField;
-    private javax.swing.JTextField supplierNameField;    
-    private javax.swing.JTextField supplierItemIDField;
-    
     // End of variables declaration//GEN-END:variables
 }
