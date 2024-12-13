@@ -5,9 +5,8 @@
  */
 package assignment.PurchaseManager;
 
-import assignment.SalesManager.*;
-import assignment.SalesManager.SalesManager;
-import assignment.SalesManager.salesManagerPage;
+import assignment.PurchaseManager.PurchaseManager;
+import assignment.PurchaseManager.purchaseManagerPage;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JOptionPane;
@@ -17,7 +16,7 @@ import javax.swing.JOptionPane;
  * @author Admin
  */
 public class viewPurchaseOrder extends javax.swing.JFrame {
-  SalesManager salesManager = new SalesManager();
+  PurchaseManager purchaseManager = new PurchaseManager();
 
   /**
    * Creates new form viewPurchaseOrder
@@ -41,138 +40,140 @@ public class viewPurchaseOrder extends javax.swing.JFrame {
   // <editor-fold defaultstate="collapsed" desc="Generated
   // <editor-fold defaultstate="collapsed" desc="Generated
   // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+  // <editor-fold defaultstate="collapsed" desc="Generated
+  // Code">//GEN-BEGIN:initComponents
+  private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        searchButton = new javax.swing.JButton();
-        searchTextField = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jButton7 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        viewPurchaseButton = new javax.swing.JButton();
+    jPanel1 = new javax.swing.JPanel();
+    jLabel1 = new javax.swing.JLabel();
+    jScrollPane2 = new javax.swing.JScrollPane();
+    jTable2 = new javax.swing.JTable();
+    searchButton = new javax.swing.JButton();
+    searchTextField = new javax.swing.JTextField();
+    jLabel3 = new javax.swing.JLabel();
+    jPanel2 = new javax.swing.JPanel();
+    jButton7 = new javax.swing.JButton();
+    jButton3 = new javax.swing.JButton();
+    jButton9 = new javax.swing.JButton();
+    jButton5 = new javax.swing.JButton();
+    jButton8 = new javax.swing.JButton();
+    viewPurchaseButton = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+    setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+    jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel1.setText("View Purchase Order");
+    jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+    jLabel1.setText("View Purchase Order");
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+    jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        new Object[][] {
 
-            },
-            new String [] {
-                "PO ID", "Item Name", "Quantity", "Status", "Req ID", "Date Before", "Item ID", "Sup ID", "Price per Item"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Object.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false
-            };
+        },
+        new String[] {
+            "PO ID", "Item Name", "Quantity", "Status", "Req ID", "Date Before", "Item ID", "Sup ID", "Price per Item"
+        }) {
+      Class[] types = new Class[] {
+          java.lang.Integer.class, java.lang.Object.class, java.lang.Integer.class, java.lang.Object.class,
+          java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class,
+          java.lang.Object.class
+      };
+      boolean[] canEdit = new boolean[] {
+          false, false, false, false, false, false, false, false, false
+      };
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
+      public Class getColumnClass(int columnIndex) {
+        return types[columnIndex];
+      }
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jTable2.getTableHeader().setReorderingAllowed(false);
-        jScrollPane2.setViewportView(jTable2);
+      public boolean isCellEditable(int rowIndex, int columnIndex) {
+        return canEdit[columnIndex];
+      }
+    });
+    jTable2.getTableHeader().setReorderingAllowed(false);
+    jScrollPane2.setViewportView(jTable2);
 
-        searchButton.setText("Search");
-        searchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchButtonActionPerformed(evt);
-            }
-        });
+    searchButton.setText("Search");
+    searchButton.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        searchButtonActionPerformed(evt);
+      }
+    });
 
-        jLabel3.setText("Search:");
+    jLabel3.setText("Search:");
 
-        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+    jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
-        jButton7.setBackground(new java.awt.Color(0, 0, 0));
-        jButton7.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(255, 255, 255));
-        jButton7.setText("<");
-        jButton7.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
-            }
-        });
+    jButton7.setBackground(new java.awt.Color(0, 0, 0));
+    jButton7.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+    jButton7.setForeground(new java.awt.Color(255, 255, 255));
+    jButton7.setText("<");
+    jButton7.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+    jButton7.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton7ActionPerformed(evt);
+      }
+    });
 
-        jButton3.setBackground(new java.awt.Color(0, 0, 0));
-        jButton3.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("View Items");
-        jButton3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
+    jButton3.setBackground(new java.awt.Color(0, 0, 0));
+    jButton3.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+    jButton3.setForeground(new java.awt.Color(255, 255, 255));
+    jButton3.setText("View Items");
+    jButton3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+    jButton3.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton3ActionPerformed(evt);
+      }
+    });
 
-        jButton9.setBackground(new java.awt.Color(0, 0, 0));
-        jButton9.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
-        jButton9.setForeground(new java.awt.Color(255, 255, 255));
-        jButton9.setText("Create Purchase Order");
-        jButton9.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
-            }
-        });
+    jButton9.setBackground(new java.awt.Color(0, 0, 0));
+    jButton9.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+    jButton9.setForeground(new java.awt.Color(255, 255, 255));
+    jButton9.setText("Create Purchase Order");
+    jButton9.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+    jButton9.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton9ActionPerformed(evt);
+      }
+    });
 
-        jButton5.setBackground(new java.awt.Color(0, 0, 0));
-        jButton5.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("View Requisitions");
-        jButton5.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
+    jButton5.setBackground(new java.awt.Color(0, 0, 0));
+    jButton5.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+    jButton5.setForeground(new java.awt.Color(255, 255, 255));
+    jButton5.setText("View Requisitions");
+    jButton5.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+    jButton5.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton5ActionPerformed(evt);
+      }
+    });
 
-        jButton8.setBackground(new java.awt.Color(0, 0, 0));
-        jButton8.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(255, 255, 255));
-        jButton8.setText("View Supplier");
-        jButton8.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
+    jButton8.setBackground(new java.awt.Color(0, 0, 0));
+    jButton8.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+    jButton8.setForeground(new java.awt.Color(255, 255, 255));
+    jButton8.setText("View Supplier");
+    jButton8.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+    jButton8.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton8ActionPerformed(evt);
+      }
+    });
 
-        viewPurchaseButton.setBackground(new java.awt.Color(0, 0, 0));
-        viewPurchaseButton.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
-        viewPurchaseButton.setForeground(new java.awt.Color(255, 255, 255));
-        viewPurchaseButton.setText("View Purchase Order");
-        viewPurchaseButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        viewPurchaseButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewPurchaseButtonActionPerformed(evt);
-            }
-        });
+    viewPurchaseButton.setBackground(new java.awt.Color(0, 0, 0));
+    viewPurchaseButton.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+    viewPurchaseButton.setForeground(new java.awt.Color(255, 255, 255));
+    viewPurchaseButton.setText("View Purchase Order");
+    viewPurchaseButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+    viewPurchaseButton.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        viewPurchaseButtonActionPerformed(evt);
+      }
+    });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+    javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+    jPanel2.setLayout(jPanel2Layout);
+    jPanel2Layout.setHorizontalGroup(
+        jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButton7)
@@ -186,35 +187,40 @@ public class viewPurchaseOrder extends javax.swing.JFrame {
                 .addComponent(jButton8)
                 .addGap(18, 18, 18)
                 .addComponent(viewPurchaseButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+    jPanel2Layout.setVerticalGroup(
+        jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(viewPurchaseButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 50,
+                            javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 50,
+                            javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 50,
+                            javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 50,
+                            javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(viewPurchaseButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50,
+                            javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jButton7))
-                .addContainerGap(16, Short.MAX_VALUE))
-        );
+                .addContainerGap(16, Short.MAX_VALUE)));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+    javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+    jPanel1.setLayout(jPanel1Layout);
+    jPanel1Layout.setHorizontalGroup(
+        jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(47, 47, 47)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 858, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 858,
+                                javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 274,
+                                    javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(searchButton))
                             .addComponent(jLabel3)))
@@ -222,84 +228,90 @@ public class viewPurchaseOrder extends javax.swing.JFrame {
                         .addGap(291, 291, 291)
                         .addComponent(jLabel1)))
                 .addContainerGap(45, Short.MAX_VALUE))
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE,
+                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
+    jPanel1Layout.setVerticalGroup(
+        jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
+                    javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46)
                 .addComponent(jLabel1)
                 .addGap(41, 41, 41)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE,
+                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(searchButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(140, Short.MAX_VALUE))
-        );
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 187,
+                    javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(140, Short.MAX_VALUE)));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+    javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+    getContentPane().setLayout(layout);
+    layout.setHorizontalGroup(
+        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
+                Short.MAX_VALUE));
+    layout.setVerticalGroup(
+        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
+                Short.MAX_VALUE));
 
-        pack();
-        setLocationRelativeTo(null);
-    }// </editor-fold>//GEN-END:initComponents
+    pack();
+    setLocationRelativeTo(null);
+  }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+  private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton7ActionPerformed
     purchaseManagerPage purchaseManagerFrame = new purchaseManagerPage();
     purchaseManagerFrame.setVisible(true);
     purchaseManagerFrame.pack();
     purchaseManagerFrame.setLocationRelativeTo(null);
-    this.dispose();    }//GEN-LAST:event_jButton7ActionPerformed
+    this.dispose();
+  }// GEN-LAST:event_jButton7ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+  private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton3ActionPerformed
     viewItems viewItemsFrame = new viewItems();
     viewItemsFrame.setVisible(true);
     viewItemsFrame.pack();
     viewItemsFrame.setLocationRelativeTo(null);
-    this.dispose();    }//GEN-LAST:event_jButton3ActionPerformed
+    this.dispose();
+  }// GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+  private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton9ActionPerformed
     createPurchaseOrder createPurchaseOrderFrame = new createPurchaseOrder();
     createPurchaseOrderFrame.setVisible(true);
     createPurchaseOrderFrame.pack();
     createPurchaseOrderFrame.setLocationRelativeTo(null);
     this.dispose();
-    }//GEN-LAST:event_jButton9ActionPerformed
+  }// GEN-LAST:event_jButton9ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+  private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton5ActionPerformed
 
     viewRequisition viewRequisitionFrame = new viewRequisition();
     viewRequisitionFrame.setVisible(true);
     viewRequisitionFrame.pack();
     viewRequisitionFrame.setLocationRelativeTo(null);
-    this.dispose();    }//GEN-LAST:event_jButton5ActionPerformed
+    this.dispose();
+  }// GEN-LAST:event_jButton5ActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+  private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton8ActionPerformed
     viewSupplier viewSupplierFrame = new viewSupplier();
     viewSupplierFrame.setVisible(true);
     viewSupplierFrame.pack();
     viewSupplierFrame.setLocationRelativeTo(null);
     this.dispose();
-    }//GEN-LAST:event_jButton8ActionPerformed
+  }// GEN-LAST:event_jButton8ActionPerformed
 
-    private void viewPurchaseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewPurchaseButtonActionPerformed
+  private void viewPurchaseButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_viewPurchaseButtonActionPerformed
     viewPurchaseOrder purchaseManagerFrame = new viewPurchaseOrder();
     purchaseManagerFrame.setVisible(true);
     purchaseManagerFrame.pack();
-    purchaseManagerFrame.setLocationRelativeTo(null);    }//GEN-LAST:event_viewPurchaseButtonActionPerformed
-
+    purchaseManagerFrame.setLocationRelativeTo(null);
+    this.dispose();
+  }// GEN-LAST:event_viewPurchaseButtonActionPerformed
 
   private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_searchButtonActionPerformed
     String searchText = searchTextField.getText().trim();
@@ -311,7 +323,7 @@ public class viewPurchaseOrder extends javax.swing.JFrame {
   }
 
   private void loadTable() {
-    List<String[]> requisitionData = salesManager.viewPurchaseOrder();
+    List<String[]> requisitionData = purchaseManager.viewPurchaseOrder();
 
     DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
     model.setRowCount(0);
@@ -325,7 +337,7 @@ public class viewPurchaseOrder extends javax.swing.JFrame {
     DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
     model.setRowCount(0); // Clear existing rows
 
-    List<String[]> lines = salesManager.viewPurchaseOrder(); // Read all lines from stock.txt
+    List<String[]> lines = purchaseManager.viewPurchaseOrder(); // Read all lines from stock.txt
     for (String[] data : lines) {
       if (data.length >= 4 && (data[0].trim().equals(searchText))
           || (data[1].trim().equals(searchText) || data[3].trim().equals(searchText))) {
@@ -391,20 +403,20 @@ public class viewPurchaseOrder extends javax.swing.JFrame {
     });
   }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JButton searchButton;
-    private javax.swing.JTextField searchTextField;
-    private javax.swing.JButton viewPurchaseButton;
-    // End of variables declaration//GEN-END:variables
+  // Variables declaration - do not modify//GEN-BEGIN:variables
+  private javax.swing.JButton jButton3;
+  private javax.swing.JButton jButton5;
+  private javax.swing.JButton jButton7;
+  private javax.swing.JButton jButton8;
+  private javax.swing.JButton jButton9;
+  private javax.swing.JLabel jLabel1;
+  private javax.swing.JLabel jLabel3;
+  private javax.swing.JPanel jPanel1;
+  private javax.swing.JPanel jPanel2;
+  private javax.swing.JScrollPane jScrollPane2;
+  private javax.swing.JTable jTable2;
+  private javax.swing.JButton searchButton;
+  private javax.swing.JTextField searchTextField;
+  private javax.swing.JButton viewPurchaseButton;
+  // End of variables declaration//GEN-END:variables
 }

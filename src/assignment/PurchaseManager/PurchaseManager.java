@@ -63,8 +63,9 @@ public class PurchaseManager extends UserType {
     purchOrderHandler.addRecord(record);
   }
 
-  public void approvePurchaseOrder() {
-    // Implementation
+  public List<String[]> viewPurchaseOrder() {
+    FileHandler fileHandler = new FileHandler("src/assignment/database/purchOrder.txt");
+    return fileHandler.readData();
   }
 
   public void saveAll() {

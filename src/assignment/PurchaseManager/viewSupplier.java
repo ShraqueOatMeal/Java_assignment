@@ -36,6 +36,9 @@ public class viewSupplier extends javax.swing.JFrame {
   // <editor-fold defaultstate="collapsed" desc="Generated
   // <editor-fold defaultstate="collapsed" desc="Generated
   // <editor-fold defaultstate="collapsed" desc="Generated
+  // <editor-fold defaultstate="collapsed" desc="Generated
+  // <editor-fold defaultstate="collapsed" desc="Generated
+  // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -43,7 +46,7 @@ public class viewSupplier extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         searchButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jButton3 = new javax.swing.JButton();
+        backButton = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
@@ -72,14 +75,14 @@ public class viewSupplier extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
-        jButton3.setBackground(new java.awt.Color(0, 0, 0));
-        jButton3.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("<");
-        jButton3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        backButton.setBackground(new java.awt.Color(0, 0, 0));
+        backButton.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        backButton.setForeground(new java.awt.Color(255, 255, 255));
+        backButton.setText("<");
+        backButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                backButtonActionPerformed(evt);
             }
         });
 
@@ -144,7 +147,7 @@ public class viewSupplier extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton3)
+                .addComponent(backButton)
                 .addGap(18, 18, 18)
                 .addComponent(jButton5)
                 .addGap(18, 18, 18)
@@ -168,7 +171,7 @@ public class viewSupplier extends javax.swing.JFrame {
                         .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(viewPurchaseButton))
-                    .addComponent(jButton3))
+                    .addComponent(backButton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -247,11 +250,13 @@ public class viewSupplier extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void viewPurchaseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewPurchaseButtonActionPerformed
+  private void viewPurchaseButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_viewPurchaseButtonActionPerformed
     viewPurchaseOrder purchaseManagerFrame = new viewPurchaseOrder();
     purchaseManagerFrame.setVisible(true);
     purchaseManagerFrame.pack();
-    purchaseManagerFrame.setLocationRelativeTo(null);    }//GEN-LAST:event_viewPurchaseButtonActionPerformed
+    purchaseManagerFrame.setLocationRelativeTo(null);
+    this.dispose();
+  }// GEN-LAST:event_viewPurchaseButtonActionPerformed
 
   private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jTextField1ActionPerformed
     // TODO add your handling code here:
@@ -260,14 +265,6 @@ public class viewSupplier extends javax.swing.JFrame {
   private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
     // TODO add your handling code here:
   }// GEN-LAST:event_jButton1ActionPerformed
-
-  private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton3ActionPerformed
-    purchaseManagerPage purchaseManagerFrame = new purchaseManagerPage();
-    purchaseManagerFrame.setVisible(true);
-    purchaseManagerFrame.pack();
-    purchaseManagerFrame.setLocationRelativeTo(null);
-    this.dispose();
-  }// GEN-LAST:event_jButton3ActionPerformed
 
   private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton5ActionPerformed
     viewItems viewItemsFrame = new viewItems();
@@ -300,6 +297,14 @@ public class viewSupplier extends javax.swing.JFrame {
     viewSupplierFrame.setLocationRelativeTo(null);
     this.dispose();
   }// GEN-LAST:event_jButton8ActionPerformed
+
+  private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_backButtonActionPerformed
+    viewPurchaseOrder purchaseManagerFrame = new viewPurchaseOrder();
+    purchaseManagerFrame.setVisible(true);
+    purchaseManagerFrame.pack();
+    purchaseManagerFrame.setLocationRelativeTo(null);
+    this.dispose();
+  }
 
   private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_searchButtonActionPerformed
     String searchQuery = searchTextField.getText().toLowerCase().trim();
@@ -410,7 +415,7 @@ public class viewSupplier extends javax.swing.JFrame {
   }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton backButton;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton8;

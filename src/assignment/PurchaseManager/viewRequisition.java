@@ -42,6 +42,7 @@ public class viewRequisition extends javax.swing.JFrame {
   // <editor-fold defaultstate="collapsed" desc="Generated
   // <editor-fold defaultstate="collapsed" desc="Generated
   // <editor-fold defaultstate="collapsed" desc="Generated
+  // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -323,11 +324,13 @@ public class viewRequisition extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void viewPurchaseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewPurchaseButtonActionPerformed
+  private void viewPurchaseButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_viewPurchaseButtonActionPerformed
     viewPurchaseOrder purchaseManagerFrame = new viewPurchaseOrder();
     purchaseManagerFrame.setVisible(true);
     purchaseManagerFrame.pack();
-    purchaseManagerFrame.setLocationRelativeTo(null);    }//GEN-LAST:event_viewPurchaseButtonActionPerformed
+    purchaseManagerFrame.setLocationRelativeTo(null);
+    this.dispose();
+  }// GEN-LAST:event_viewPurchaseButtonActionPerformed
 
   private void rejectButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_rejectButtonActionPerformed
     int selectedRow = jTable1.getSelectedRow();
