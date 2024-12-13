@@ -122,7 +122,7 @@ public class InventoryManager extends UserType {
       boolean itemFound = false;
 
       for (String[] item : items) {
-        if (item[1].equals(itemName)) {
+        if (item[0].equals(itemID)) {
           // Update item information
           String updatedRecord = String.format("%s,%s,%s,%s,%s", itemID, itemName, itemStatus, itemPrice, itemQuantity);
           updatedRecords.add(updatedRecord);
@@ -229,7 +229,7 @@ public class InventoryManager extends UserType {
     }
   }
 
-  public boolean updateSupplier(String supplierID, String supplierName, String supplierItemID) {
+  public boolean updateSupplier(String supplierID, String newSupplierName, String newSupplierItemID) {
     try {
       // Check If item name already Exists
       List<String[]> suppliers = supplierFileHandler.readData();
@@ -237,9 +237,9 @@ public class InventoryManager extends UserType {
       boolean supplierFound = false;
 
       for (String[] supplier : suppliers) {
-        if (supplier[1].equals(supplierName)) {
+        if (supplier[0].equals(supplierID)) {
           // Update item information
-          String updatedRecord = String.format("%s,%s,%s", supplierID, supplierName, supplierItemID);
+          String updatedRecord = String.format("%s,%s,%s", supplierID, newSupplierName, newSupplierItemID);
           updatedRecords.add(updatedRecord);
           supplierFound = true;
         } else {

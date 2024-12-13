@@ -260,12 +260,14 @@ public class manageItems extends javax.swing.JFrame {
     dialog = new javax.swing.JDialog(this, "Add New Item", true);
 
     // Fields
+    itemIDField = new javax.swing.JTextField(15);
     itemNameField = new javax.swing.JTextField(15);
     itemStatusField = new javax.swing.JTextField(15);
     itemPriceField = new javax.swing.JTextField(15);
     itemQuantityField = new javax.swing.JTextField(15);
 
     // Labels
+    JLabel itemIDLabel = new JLabel("Item ID:");
     JLabel itemNameLabel = new JLabel("Item Name:");
     JLabel itemStatusLabel = new JLabel("Item Status:");
     JLabel itemPriceLabel = new JLabel("Item Price:");
@@ -275,6 +277,7 @@ public class manageItems extends javax.swing.JFrame {
     JButton buttonUpdate = new JButton("Update Item");
     buttonUpdate.addActionListener(e -> {
         try {
+            String itemID = itemIDField.getText().trim();
             String itemName = itemNameField.getText().trim();
             int itemStatus = Integer.parseInt(itemStatusField.getText().trim());
             int itemPrice = Integer.parseInt(itemPriceField.getText().trim());
@@ -284,7 +287,7 @@ public class manageItems extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(dialog, "All fields are required!");
                 return;
             }
-            if (inventoryManager.addItem(itemName, itemStatus, itemPrice, itemQuantity)) {
+            if (inventoryManager.addItem(itemID,itemName, itemStatus, itemPrice, itemQuantity)) {
                 dialog.dispose();
                 loadTable();
             }
@@ -302,6 +305,7 @@ public class manageItems extends javax.swing.JFrame {
     layout.setHorizontalGroup(
         layout.createSequentialGroup()
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(itemIDLabel)
                 .addComponent(itemNameLabel)
                 .addComponent(itemStatusLabel)
                 .addComponent(itemPriceLabel)
@@ -316,6 +320,9 @@ public class manageItems extends javax.swing.JFrame {
 
     layout.setVerticalGroup(
         layout.createSequentialGroup()
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(itemIDLabel)
+                .addComponent(itemIDField))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(itemNameLabel)
                 .addComponent(itemNameField))
@@ -521,6 +528,7 @@ private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JDialog dialog;
+    private javax.swing.JTextField itemIDField;
     private javax.swing.JTextField itemNameField;
     private javax.swing.JTextField itemStatusField;
     private javax.swing.JTextField itemPriceField;    

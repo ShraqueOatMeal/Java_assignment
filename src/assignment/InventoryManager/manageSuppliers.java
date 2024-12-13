@@ -374,6 +374,7 @@ public class manageSuppliers extends javax.swing.JFrame {
         model.setValueAt(newSupplierItemID, selectedRow, 2);
 
         editDialog.dispose();
+
         JOptionPane.showMessageDialog(this, "Supplier updated successfully!");
       } else {
         JOptionPane.showMessageDialog(this, "Error updating supplier");
