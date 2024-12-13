@@ -160,8 +160,8 @@ public class manageSupplierPayment extends javax.swing.JFrame {
 
         },
         new String[] {
-            "PO ID", "Payment History", "Supplier Status ", "Supplier Item ID", "Title 5", "Title 6", "Title 7",
-            "Title 8", "Title 9", "Payment History"
+            "PO ID", "Item Name", "Quantity", "Status", "Req ID", "Date Before", "Item ID",
+            "Sup ID", "Price per Item", "Payment History"
         }));
     jScrollPane1.setViewportView(jTable1);
 
@@ -319,7 +319,8 @@ public class manageSupplierPayment extends javax.swing.JFrame {
     // Initialize the table model again (if needed)
     DefaultTableModel model = new DefaultTableModel(
         new Object[][] {},
-        new String[] { "Supplier ID", "Payment History", "Supplier Status", "Item ID" });
+        new String[] {"PO ID", "Item Name", "Quantity", "Status", "Req ID", "Date Before", "Item ID",
+            "Sup ID", "Price per Item", "Payment History"});
     jTable1.setModel(model);
 
     model.setRowCount(0); // Clear any existing rows
