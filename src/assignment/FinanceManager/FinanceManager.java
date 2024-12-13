@@ -6,6 +6,7 @@ import assignment.FileHandler;
 import assignment.UserType;
 
 public class FinanceManager extends UserType {
+  private String username;
   private FileHandler fileHandler;
   private FileHandler supplierHandler;
 
