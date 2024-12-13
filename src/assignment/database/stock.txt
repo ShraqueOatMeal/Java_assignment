@@ -3,7 +3,7 @@ I002,Refrigerator,15,5,30
 I003,Microwave Oven,20,5,30
 I004,Air Conditioner,8,5,30
 I005,Water Purifier,25,5,30
-I006,Vacuum Cleaner,30,5,30
+I006,Vacuum Cleaner,30,4,30
 I007,Dishwasher,12,5,30
 I008,Clothes Dryer,10,5,30
 I009,Electric Kettle,50,5,30

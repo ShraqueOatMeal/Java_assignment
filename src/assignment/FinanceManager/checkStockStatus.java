@@ -10,12 +10,14 @@ import assignment.FileHandler;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JOptionPane;
+import java.util.ArrayList;
 
 /**
  *
  * @author Admin
  */
 public class checkStockStatus extends javax.swing.JFrame {
+  FinanceManager financeManager = new FinanceManager();
 
   /**
    * Creates new form auditTransactions
@@ -32,6 +34,7 @@ public class checkStockStatus extends javax.swing.JFrame {
    */
   @SuppressWarnings("unchecked")
   // <editor-fold defaultstate="collapsed" desc="Generated
+  // <editor-fold defaultstate="collapsed" desc="Generated
   // Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
@@ -41,20 +44,14 @@ public class checkStockStatus extends javax.swing.JFrame {
     jButton1 = new javax.swing.JButton();
     jButton6 = new javax.swing.JButton();
     jButton4 = new javax.swing.JButton();
-    jButton7 = new javax.swing.JButton();
     jLabel1 = new javax.swing.JLabel();
     jScrollPane1 = new javax.swing.JScrollPane();
     jTable1 = new javax.swing.JTable();
     jLabel2 = new javax.swing.JLabel();
     jTextField1 = new javax.swing.JTextField();
     jButton3 = new javax.swing.JButton();
-    jButton5 = new javax.swing.JButton();
-    jButton9 = new javax.swing.JButton();
-    jButton10 = new javax.swing.JButton();
-    jButton11 = new javax.swing.JButton();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-    setPreferredSize(new java.awt.Dimension(950, 600));
 
     jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -62,9 +59,9 @@ public class checkStockStatus extends javax.swing.JFrame {
 
     jButton3.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
-          jButton3ActionPerformed(evt);
+        jButton3ActionPerformed(evt);
       }
-  });
+    });
 
     jButton8.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
     jButton8.setText("H");
@@ -73,7 +70,6 @@ public class checkStockStatus extends javax.swing.JFrame {
         jButton8ActionPerformed(evt);
       }
     });
-
     jButton1.setText("Approve Payment");
     jButton1.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,13 +91,6 @@ public class checkStockStatus extends javax.swing.JFrame {
       }
     });
 
-    jButton7.setText("Generate Financial Report");
-    jButton7.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        jButton7ActionPerformed(evt);
-      }
-    });
-
     javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
     jPanel2.setLayout(jPanel2Layout);
     jPanel2Layout.setHorizontalGroup(
@@ -115,8 +104,6 @@ public class checkStockStatus extends javax.swing.JFrame {
                 .addComponent(jButton6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton7)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
     jPanel2Layout.setVerticalGroup(
         jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -129,8 +116,6 @@ public class checkStockStatus extends javax.swing.JFrame {
                         .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 50,
                             javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 50,
-                            javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 50,
                             javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jButton8))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
@@ -154,14 +139,6 @@ public class checkStockStatus extends javax.swing.JFrame {
 
     jButton3.setText("Search");
 
-    jButton5.setText("Add");
-
-    jButton9.setText("Delete");
-
-    jButton10.setText("Save");
-
-    jButton11.setText("Edit");
-
     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
     jPanel1.setLayout(jPanel1Layout);
     jPanel1Layout.setHorizontalGroup(
@@ -176,20 +153,8 @@ public class checkStockStatus extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(105, 105, 105)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 577,
-                                    javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(80, 80, 80)
-                                .addGroup(
-                                    jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                            javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                            javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                            javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                            javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 738,
+                                javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(35, 35, 35)
@@ -197,7 +162,7 @@ public class checkStockStatus extends javax.swing.JFrame {
                                     javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(28, 28, 28)
                                 .addComponent(jButton3)))))
-                .addContainerGap(130, Short.MAX_VALUE)));
+                .addContainerGap(107, Short.MAX_VALUE)));
     jPanel1Layout.setVerticalGroup(
         jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -211,25 +176,15 @@ public class checkStockStatus extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 184,
-                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton5)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton9)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton10)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton11)))
-                        .addGap(86, 86, 86))
+                                javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(37, 37, 37)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 35,
-                            javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))));
+                            javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 256,
+                    javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(86, 86, 86)));
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
     getContentPane().setLayout(layout);
@@ -252,21 +207,17 @@ public class checkStockStatus extends javax.swing.JFrame {
 
     // Initialize the table model again (if needed)
     DefaultTableModel model = new DefaultTableModel(
-        new Object[][] {}, 
-        new String[] { "Item ID", "Item Name", "Item Quantity", "Item Status", "Item Price" }
-    );
+        new Object[][] {},
+        new String[] { "Item ID", "Item Name", "Item Quantity", "Item Status", "Item Price" });
     jTable1.setModel(model);
 
     model.setRowCount(0); // Clear any existing rows
 
     // Add rows to the table
     for (String[] row : checkStockStatus) {
-        model.addRow(row);
+      model.addRow(row);
     }
-}
-
-
-
+  }
 
   private void search(String searchText) {
     FileHandler fileHandler = new FileHandler("src/assignment/database/stock.txt");
@@ -276,37 +227,36 @@ public class checkStockStatus extends javax.swing.JFrame {
     try {
       int status = Integer.parseInt(searchText.trim()); // Parse the input to an integer
       if (status < 1 || status > 5) {
-          JOptionPane.showMessageDialog(this, "Please enter a number between 1 and 5", "Invalid Input", JOptionPane.ERROR_MESSAGE);
-          return;
+        JOptionPane.showMessageDialog(this, "Please enter a number between 1 and 5", "Invalid Input",
+            JOptionPane.ERROR_MESSAGE);
+        return;
       }
-      
 
-    List<String[]> lines = fileHandler.readData();
-    boolean found = false; // Flag to track matching data
-    for (String[] data : lines) {
-      if (data.length >= 4) {
+      List<String[]> lines = fileHandler.readData();
+      boolean found = false; // Flag to track matching data
+      for (String[] data : lines) {
+        if (data.length >= 4) {
           String itemStatus = data[3].trim(); // Trim whitespace
           if (itemStatus.equals(String.valueOf(status))) { // Compare as strings
-              model.addRow(new Object[]{
-                  data[0].trim(), // Item ID
-                  data[1].trim(), // Item Name
-                  data[2].trim(), // Item Quantity
-                  itemStatus,     // Item Status
-                  data[4].trim()  // Item Price
-              });
-        found = true;
+            model.addRow(new Object[] {
+                data[0].trim(), // Item ID
+                data[1].trim(), // Item Name
+                data[2].trim(), // Item Quantity
+                itemStatus, // Item Status
+                data[4].trim() // Item Price
+            });
+            found = true;
+          }
+        }
       }
+      // Show a message if no matching stock is found
+      if (!found) {
+        JOptionPane.showMessageDialog(this, "No matching stock found", "No Matching Stock", JOptionPane.ERROR_MESSAGE);
+      }
+    } catch (NumberFormatException e) {
+      JOptionPane.showMessageDialog(this, "Please enter a valid number", "Invalid Input", JOptionPane.ERROR_MESSAGE);
     }
   }
-        // Show a message if no matching stock is found
-        if (!found) {
-          JOptionPane.showMessageDialog(this, "No matching stock found", "No Matching Stock", JOptionPane.ERROR_MESSAGE);
-      }
-  } catch (NumberFormatException e) {
-      JOptionPane.showMessageDialog(this, "Please enter a valid number", "Invalid Input", JOptionPane.ERROR_MESSAGE);
-  }
-}
-
 
   private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton3ActionPerformed
     String searchText = jTextField1.getText().trim();
@@ -358,6 +308,32 @@ public class checkStockStatus extends javax.swing.JFrame {
   }// GEN-LAST:event_jButton8ActionPerformed
 
   /**
+   * @param searchQuantity
+   */
+  private void searchAndDisplayResult(String searchQuantity) {
+    FileHandler fileHandler = new FileHandler("src/assignment/database/stock.txt");
+    DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+    model.setRowCount(0); // Clear existing rows
+
+    List<String[]> lines = fileHandler.readData(); // Read all lines from stock.txt
+    for (String[] data : lines) {
+      if (data.length >= 5 && (data[3].trim().equals(searchQuantity))) {
+        model.addRow(new Object[] {
+            data[0].trim(), // Item ID
+            data[1].trim(), // Item Name
+            data[2].trim(), // Item Quantity
+            data[3].trim() // Restock Level
+
+        });
+      }
+    }
+    if (model.getRowCount() == 0) {
+      JOptionPane.showMessageDialog(this, "No matching items found", "No Matching Items", JOptionPane.ERROR_MESSAGE);
+
+    }
+  }
+
+  /**
    * @param args the command line arguments
    */
   public static void main(String args[]) {
@@ -403,15 +379,10 @@ public class checkStockStatus extends javax.swing.JFrame {
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton jButton1;
-  private javax.swing.JButton jButton10;
-  private javax.swing.JButton jButton11;
   private javax.swing.JButton jButton3;
   private javax.swing.JButton jButton4;
-  private javax.swing.JButton jButton5;
   private javax.swing.JButton jButton6;
-  private javax.swing.JButton jButton7;
   private javax.swing.JButton jButton8;
-  private javax.swing.JButton jButton9;
   private javax.swing.JLabel jLabel1;
   private javax.swing.JLabel jLabel2;
   private javax.swing.JPanel jPanel1;

@@ -4,8 +4,11 @@ import java.io.File;
 import java.util.List;
 import assignment.FileHandler;
 import assignment.UserType;
+import assignment.FileHandler;
+import java.util.List;
 
 public class FinanceManager extends UserType {
+  private FileHandler fileHandler;
   private String username;
   private FileHandler fileHandler;
   private FileHandler supplierHandler;
@@ -33,21 +36,18 @@ public class FinanceManager extends UserType {
     return username;
   }
 
-  public List<String[]> checkStockStatus() {
+  public List<String[]> approvePayment() {
+    FileHandler fileHandler = new FileHandler("src/assignment/database/purchOrder.txt");
     return fileHandler.readData();
   }
 
-  public void generateFinancialReport() {
-    // Implementation
-  }
-
-  public void approvePayment() {
-    // Implementation
+  public List<String[]> checkStockStatus() {
+    FileHandler fileHandler = new FileHandler("src/assignment/database/stock.txt");
+    return fileHandler.readData();
   }
 
   public List<String[]> manageSupplierPayment() {
-    return supplierHandler.readData();
-    // Implementation
+    FileHandler fileHandler = new FileHandler("src/assignment/database/approvedPurchaseOrder.txt");
+    return fileHandler.readData();
   }
-
 }
