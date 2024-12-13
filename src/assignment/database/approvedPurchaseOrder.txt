@@ -1,0 +1,4 @@
+1,Hair Dryer,1,Approved,null,2024/01/01,I046,S001,15,Payment Approved
+6,Hair Dryer,3,Approved,null,2024/01/01,I046,S002,20,Payment Approved
+5,Massage Chair,2,Approved,null,2024/01/01,I050,S001,20,Payment Approved
+2,Hair Dryer,2,Approved,null,2024/01/01,I046,S001,15,Payment Approved
