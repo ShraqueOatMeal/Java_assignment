@@ -241,50 +241,13 @@ public class manageSupplierPayment extends javax.swing.JFrame {
   private void jButton5ActionPerformed(ActionEvent evt) {
     String searchText = jTextField1.getText().trim();
     if (!searchText.isEmpty()) {
-      search(searchText);
+      searchAndDisplayResult(searchText);
     } else {
       JOptionPane.showMessageDialog(this, "Please enter a Supplier ID", "Error", JOptionPane.ERROR_MESSAGE);
     }
   }
 
-  private void search(String searchText) {
-    FileHandler fileHandler = new FileHandler("src/assignment/database/supplier.txt");
-    DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-    model.setRowCount(0); // Clear existing rows
 
-    try {
-      int supplierID = Integer.parseInt(searchText.trim()); // Parse the input to an integer
-      if (supplierID < 1 || supplierID > 50) {
-        JOptionPane.showMessageDialog(this, "Please enter a number between 1 and 50", "Invalid Input",
-            JOptionPane.ERROR_MESSAGE);
-        return;
-      }
-
-      List<String[]> lines = fileHandler.readData();
-      boolean found = false; // Flag to track matching data
-      for (String[] data : lines) {
-        if (data.length >= 4) {
-          String supplier = data[0].trim(); // Trim whitespace
-          if (supplier.equals(String.valueOf(supplierID))) { // Compare as strings
-            model.addRow(new Object[] {
-                data[1].trim(), // Payment History
-                data[2].trim(), // Supplier Status
-                data[3].trim(), // Item ID
-            });
-            found = true;
-          }
-        }
-      }
-
-      // Show a message if no matching stock is found
-      if (!found) {
-        JOptionPane.showMessageDialog(this, "No matching Supplier found", "No Matching Supplier",
-            JOptionPane.ERROR_MESSAGE);
-      }
-    } catch (NumberFormatException e) {
-      JOptionPane.showMessageDialog(this, "Please enter a valid number", "Invalid Input", JOptionPane.ERROR_MESSAGE);
-    }
-  }
 
   private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton6ActionPerformed
     checkStockStatus checkStockStatusFrame = new checkStockStatus();
@@ -337,23 +300,35 @@ public class manageSupplierPayment extends javax.swing.JFrame {
     model.setRowCount(0); // Clear existing rows
 
     List<String[]> lines = fileHandler.readData(); // Read all lines from approvedPurchaseOrder.txt
-    for (String[] data : lines) {
-      if (data.length >= 4 && (data[7].trim().equals(searchText))) {
-        model.addRow(new Object[] {
-            data[0].trim(), // PO ID
-            data[1].trim(), // Payment History
-            data[2].trim(), // Status
-            data[3].trim(), // Item ID
-            data[4].trim(), // Req ID
-            data[5].trim(), // Date Before
-            data[6].trim(), // Item ID
-            data[7].trim(), // Sup ID
-            data[8].trim(), // Price Per Item
-            data[9].trim() // Payment History
-        });
+    boolean found = false;
+
+        for (String[] data : lines) {
+          if (data.length >= 10 && (data[7].trim().equals(searchText))) {
+            model.addRow(new Object[] {
+                data[0].trim(), // PO ID
+                data[1].trim(), // Payment History
+                data[2].trim(), // Status
+                data[3].trim(), // Item ID
+                data[4].trim(), // Req ID
+                data[5].trim(), // Date Before
+                data[6].trim(), // Item ID
+                data[7].trim(), // Sup ID
+                data[8].trim(), // Price Per Item
+                data[9].trim() // Payment History
+            });
+            found = true;
       }
+    }if (!found) {
+      JOptionPane.showMessageDialog(this, "No matching Supplier found", "No Matching Supplier",
+          JOptionPane.ERROR_MESSAGE);
+    } else {
+      
     }
+    
   }
+
+  
+  
 
   /**
    * @param args the command line arguments
