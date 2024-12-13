@@ -58,7 +58,8 @@ public class InventoryManager extends UserType {
       }
 
       String record = String.format("%s,%s,%s,%s", itemName, itemStatus, itemPrice, itemQuantity);
-      fileHandler.addRecord(items.size() + 1, record);
+      // TODO: Error in adding record due to not able to + 1 in String type
+      fileHandler.addRecord(String.valueOf(items.size() + 1), record);
       fileHandler.saveAllRecords();
 
       JOptionPane.showMessageDialog(null,
@@ -173,7 +174,7 @@ public class InventoryManager extends UserType {
       }
 
       String record = String.format("%s,%s,%s", supplierID, supplierName, supplierItemID);
-      supplierFileHandler.addRecord(suppliers.size() + 1, record);
+      supplierFileHandler.addRecord(String.valueOf(suppliers.size() + 1), record);
       supplierFileHandler.saveAllRecords();
 
       JOptionPane.showMessageDialog(null,
