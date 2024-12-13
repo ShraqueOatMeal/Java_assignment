@@ -267,14 +267,6 @@ public class checkStockStatus extends javax.swing.JFrame {
     }
   }
 
-  private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton7ActionPerformed
-    generateFinancialReport generateFinancialReportFrame = new generateFinancialReport();
-    generateFinancialReportFrame.setVisible(true);
-    generateFinancialReportFrame.pack();
-    generateFinancialReportFrame.setLocationRelativeTo(null);
-    this.dispose();
-  }// GEN-LAST:event_jButton7ActionPerformed
-
   private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton4ActionPerformed
     manageSupplierPayment manageSupplierPaymentFrame = new manageSupplierPayment();
     manageSupplierPaymentFrame.setVisible(true);
@@ -391,4 +383,4 @@ public class checkStockStatus extends javax.swing.JFrame {
   private javax.swing.JTable jTable1;
   private javax.swing.JTextField jTextField1;
   // End of variables declaration//GEN-END:variables
-}
+};

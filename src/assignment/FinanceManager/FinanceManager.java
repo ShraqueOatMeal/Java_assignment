@@ -10,7 +10,6 @@ import java.util.List;
 public class FinanceManager extends UserType {
   private FileHandler fileHandler;
   private String username;
-  private FileHandler fileHandler;
   private FileHandler supplierHandler;
 
   public FinanceManager() {
