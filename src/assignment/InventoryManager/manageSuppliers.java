@@ -254,6 +254,10 @@ public class manageSuppliers extends javax.swing.JFrame {
         String supplierName = supplierNameField.getText().trim();
         String supplierItemID = supplierItemIDField.getText().trim();
 
+        if (!supplierID.matches("S\\d{3}")) {
+          supplierID = String.format("S%03d", Integer.parseInt(supplierID));
+      }
+
         if (supplierID.isEmpty() || supplierName.isEmpty() || supplierItemID.isEmpty()) {
           JOptionPane.showMessageDialog(dialog, "All fields are required!");
           return;

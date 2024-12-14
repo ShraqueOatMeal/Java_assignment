@@ -50,4 +50,5 @@ I049,Electric Toothbrush,50,5,30
 I050,Massage Chair,3,5,30
 I051,Air Humidifier,25,5,30
 I052,Air Purifier,20,5,30
-53,12,12,12,12
+I053,IPHONE 15,1,50,1
+I054,Iphone 16,1,50,1

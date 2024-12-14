@@ -276,25 +276,31 @@ public class manageItems extends javax.swing.JFrame {
     // Button
     JButton buttonUpdate = new JButton("Update Item");
     buttonUpdate.addActionListener(e -> {
-        try {
-            String itemID = itemIDField.getText().trim();
-            String itemName = itemNameField.getText().trim();
-            int itemStatus = Integer.parseInt(itemStatusField.getText().trim());
-            int itemPrice = Integer.parseInt(itemPriceField.getText().trim());
-            int itemQuantity = Integer.parseInt(itemQuantityField.getText().trim());
-
-            if (itemName.isEmpty() || itemStatus <= 0 || itemPrice <= 0) {
-                JOptionPane.showMessageDialog(dialog, "All fields are required!");
-                return;
-            }
-            if (inventoryManager.addItem(itemID,itemName, itemStatus, itemPrice, itemQuantity)) {
-                dialog.dispose();
-                loadTable();
-            }
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(dialog, "Error Adding Item");
-        }
-    });
+      try {
+          String itemID = itemIDField.getText().trim();
+          String itemName = itemNameField.getText().trim();
+          int itemStatus = Integer.parseInt(itemStatusField.getText().trim());
+          int itemPrice = Integer.parseInt(itemPriceField.getText().trim());
+          int itemQuantity = Integer.parseInt(itemQuantityField.getText().trim());
+  
+          // Ensure the Item ID follows the I0** format
+          if (!itemID.matches("I\\d{3}")) {
+              itemID = String.format("I%03d", Integer.parseInt(itemID));
+          }
+  
+          if (itemID.isEmpty() || itemName.isEmpty() || itemStatus <= 0 || itemPrice <= 0 || itemQuantity <= 0) {
+              JOptionPane.showMessageDialog(dialog, "All fields are required!");
+              return;
+          }
+  
+          if (inventoryManager.addItem(itemID, itemName, itemStatus, itemPrice, itemQuantity)) {
+              dialog.dispose();
+              loadTable();
+          }
+      } catch (Exception ex) {
+          JOptionPane.showMessageDialog(dialog, "Error Adding Item");
+      }
+  });
 
     // Set up layout
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(dialog.getContentPane());
@@ -321,7 +327,7 @@ public class manageItems extends javax.swing.JFrame {
 
     layout.setVerticalGroup(
         layout.createSequentialGroup()
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(itemIDLabel)
                 .addComponent(itemIDField))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)

@@ -43,38 +43,45 @@ public class InventoryManager extends UserType {
     return fileHandler.readData();
   }
 
-  public boolean addItem(String itemID,String itemName, int itemStatus, int itemPrice, int itemQuantity) {
+
+  public boolean addItem(String itemID, String itemName, int itemStatus, int itemPrice, int itemQuantity) {
     try {
-      // Check If item name already Exists
-      List<String[]> items = fileHandler.readData();
-      for (String[] item : items) {
-        if (item[0].equals(itemID)) {
-          JOptionPane.showMessageDialog(null,
-              "Item ID Already Exists",
-              "Error",
-              JOptionPane.ERROR_MESSAGE);
-          return false;
+        // Check if item ID already exists in the records
+        List<String[]> items = fileHandler.readData();
+        for (String[] item : items) {
+            if (item[0].equals(itemID)) {
+                JOptionPane.showMessageDialog(null, 
+                    "Item ID Already Exists", 
+                    "Error", 
+                    JOptionPane.ERROR_MESSAGE);
+                return false;
+            }
         }
-      }
 
-      String record = String.format("%s,%s,%s,%s", itemName, itemStatus, itemPrice, itemQuantity);
-      // TODO: Error in adding record due to not able to + 1 in String type
-      fileHandler.addRecord(String.valueOf(items.size() + 1), record);
-      fileHandler.saveAllRecords();
+        // Generate the record with the user-provided itemID (no increment here)
+        String record = String.format("%s,%s,%d,%d,%d", itemID, itemName, itemStatus, itemPrice, itemQuantity);
 
-      JOptionPane.showMessageDialog(null,
-          "Item Added Successfully",
-          "Success",
-          JOptionPane.INFORMATION_MESSAGE);
-      return true;
+        // Directly use the user-provided itemID without the increment logic
+        // Here we pass the record as-is without affecting the itemID
+        fileHandler.addRecord(record);  // Just add the record as it is
+        fileHandler.saveAllRecords();   // Save the records to the file
+
+        JOptionPane.showMessageDialog(null, 
+            "Item Added Successfully", 
+            "Success", 
+            JOptionPane.INFORMATION_MESSAGE);
+        return true;
     } catch (Exception e) {
-      JOptionPane.showMessageDialog(null,
-          "Error Adding Item",
-          "Error",
-          JOptionPane.ERROR_MESSAGE);
-      return false;
+        JOptionPane.showMessageDialog(null, 
+            "Error Adding Item", 
+            "Error", 
+            JOptionPane.ERROR_MESSAGE);
+        return false;
     }
-  }
+}
+
+
+
 
   public boolean removeItem(String itemID) {
     try {
@@ -164,9 +171,9 @@ public class InventoryManager extends UserType {
       // Check If item name already Exists
       List<String[]> suppliers = supplierFileHandler.readData();
       for (String[] supplier : suppliers) {
-        if (supplier[1].equals(supplierName)) {
+        if (supplier[0].equals(supplierID)) {
           JOptionPane.showMessageDialog(null,
-              "Supplier Name Already Exists",
+              "Supplier ID Already Exists",
               "Error",
               JOptionPane.ERROR_MESSAGE);
           return false;
@@ -174,7 +181,7 @@ public class InventoryManager extends UserType {
       }
 
       String record = String.format("%s,%s,%s", supplierID, supplierName, supplierItemID);
-      supplierFileHandler.addRecord(String.valueOf(suppliers.size() + 1), record);
+      supplierFileHandler.addRecord(record);
       supplierFileHandler.saveAllRecords();
 
       JOptionPane.showMessageDialog(null,
@@ -279,3 +286,6 @@ public class InventoryManager extends UserType {
     return supplierFileHandler.readData();
   }
 }
+
+
+
