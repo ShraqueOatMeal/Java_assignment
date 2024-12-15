@@ -439,13 +439,7 @@ public class manageSuppliers extends javax.swing.JFrame {
     editDialog.setVisible(true);
   }
 
-  private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton8ActionPerformed
-    inventoryManagerPage inventoryManagerPageFrame = new inventoryManagerPage();
-    inventoryManagerPageFrame.setVisible(true);
-    inventoryManagerPageFrame.pack();
-    inventoryManagerPageFrame.setLocationRelativeTo(null);
-    this.dispose();
-  }// GEN-LAST:event_jButton8ActionPerformed
+
   
   private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton2ActionPerformed
     manageSuppliers manageSuppliersFrame = new manageSuppliers();
