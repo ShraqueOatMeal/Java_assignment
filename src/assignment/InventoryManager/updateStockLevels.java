@@ -148,11 +148,11 @@ public class updateStockLevels extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Item ID", "Item Name", "Item Quantity", "Title Status"
+                "Item ID", "Item Name", "Item Quantity", "Threshold"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, true, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
