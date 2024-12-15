@@ -166,6 +166,50 @@ public class InventoryManager extends UserType {
     }
   }
 
+  public boolean updateQuantity(String itemQuantity) {
+    try {
+      // Check If item name already Exists
+      List<String[]> items = fileHandler.readData();
+      List<String> updatedRecords = new java.util.ArrayList<>();
+      boolean itemFound = false;
+
+      for (String[] item : items) {
+        if (item[2].equals(itemQuantity)) {
+          // Update item information
+          String updatedRecord = String.format("%s,%s,%s", item[0], item[1], itemQuantity);
+          updatedRecords.add(updatedRecord);
+          itemFound = true;
+        } else {
+          updatedRecords.add(String.join(",", item));
+        }
+      }
+      if (!itemFound) {
+        JOptionPane.showMessageDialog(null,
+            "Item Not Found",
+            "Error",
+            JOptionPane.ERROR_MESSAGE);
+        return false;
+      }
+
+      // Create new FileHandler instance and save updated records
+      fileHandler = new FileHandler("src/assignment/database/stock.txt");
+      fileHandler.clearFileContents();
+      fileHandler.writeRecords(updatedRecords);
+
+      JOptionPane.showMessageDialog(null,
+          "Item Updated Successfully",
+          "Success",
+          JOptionPane.INFORMATION_MESSAGE);
+      return true;
+    } catch (Exception e) {
+      JOptionPane.showMessageDialog(null,
+          "Error Updating Item",
+          "Error",
+          JOptionPane.ERROR_MESSAGE);
+      return false;
+    }
+  }
+
   public boolean addSupplier(String supplierID, String supplierName, String supplierItemID) {
     try {
       // Check If item name already Exists
@@ -204,7 +248,7 @@ public class InventoryManager extends UserType {
       List<String> updatedRecords = new java.util.ArrayList<>();
       boolean supplierFound = false;
       for (String[] supplier : suppliers) {
-        if (!supplier[1].equals(supplierID)) {
+        if (!supplier[0].equals(supplierID)) {
           updatedRecords.add(String.join(",", supplier));
         } else {
           supplierFound = true;

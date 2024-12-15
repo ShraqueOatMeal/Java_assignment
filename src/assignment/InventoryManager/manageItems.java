@@ -70,7 +70,12 @@ public class manageItems extends javax.swing.JFrame {
         jButton8.setBackground(new java.awt.Color(0, 0, 0));
         jButton8.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jButton8.setForeground(new java.awt.Color(204, 204, 204));
-        jButton8.setText("H");
+        jButton8.setText("<");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         jButton2.setBackground(new java.awt.Color(0, 0, 0));
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
@@ -243,7 +248,7 @@ public class manageItems extends javax.swing.JFrame {
     // Initialize the table model again (if needed)
     DefaultTableModel model = new DefaultTableModel(
         new Object[][] {}, 
-        new String[] { "Item ID", "Item Name", "Item Status", "Item Price", "Item Quantity" }
+        new String[] { "Item ID", "Item Name", "Threshold", "Item Price", "Item Quantity" }
     );
     jTable1.setModel(model);
     
@@ -269,7 +274,7 @@ public class manageItems extends javax.swing.JFrame {
     // Labels
     JLabel itemIDLabel = new JLabel("Item ID:");
     JLabel itemNameLabel = new JLabel("Item Name:");
-    JLabel itemStatusLabel = new JLabel("Item Status:");
+    JLabel itemStatusLabel = new JLabel("Threshold:");
     JLabel itemPriceLabel = new JLabel("Item Price:");
     JLabel itemQuantityLabel = new JLabel("Item Quantity:");
 
@@ -445,6 +450,14 @@ private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {
   editDialog.setVisible(true);
 }
 
+
+private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton8ActionPerformed
+    inventoryManagerPage inventoryManagerPageFrame = new inventoryManagerPage();
+    inventoryManagerPageFrame.setVisible(true);
+    inventoryManagerPageFrame.pack();
+    inventoryManagerPageFrame.setLocationRelativeTo(null);
+    this.dispose();
+}// GEN-LAST:event_jButton8ActionPerformed
 
   private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton2ActionPerformed
     manageSuppliers manageSuppliersFrame = new manageSuppliers();

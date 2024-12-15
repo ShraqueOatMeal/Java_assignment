@@ -52,7 +52,12 @@ public class inventoryManagerPage extends javax.swing.JFrame {
         jButton8.setBackground(new java.awt.Color(0, 0, 0));
         jButton8.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jButton8.setForeground(new java.awt.Color(204, 204, 204));
-        jButton8.setText("Main Page");
+        jButton8.setText("Log out");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         jButton2.setBackground(new java.awt.Color(0, 0, 0));
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
@@ -215,6 +220,8 @@ public class inventoryManagerPage extends javax.swing.JFrame {
     adminstratorPageFrame.setLocationRelativeTo(null);
     this.dispose(); // Close the current Finance Manager page
   }
+
+
 
   /**
    * @param args the command line arguments

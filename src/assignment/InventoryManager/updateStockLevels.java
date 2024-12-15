@@ -5,16 +5,22 @@
  */
 package assignment.InventoryManager;
 
+import java.awt.GridLayout;
 import java.util.*;
 import assignment.FileHandler;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
  * @author Admin
  */
 public class updateStockLevels extends javax.swing.JFrame {
+  private InventoryManager inventoryManager;
 
   /**
    * Creates new form updateStockLevels
@@ -45,10 +51,9 @@ public class updateStockLevels extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
-        jButton7 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
+
         jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
+
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -68,7 +73,12 @@ public class updateStockLevels extends javax.swing.JFrame {
         jButton8.setBackground(new java.awt.Color(0, 0, 0));
         jButton8.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jButton8.setForeground(new java.awt.Color(204, 204, 204));
-        jButton8.setText("H");
+        jButton8.setText("<");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         jButton2.setBackground(new java.awt.Color(0, 0, 0));
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
@@ -106,6 +116,12 @@ public class updateStockLevels extends javax.swing.JFrame {
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
+            }
+        });
+
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
             }
         });
 
@@ -161,13 +177,11 @@ public class updateStockLevels extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jTable2);
 
-        jButton7.setText("Add");
 
-        jButton9.setText("Save");
 
         jButton10.setText("Edit");
 
-        jButton11.setText("Delete");
+
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -183,10 +197,8 @@ public class updateStockLevels extends javax.swing.JFrame {
                 .addGap(61, 61, 61)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jButton10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton11, javax.swing.GroupLayout.Alignment.LEADING)))
-        );
+
+            )));
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -196,16 +208,13 @@ public class updateStockLevels extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton7)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton9)
-                        .addGap(18, 18, 18)
+
                         .addComponent(jButton10)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton11))
+
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 94, Short.MAX_VALUE))
-        );
+        ));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -217,7 +226,7 @@ public class updateStockLevels extends javax.swing.JFrame {
     // Initialize the table model again (if needed)
     DefaultTableModel model = new DefaultTableModel(
         new Object[][] {}, 
-        new String[] { "Item ID", "Item Name", "Item Quantity", "Title Status" }
+        new String[] { "Item ID", "Item Name", "Item Quantity", "Threshold" }
     );
     jTable2.setModel(model);
     
@@ -228,6 +237,14 @@ public class updateStockLevels extends javax.swing.JFrame {
         model.addRow(row);
     }
   }
+
+  private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton8ActionPerformed
+    inventoryManagerPage inventoryManagerPageFrame = new inventoryManagerPage();
+    inventoryManagerPageFrame.setVisible(true);
+    inventoryManagerPageFrame.pack();
+    inventoryManagerPageFrame.setLocationRelativeTo(null);
+    this.dispose();
+  }// GEN-LAST:event_jButton8ActionPerformed
 
   private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton2ActionPerformed
     manageSuppliers manageSuppliersFrame = new manageSuppliers();
@@ -260,6 +277,52 @@ public class updateStockLevels extends javax.swing.JFrame {
     updateStockLevelsFrame.setLocationRelativeTo(null);
     this.dispose();
   }// GEN-LAST:event_jButton6ActionPerformed
+
+  private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton10ActionPerformed
+    int selectedRow = jTable2.getSelectedRow();
+    if (selectedRow == -1) {
+      JOptionPane.showMessageDialog(this, "Please select a item to edit!");
+      return;
+    }
+    // Get the selected item's details
+    String itemQuantity = (String) jTable2.getValueAt(selectedRow, 2);
+
+    // Create a dialog for editing the item
+    JDialog editDialog = new JDialog(this, "Edit Item", true);
+    editDialog.setLayout(new GridLayout(5, 2));
+
+    // Create text fields for editing
+    JTextField editItemQuantityField = new JTextField(itemQuantity);
+
+    // Add components to the dialog
+    editDialog.add(new JLabel("Item Quantity:"));
+    editDialog.add(editItemQuantityField);
+
+    // Add an "Update" button
+    JButton submitButton = new JButton("Update");
+    submitButton.addActionListener(e -> {
+      try {
+          String newItemQuantity = editItemQuantityField.getText().trim();
+
+          if (inventoryManager.updateQuantity(newItemQuantity)) {
+              DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+              model.setValueAt(newItemQuantity, selectedRow, 2);
+
+              editDialog.dispose();
+              JOptionPane.showMessageDialog(this, "Item updated successfully!");
+          } else {
+              JOptionPane.showMessageDialog(this, "Error updating item");
+          }
+      } catch (NumberFormatException ex) {
+  
+  }});
+
+    editDialog.add(submitButton);
+    editDialog.pack();
+    editDialog.setLocationRelativeTo(this);
+    editDialog.setVisible(true);
+  }
+
 
   /**
    * @param args the command line arguments
@@ -307,13 +370,13 @@ public class updateStockLevels extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
+
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
+
     private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
+
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
