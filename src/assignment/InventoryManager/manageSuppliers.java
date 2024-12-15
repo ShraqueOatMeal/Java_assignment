@@ -45,6 +45,8 @@ public class manageSuppliers extends javax.swing.JFrame {
   // <editor-fold defaultstate="collapsed" desc="Generated
   // <editor-fold defaultstate="collapsed" desc="Generated
   // <editor-fold defaultstate="collapsed" desc="Generated
+  // <editor-fold defaultstate="collapsed" desc="Generated
+  // <editor-fold defaultstate="collapsed" desc="Generated
   // Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
@@ -70,7 +72,12 @@ public class manageSuppliers extends javax.swing.JFrame {
     jButton8.setBackground(new java.awt.Color(0, 0, 0));
     jButton8.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
     jButton8.setForeground(new java.awt.Color(204, 204, 204));
-    jButton8.setText("H");
+    jButton8.setText("<");
+    jButton8.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton8ActionPerformed(evt);
+      }
+    });
 
     jButton2.setBackground(new java.awt.Color(0, 0, 0));
     jButton2.setForeground(new java.awt.Color(255, 255, 255));
@@ -223,6 +230,14 @@ public class manageSuppliers extends javax.swing.JFrame {
 
     pack();
   }// </editor-fold>//GEN-END:initComponents
+
+  private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton8ActionPerformed
+    inventoryManagerPage inventoryManager = new inventoryManagerPage();
+    inventoryManager.setVisible(true);
+    inventoryManager.pack();
+    inventoryManager.setLocationRelativeTo(null);
+    this.dispose();
+  }// GEN-LAST:event_jButton8ActionPerformed
 
   private void loadTable() {
     InventoryManager inventoryManager = new InventoryManager();
@@ -512,7 +527,6 @@ public class manageSuppliers extends javax.swing.JFrame {
   private javax.swing.JTextField supplierIDField;
   private javax.swing.JTextField supplierItemIDField;
   private javax.swing.JTextField supplierNameField;
-  private javax.swing.JButton buttonUpdate;
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton jButton1;
   private javax.swing.JButton jButton10;
