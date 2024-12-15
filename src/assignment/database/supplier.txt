@@ -1,8 +1,7 @@
 S001,Supplier 1,123 
 S002,Supplier 2,456 
-S3,S003,Supplier 3
-4,S004,Supplier 4,I008
 5,S0055,Supplier 5
 S008,Beh,11
-S009,12,12
 S010,Swee,11
+S011,test,12
+S013,Test,12
