@@ -43,101 +43,102 @@ public class manageItems extends javax.swing.JFrame {
   // <editor-fold defaultstate="collapsed" desc="Generated
   // <editor-fold defaultstate="collapsed" desc="Generated
   // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+  // <editor-fold defaultstate="collapsed" desc="Generated
+  // Code">//GEN-BEGIN:initComponents
+  private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jButton8 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+    jLabel1 = new javax.swing.JLabel();
+    jPanel1 = new javax.swing.JPanel();
+    jButton8 = new javax.swing.JButton();
+    jButton2 = new javax.swing.JButton();
+    jButton1 = new javax.swing.JButton();
+    jButton4 = new javax.swing.JButton();
+    jButton6 = new javax.swing.JButton();
+    jButton7 = new javax.swing.JButton();
+    jButton9 = new javax.swing.JButton();
+    jButton11 = new javax.swing.JButton();
+    jPanel2 = new javax.swing.JPanel();
+    jScrollPane1 = new javax.swing.JScrollPane();
+    jTable1 = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(950, 600));
+    setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+    setPreferredSize(new java.awt.Dimension(950, 600));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel1.setText("Manage Items ");
+    jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+    jLabel1.setText("Manage Items ");
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+    jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
-        jButton8.setBackground(new java.awt.Color(0, 0, 0));
-        jButton8.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(204, 204, 204));
-        jButton8.setText("<");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
+    jButton8.setBackground(new java.awt.Color(0, 0, 0));
+    jButton8.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+    jButton8.setForeground(new java.awt.Color(204, 204, 204));
+    jButton8.setText("<");
+    jButton8.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton8ActionPerformed(evt);
+      }
+    });
 
-        jButton2.setBackground(new java.awt.Color(0, 0, 0));
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Manage Suppliers");
-        jButton2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jButton2.setBorderPainted(false);
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
+    jButton2.setBackground(new java.awt.Color(0, 0, 0));
+    jButton2.setForeground(new java.awt.Color(255, 255, 255));
+    jButton2.setText("Manage Suppliers");
+    jButton2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+    jButton2.setBorderPainted(false);
+    jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+    jButton2.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton2ActionPerformed(evt);
+      }
+    });
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 0));
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Manage Items");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+    jButton1.setBackground(new java.awt.Color(0, 0, 0));
+    jButton1.setForeground(new java.awt.Color(255, 255, 255));
+    jButton1.setText("Manage Items");
+    jButton1.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton1ActionPerformed(evt);
+      }
+    });
 
-        jButton4.setBackground(new java.awt.Color(0, 0, 0));
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("Track Inventory Value");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
+    jButton4.setBackground(new java.awt.Color(0, 0, 0));
+    jButton4.setForeground(new java.awt.Color(255, 255, 255));
+    jButton4.setText("Track Inventory Value");
+    jButton4.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton4ActionPerformed(evt);
+      }
+    });
 
-        jButton6.setBackground(new java.awt.Color(0, 0, 0));
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("Update Stock Levels");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
+    jButton6.setBackground(new java.awt.Color(0, 0, 0));
+    jButton6.setForeground(new java.awt.Color(255, 255, 255));
+    jButton6.setText("Update Stock Levels");
+    jButton6.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton6ActionPerformed(evt);
+      }
+    });
 
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
-            }
-        });
+    jButton11.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton11ActionPerformed(evt);
+      }
+    });
 
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
-            }
-        });
+    jButton9.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton9ActionPerformed(evt);
+      }
+    });
 
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
-            }
-        });
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+    jButton7.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton7ActionPerformed(evt);
+      }
+    });
+    javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+    jPanel1.setLayout(jPanel1Layout);
+    jPanel1Layout.setHorizontalGroup(
+        jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButton8)
@@ -149,71 +150,74 @@ public class manageItems extends javax.swing.JFrame {
                 .addComponent(jButton4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton6)
-                .addContainerGap(316, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap(316, Short.MAX_VALUE)));
+    jPanel1Layout.setVerticalGroup(
+        jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50,
+                            javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50,
+                            javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 50,
+                            javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 50,
+                            javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jButton8))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 
-        jButton7.setText("Add");
+    jButton7.setText("Add");
 
-        jButton9.setText("Delete");
+    jButton9.setText("Delete");
 
-        jButton11.setText("Edit");
+    jButton11.setText("Edit");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+    jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        new Object[][] {
 
-            },
-            new String [] {
-                "Item ID", "Item Name", "Item Quantity", "Item Price", "Threshold"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
-            };
+        },
+        new String[] {
+            "Item ID", "Item Name", "Item Quantity", "Item Price", "Threshold"
+        }) {
+      boolean[] canEdit = new boolean[] {
+          false, false, false, false, false
+      };
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(jTable1);
+      public boolean isCellEditable(int rowIndex, int columnIndex) {
+        return canEdit[columnIndex];
+      }
+    });
+    jScrollPane1.setViewportView(jTable1);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+    javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+    jPanel2.setLayout(jPanel2Layout);
+    jPanel2Layout.setHorizontalGroup(
+        jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(31, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 577, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 577,
+                    javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()));
+    jPanel2Layout.setVerticalGroup(
+        jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(27, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 184,
+                    javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+    javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+    getContentPane().setLayout(layout);
+    layout.setHorizontalGroup(
+        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
+                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
+                        javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 59, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -221,23 +225,26 @@ public class manageItems extends javax.swing.JFrame {
                         .addGap(678, 678, 678)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton9)
-                            .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 63,
+                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 63,
+                                javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+    layout.setVerticalGroup(
+        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
+                    javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE,
+                            javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addComponent(jButton7)
@@ -245,14 +252,11 @@ public class manageItems extends javax.swing.JFrame {
                         .addComponent(jButton9)
                         .addGap(18, 18, 18)
                         .addComponent(jButton11)))
-                .addContainerGap(235, Short.MAX_VALUE))
-        );
+                .addContainerGap(235, Short.MAX_VALUE)));
 
-        pack();
-        setLocationRelativeTo(null);
-    }// </editor-fold>//GEN-END:initComponents
-
-
+    pack();
+    setLocationRelativeTo(null);
+  }// </editor-fold>//GEN-END:initComponents
 
   private Object jButton10ActionPerformed(ActionEvent evt) {
     // TODO Auto-generated method stub
@@ -266,7 +270,15 @@ public class manageItems extends javax.swing.JFrame {
     // Initialize the table model again (if needed)
     DefaultTableModel model = new DefaultTableModel(
         new Object[][] {},
-        new String[] { "Item ID", "Item Name", "Threshold", "Item Price", "Item Quantity" });
+        new String[] { "Item ID", "Item Name", "Item Quantity", "Threshold", "Item Price" }) {
+      boolean[] canEdit = new boolean[] {
+          false, false, false, false, false
+      };
+
+      public boolean isCellEditable(int rowIndex, int columnIndex) {
+        return canEdit[columnIndex];
+      }
+    };
     jTable1.setModel(model);
 
     model.setRowCount(0); // Clear any existing rows
@@ -402,9 +414,9 @@ public class manageItems extends javax.swing.JFrame {
     // Get the selected item's details
     String itemID = (String) jTable1.getValueAt(selectedRow, 0);
     String itemName = (String) jTable1.getValueAt(selectedRow, 1);
-    int Threshold = Integer.parseInt(jTable1.getValueAt(selectedRow, 2).toString());
-    int itemPrice = Integer.parseInt(jTable1.getValueAt(selectedRow, 3).toString());
-    int itemQuantity = Integer.parseInt(jTable1.getValueAt(selectedRow, 4).toString());
+    int itemQuantity = Integer.parseInt(jTable1.getValueAt(selectedRow, 2).toString());
+    int Threshold = Integer.parseInt(jTable1.getValueAt(selectedRow, 3).toString());
+    int itemPrice = Integer.parseInt(jTable1.getValueAt(selectedRow, 4).toString());
 
     // Create a dialog for editing the item
     JDialog editDialog = new JDialog(this, "Edit Item", true);
@@ -443,9 +455,9 @@ public class manageItems extends javax.swing.JFrame {
           // Directly update the table
           DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
           model.setValueAt(newItemName, selectedRow, 1);
-          model.setValueAt(newThreshold, selectedRow, 2);
-          model.setValueAt(newItemPrice, selectedRow, 3);
-          model.setValueAt(newItemQuantity, selectedRow, 4);
+          model.setValueAt(newItemQuantity, selectedRow, 2);
+          model.setValueAt(newThreshold, selectedRow, 3);
+          model.setValueAt(newItemPrice, selectedRow, 4);
 
           editDialog.dispose();
           JOptionPane.showMessageDialog(this, "Item updated successfully!");
@@ -463,13 +475,13 @@ public class manageItems extends javax.swing.JFrame {
     editDialog.setVisible(true);
   }
 
-private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton8ActionPerformed
+  private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton8ActionPerformed
     inventoryManagerPage inventoryManagerPageFrame = new inventoryManagerPage();
     inventoryManagerPageFrame.setVisible(true);
     inventoryManagerPageFrame.pack();
     inventoryManagerPageFrame.setLocationRelativeTo(null);
     this.dispose();
-}// GEN-LAST:event_jButton8ActionPerformed
+  }// GEN-LAST:event_jButton8ActionPerformed
 
   private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton2ActionPerformed
     manageSuppliers manageSuppliersFrame = new manageSuppliers();
@@ -548,19 +560,19 @@ private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIR
   private javax.swing.JTextField ThresholdField;
   private javax.swing.JTextField itemPriceField;
   private javax.swing.JTextField itemQuantityField;
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    // End of variables declaration//GEN-END:variables
+  // Variables declaration - do not modify//GEN-BEGIN:variables
+  private javax.swing.JButton jButton1;
+  private javax.swing.JButton jButton11;
+  private javax.swing.JButton jButton2;
+  private javax.swing.JButton jButton4;
+  private javax.swing.JButton jButton6;
+  private javax.swing.JButton jButton7;
+  private javax.swing.JButton jButton8;
+  private javax.swing.JButton jButton9;
+  private javax.swing.JLabel jLabel1;
+  private javax.swing.JPanel jPanel1;
+  private javax.swing.JPanel jPanel2;
+  private javax.swing.JScrollPane jScrollPane1;
+  private javax.swing.JTable jTable1;
+  // End of variables declaration//GEN-END:variables
 }

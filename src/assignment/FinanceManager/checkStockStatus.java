@@ -236,13 +236,13 @@ public class checkStockStatus extends javax.swing.JFrame {
       boolean found = false; // Flag to track matching data
       for (String[] data : lines) {
         if (data.length >= 4) {
-          String itemStatus = data[3].trim(); // Trim whitespace
-          if (itemStatus.equals(String.valueOf(status))) { // Compare as strings
+          String threshold = data[3].trim(); // Trim whitespace
+          if (threshold.equals(String.valueOf(status))) { // Compare as strings
             model.addRow(new Object[] {
                 data[0].trim(), // Item ID
                 data[1].trim(), // Item Name
                 data[2].trim(), // Item Quantity
-                itemStatus, // Item Status
+                threshold, // Threshold
                 data[4].trim() // Item Price
             });
             found = true;

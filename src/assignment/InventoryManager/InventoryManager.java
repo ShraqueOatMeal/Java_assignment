@@ -43,7 +43,7 @@ public class InventoryManager extends UserType {
     return fileHandler.readData();
   }
 
-  public boolean addItem(String itemID, String itemName, int itemStatus, int itemPrice, int itemQuantity) {
+  public boolean addItem(String itemID, String itemName, int threshold, int itemPrice, int itemQuantity) {
     try {
       // Check if item ID already exists in the records
       List<String[]> items = fileHandler.readData();
@@ -58,7 +58,7 @@ public class InventoryManager extends UserType {
       }
 
       // Generate the record with the user-provided itemID (no increment here)
-      String record = String.format("%s,%s,%d,%d,%d", itemID, itemName, itemStatus, itemPrice, itemQuantity);
+      String record = String.format("%s,%s,%d,%d,%d", itemID, itemName, itemQuantity, threshold, itemPrice);
 
       // Directly use the user-provided itemID without the increment logic
       // Here we pass the record as-is without affecting the itemID
@@ -117,7 +117,7 @@ public class InventoryManager extends UserType {
     }
   }
 
-  public boolean updateItem(String itemID, String itemName, int itemStatus, int itemPrice, int itemQuantity) {
+  public boolean updateItem(String itemID, String itemName, int threshold, int itemPrice, int itemQuantity) {
     try {
       // Check If item name already Exists
       List<String[]> items = fileHandler.readData();
@@ -127,7 +127,7 @@ public class InventoryManager extends UserType {
       for (String[] item : items) {
         if (item[0].equals(itemID)) {
           // Update item information
-          String updatedRecord = String.format("%s,%s,%s,%s,%s", itemID, itemName, itemStatus, itemPrice, itemQuantity);
+          String updatedRecord = String.format("%s,%s,%s,%s,%s", itemID, itemName, itemQuantity, threshold, itemPrice);
           updatedRecords.add(updatedRecord);
           itemFound = true;
         } else {
