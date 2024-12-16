@@ -64,39 +64,6 @@ public class purchaseManagerPage extends javax.swing.JFrame {
       }
     });
 
-    jButton1.setBackground(new java.awt.Color(0, 0, 0));
-    jButton1.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
-    jButton1.setForeground(new java.awt.Color(255, 255, 255));
-    jButton1.setText("Create Purchase Order");
-    jButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-    jButton1.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        jButton1ActionPerformed(evt);
-      }
-    });
-
-    jButton2.setBackground(new java.awt.Color(0, 0, 0));
-    jButton2.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
-    jButton2.setForeground(new java.awt.Color(255, 255, 255));
-    jButton2.setText("View Requisitions");
-    jButton2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-    jButton2.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        jButton2ActionPerformed(evt);
-      }
-    });
-
-    jButton5.setBackground(new java.awt.Color(0, 0, 0));
-    jButton5.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
-    jButton5.setForeground(new java.awt.Color(255, 255, 255));
-    jButton5.setText("View Supplier");
-    jButton5.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-    jButton5.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        jButton5ActionPerformed(evt);
-      }
-    });
-
     logoutButton.setBackground(new java.awt.Color(0, 0, 0));
     logoutButton.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
     logoutButton.setForeground(new java.awt.Color(255, 255, 255));
