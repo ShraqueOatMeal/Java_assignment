@@ -158,7 +158,7 @@ public class trackInventoryValue extends javax.swing.JFrame {
     jScrollPane1.setViewportView(jTable1);
 
     jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-    jLabel2.setText("Enter Item ID:");
+    jLabel2.setText("Enter Threshold:");
 
     jTextField1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
 
