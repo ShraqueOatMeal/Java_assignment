@@ -40,6 +40,7 @@ public class manageSupplierPayment extends javax.swing.JFrame {
   @SuppressWarnings("unchecked")
   // <editor-fold defaultstate="collapsed" desc="Generated
   // <editor-fold defaultstate="collapsed" desc="Generated
+  // <editor-fold defaultstate="collapsed" desc="Generated
   // Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
@@ -66,15 +67,8 @@ public class manageSupplierPayment extends javax.swing.JFrame {
 
     jPanel2.setBackground(new java.awt.Color(0, 255, 204));
 
-    jButton5.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        jButton5ActionPerformed(evt);
-      }
-
-    });
-
     jButton8.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-    jButton8.setText("H");
+    jButton8.setText("<");
     jButton8.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jButton8ActionPerformed(evt);
@@ -99,12 +93,6 @@ public class manageSupplierPayment extends javax.swing.JFrame {
     jButton6.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jButton6ActionPerformed(evt);
-      }
-    });
-
-    jButton5.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        jButton5ActionPerformed(evt);
       }
     });
 
@@ -145,7 +133,6 @@ public class manageSupplierPayment extends javax.swing.JFrame {
     jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
     jLabel3.setText("Enter Supplier ID:");
 
-    jTextField1.setForeground(java.awt.Color.BLACK);
     jTextField1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
     jTextField1.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,9 +147,16 @@ public class manageSupplierPayment extends javax.swing.JFrame {
 
         },
         new String[] {
-            "PO ID", "Item Name", "Quantity", "Status", "Req ID", "Date Before", "Item ID",
-            "Sup ID", "Price per Item", "Payment History"
-        }));
+            "PO ID", "Payment History", "Supplier Status ", "Supplier Item ID", "Payment History"
+        }) {
+      boolean[] canEdit = new boolean[] {
+          false, false, false, false, false
+      };
+
+      public boolean isCellEditable(int rowIndex, int columnIndex) {
+        return canEdit[columnIndex];
+      }
+    });
     jScrollPane1.setViewportView(jTable1);
 
     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -247,8 +241,6 @@ public class manageSupplierPayment extends javax.swing.JFrame {
     }
   }
 
-
-
   private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton6ActionPerformed
     checkStockStatus checkStockStatusFrame = new checkStockStatus();
     checkStockStatusFrame.setVisible(true);
@@ -282,8 +274,16 @@ public class manageSupplierPayment extends javax.swing.JFrame {
     // Initialize the table model again (if needed)
     DefaultTableModel model = new DefaultTableModel(
         new Object[][] {},
-        new String[] {"PO ID", "Item Name", "Quantity", "Status", "Req ID", "Date Before", "Item ID",
-            "Sup ID", "Price per Item", "Payment History"});
+        new String[] { "PO ID", "Item Name", "Quantity", "Status", "Req ID", "Date Before", "Item ID",
+            "Sup ID", "Price per Item", "Payment History" }) {
+      boolean[] canEdit = new boolean[] {
+          false, false, false, false, false, false, false, false, false, false
+      };
+
+      public boolean isCellEditable(int rowIndex, int columnIndex) {
+        return canEdit[columnIndex];
+      }
+    };
     jTable1.setModel(model);
 
     model.setRowCount(0); // Clear any existing rows
@@ -302,33 +302,31 @@ public class manageSupplierPayment extends javax.swing.JFrame {
     List<String[]> lines = fileHandler.readData(); // Read all lines from approvedPurchaseOrder.txt
     boolean found = false;
 
-        for (String[] data : lines) {
-          if (data.length >= 10 && (data[7].trim().equals(searchText))) {
-            model.addRow(new Object[] {
-                data[0].trim(), // PO ID
-                data[1].trim(), // Payment History
-                data[2].trim(), // Status
-                data[3].trim(), // Item ID
-                data[4].trim(), // Req ID
-                data[5].trim(), // Date Before
-                data[6].trim(), // Item ID
-                data[7].trim(), // Sup ID
-                data[8].trim(), // Price Per Item
-                data[9].trim() // Payment History
-            });
-            found = true;
+    for (String[] data : lines) {
+      if (data.length >= 10 && (data[7].trim().equals(searchText))) {
+        model.addRow(new Object[] {
+            data[0].trim(), // PO ID
+            data[1].trim(), // Payment History
+            data[2].trim(), // Status
+            data[3].trim(), // Item ID
+            data[4].trim(), // Req ID
+            data[5].trim(), // Date Before
+            data[6].trim(), // Item ID
+            data[7].trim(), // Sup ID
+            data[8].trim(), // Price Per Item
+            data[9].trim() // Payment History
+        });
+        found = true;
       }
-    }if (!found) {
+    }
+    if (!found) {
       JOptionPane.showMessageDialog(this, "No matching Supplier found", "No Matching Supplier",
           JOptionPane.ERROR_MESSAGE);
     } else {
-      
-    }
-    
-  }
 
-  
-  
+    }
+
+  }
 
   /**
    * @param args the command line arguments

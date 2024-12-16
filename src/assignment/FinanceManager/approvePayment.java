@@ -59,7 +59,7 @@ public class approvePayment extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(0, 255, 204));
 
         jButton8.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jButton8.setText("H");
+        jButton8.setText("<");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
@@ -122,7 +122,15 @@ public class approvePayment extends javax.swing.JFrame {
             new String [] {
                 "PO ID", "Item Name", "Quantity", "Status", "Req ID", "Date Before", "Item ID", "Sup ID", "Price per Item"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
@@ -165,7 +173,7 @@ public class approvePayment extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton10)
                     .addComponent(jButton9))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
