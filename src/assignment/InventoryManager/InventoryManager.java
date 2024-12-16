@@ -2,6 +2,7 @@ package assignment.InventoryManager;
 
 import assignment.UserType;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.swing.JOptionPane;
 
@@ -283,36 +284,53 @@ public class InventoryManager extends UserType {
     }
   }
 
-  public boolean updateSupplier(String supplierID, String newSupplierName, String newSupplierItemID) {
+  public boolean updateSupplier(String supplierID, String newSupplierName, String newSupplierItemID, String newAddress,
+      String newPrice) {
     try {
       // Check If item name already Exists
       List<String[]> suppliers = supplierFileHandler.readData();
-      List<String> updatedRecords = new java.util.ArrayList<>();
+      List<String[]> bridge = bridgeFileHandler.readData();
       boolean supplierFound = false;
 
-      for (String[] supplier : suppliers) {
-        if (supplier[0].equals(supplierID)) {
-          // Update item information
-          String updatedRecord = String.format("%s,%s,%s", supplierID, newSupplierName, newSupplierItemID);
-          updatedRecords.add(updatedRecord);
+      for (int i = 0; i < suppliers.size(); i++) {
+        if (suppliers.get(i)[0].equals(supplierID)) {
+          suppliers.get(i)[1] = newSupplierName;
+          suppliers.get(i)[2] = newAddress;
           supplierFound = true;
-        } else {
-          updatedRecords.add(String.join(",", supplier));
+          break;
         }
       }
 
-      if (!supplierFound) {
-        JOptionPane.showMessageDialog(null,
-            "Supplier Not Found",
-            "Error",
-            JOptionPane.ERROR_MESSAGE);
+      if (!supplierFound) { // If supplier not found, return false
+        JOptionPane.showMessageDialog(null, "Supplier Not Found", "Error", JOptionPane.ERROR_MESSAGE);
         return false;
       }
 
-      // Create new FileHandler instance and save updated records
-      supplierFileHandler = new FileHandler("src/assignment/database/suppliers.txt");
+      boolean bridgeUpdated = false;
+      for (int i = 0; i < bridge.size(); i++) {
+        if (bridge.get(i)[1].equals(supplierID)) {
+          bridge.get(i)[0] = newSupplierItemID;
+          bridge.get(i)[2] = newPrice;
+          bridgeUpdated = true;
+          break;
+        }
+      }
+
+      if (!bridgeUpdated) {
+        String[] newBridgeRecord = { newSupplierItemID, supplierID, newPrice };
+        bridge.add(newBridgeRecord);
+      }
+
+      // Convert arrays back to comma-separated strings
+      List<String> supplierRecords = suppliers.stream().map(arr -> String.join(",", arr)).collect(Collectors.toList());
+
+      List<String> bridgeRecords = bridge.stream().map(arr -> String.join(",", arr)).collect(Collectors.toList());
+
       supplierFileHandler.clearFileContents();
-      supplierFileHandler.writeRecords(updatedRecords);
+      supplierFileHandler.writeRecords(supplierRecords);
+
+      bridgeFileHandler.clearFileContents();
+      bridgeFileHandler.writeRecords(bridgeRecords);
 
       JOptionPane.showMessageDialog(null,
           "Supplier Updated Successfully",

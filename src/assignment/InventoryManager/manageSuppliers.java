@@ -453,7 +453,7 @@ public class manageSuppliers extends javax.swing.JFrame {
       String newAddress = editAddressField.getText().trim();
       String newPrice = editPriceField.getText().trim();
 
-      if (inventoryManager.updateSupplier(newSupplierID, newSupplierName, newSupplierItemID)) {
+      if (inventoryManager.updateSupplier(newSupplierID, newSupplierName, newSupplierItemID, newAddress, newPrice)) {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setValueAt(newSupplierID, selectedRow, 0);
         model.setValueAt(newSupplierName, selectedRow, 1);
