@@ -235,7 +235,9 @@ public class manageSuppliers extends javax.swing.JFrame {
 
   private void loadTable() {
     InventoryManager inventoryManager = new InventoryManager();
-    List<String[]> manageSuppliers = inventoryManager.manageSuppliers();
+    List<String[]> suppliers = inventoryManager.manageSuppliers();
+    FileHandler bridgeFileHandler = new FileHandler("src/assignment/database/bridge.txt");
+    List<String[]> bridge = bridgeFileHandler.readData();
 
     // Initialize the table model again (if needed)
     DefaultTableModel model = new DefaultTableModel(
@@ -254,8 +256,30 @@ public class manageSuppliers extends javax.swing.JFrame {
     model.setRowCount(0); // Clear any existing rows
 
     // Add rows to the table
-    for (String[] row : manageSuppliers) {
-      model.addRow(row);
+    for (String[] supplier : suppliers) {
+      String supplierID = supplier[0];
+      for (String[] bridgeRow : bridge) {
+        if (bridgeRow[1].equals(supplierID)) {
+          Object[] row = new Object[5];
+          row[0] = supplierID; // Supplier ID
+          row[1] = supplier[1]; // Supplier Name
+          row[2] = supplier[2]; // Address
+          row[3] = bridgeRow[0]; // Supplier Item ID
+          row[4] = bridgeRow[2]; // Price
+          model.addRow(row);
+        }
+      }
+
+      boolean hasItem = bridge.stream().anyMatch(row -> row[1].equals(supplierID));
+      if (!hasItem) {
+        Object[] row = new Object[5];
+        row[0] = supplierID; // Supplier ID
+        row[1] = supplier[1]; // Supplier Name
+        row[2] = supplier[2]; // Address
+        row[3] = ""; // Empty Supplier Item ID
+        row[4] = ""; // Empty Price
+        model.addRow(row);
+      }
     }
   }
 
