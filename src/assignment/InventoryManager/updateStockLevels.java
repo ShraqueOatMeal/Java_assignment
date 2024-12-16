@@ -307,8 +307,9 @@ public class updateStockLevels extends javax.swing.JFrame {
     submitButton.addActionListener(e -> {
       try {
         String newItemQuantity = editItemQuantityField.getText().trim();
+        String itemID = jTable2.getValueAt(selectedRow, 0).toString();
 
-        if (inventoryManager.updateQuantity(newItemQuantity)) {
+        if (inventoryManager.updateQuantity(itemID, newItemQuantity)) {
           DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
           model.setValueAt(newItemQuantity, selectedRow, 2);
 

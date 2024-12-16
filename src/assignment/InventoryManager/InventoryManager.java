@@ -162,7 +162,7 @@ public class InventoryManager extends UserType {
     }
   }
 
-  public boolean updateQuantity(String itemQuantity) {
+  public boolean updateQuantity(String itemID, String itemQuantity) {
     try {
       // Check If item name already Exists
       List<String[]> items = fileHandler.readData();
@@ -170,9 +170,9 @@ public class InventoryManager extends UserType {
       boolean itemFound = false;
 
       for (String[] item : items) {
-        if (item[2].equals(itemQuantity)) {
+        if (item[0].equals(itemID)) {
           // Update item information
-          String updatedRecord = String.format("%s,%s,%s", item[0], item[1], itemQuantity);
+          String updatedRecord = String.format("%s,%s,%s,%s,%s", item[0], item[1], itemQuantity, item[3], item[4]);
           updatedRecords.add(updatedRecord);
           itemFound = true;
         } else {
