@@ -1,2 +1,2 @@
-1,Hair Dryer,1,Approved,null,2024/01/01,I046,S001,15
-3,Hair Dryer,3,Approved,null,2024/01/01,I046,S002,20
+1,Hair Dryer,1,Approved,SM002,2024/01/01,I046,S001,15
+3,Hair Dryer,3,Approved,SM002,2024/01/01,I046,S002,20

@@ -11,13 +11,15 @@ public class InventoryManager extends UserType {
   private String username;
   private FileHandler fileHandler;
   private FileHandler supplierFileHandler;
+  private FileHandler bridgeFileHandler;
 
   public InventoryManager() {
     super();
     this.accessLevel = 5;
     this.department = "Inventory";
     this.fileHandler = new FileHandler("src/assignment/database/stock.txt");
-    this.supplierFileHandler = new FileHandler("src/assignment/database/supplier.txt");
+    this.supplierFileHandler = new FileHandler("src/assignment/database/suppliers.txt");
+    this.bridgeFileHandler = new FileHandler("src/assignment/database/bridge.txt");
   }
 
   @Override
@@ -206,7 +208,8 @@ public class InventoryManager extends UserType {
     }
   }
 
-  public boolean addSupplier(String supplierID, String supplierName, String supplierItemID) {
+  public boolean addSupplier(String supplierID, String supplierName, String supplierItemID, String address,
+      String price) {
     try {
       // Check If item name already Exists
       List<String[]> suppliers = supplierFileHandler.readData();
@@ -220,9 +223,13 @@ public class InventoryManager extends UserType {
         }
       }
 
-      String record = String.format("%s,%s,%s", supplierID, supplierName, supplierItemID);
+      String record = String.format("%s,%s,%s", supplierID, supplierName, address);
       supplierFileHandler.addRecord(record);
       supplierFileHandler.saveAllRecords();
+
+      String bridgeRecord = String.format("%s,%s,%s", supplierItemID, supplierID, price);
+      bridgeFileHandler.addRecord(bridgeRecord);
+      bridgeFileHandler.saveAllRecords();
 
       JOptionPane.showMessageDialog(null,
           "Supplier Added Successfully",
@@ -257,7 +264,7 @@ public class InventoryManager extends UserType {
             JOptionPane.ERROR_MESSAGE);
         return false;
       }
-      supplierFileHandler = new FileHandler("src/assignment/database/supplier.txt");
+      supplierFileHandler = new FileHandler("src/assignment/database/suppliers.txt");
       supplierFileHandler.clearFileContents();
 
       supplierFileHandler.writeRecords(updatedRecords);
@@ -303,7 +310,7 @@ public class InventoryManager extends UserType {
       }
 
       // Create new FileHandler instance and save updated records
-      supplierFileHandler = new FileHandler("src/assignment/database/supplier.txt");
+      supplierFileHandler = new FileHandler("src/assignment/database/suppliers.txt");
       supplierFileHandler.clearFileContents();
       supplierFileHandler.writeRecords(updatedRecords);
 
