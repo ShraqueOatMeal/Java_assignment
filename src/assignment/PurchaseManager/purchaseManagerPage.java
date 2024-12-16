@@ -158,17 +158,6 @@ public class purchaseManagerPage extends javax.swing.JFrame {
       }
     });
 
-    logoutButton.setBackground(new java.awt.Color(0, 0, 0));
-    logoutButton.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
-    logoutButton.setForeground(new java.awt.Color(255, 255, 255));
-    logoutButton.setText("Logout");
-    logoutButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-    logoutButton.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        logoutButtonActionPerformed(evt);
-      }
-    });
-
     jButton6.setText("Admin");
 
     javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
