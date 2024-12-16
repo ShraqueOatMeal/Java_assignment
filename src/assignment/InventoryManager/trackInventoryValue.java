@@ -33,6 +33,7 @@ public class trackInventoryValue extends javax.swing.JFrame {
   // <editor-fold defaultstate="collapsed" desc="Generated
   // <editor-fold defaultstate="collapsed" desc="Generated
   // <editor-fold defaultstate="collapsed" desc="Generated
+  // <editor-fold defaultstate="collapsed" desc="Generated
   // Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
@@ -144,7 +145,7 @@ public class trackInventoryValue extends javax.swing.JFrame {
 
         },
         new String[] {
-            "Item ID", "Item Name", "Item Quantity", "Threshold", "Item Price"
+            "Item ID", "Item Name", "Threshold", "Item Quantity", "Item Price"
         }) {
       boolean[] canEdit = new boolean[] {
           false, false, false, false, false
@@ -162,6 +163,11 @@ public class trackInventoryValue extends javax.swing.JFrame {
     jTextField1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
 
     jButton12.setText("Search");
+    jButton12.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton12ActionPerformed(evt);
+      }
+    });
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
     getContentPane().setLayout(layout);
@@ -183,8 +189,7 @@ public class trackInventoryValue extends javax.swing.JFrame {
                         .addGap(26, 26, 26)
                         .addComponent(jButton12))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 577,
-                        javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(300, Short.MAX_VALUE)));
+                        javax.swing.GroupLayout.PREFERRED_SIZE))));
     layout.setVerticalGroup(
         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()

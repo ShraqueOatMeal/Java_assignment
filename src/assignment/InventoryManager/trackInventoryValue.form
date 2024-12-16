@@ -43,7 +43,6 @@
                   </Group>
                   <Component id="jScrollPane1" min="-2" pref="577" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="300" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -284,6 +283,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Search"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton12ActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
