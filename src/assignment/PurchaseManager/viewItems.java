@@ -190,7 +190,7 @@ public class viewItems extends javax.swing.JFrame {
     });
     jScrollPane1.setViewportView(jTable1);
 
-    jLabel3.setText("Search:");
+    jLabel3.setText("Enter Item Name:");
 
     searchButton.setText("Search");
     searchButton.addActionListener(new java.awt.event.ActionListener() {

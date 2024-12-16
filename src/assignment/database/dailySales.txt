@@ -1,3 +1,7 @@
 I001,Washing Machine,2.00,10.00,20.00,sales,2024-12-03
 I004,Air Conditioner,4.00,5.00,20.00,sales,2024-12-05
 I050,Massage Chair,8.00,30.00,240.00,sales,2024-12-05
+I002,Refrigerator,10.00,30.00,300.00,sales,2024-12-16
+I005,Water Purifier,1.00,30.00,30.00,sales,2024-12-16
+I053,IPHONE 15,1.00,1.00,1.00,sales,2024-12-16
+I054,Iphone 16,1.00,40.00,40.00,sales,2024-12-16
