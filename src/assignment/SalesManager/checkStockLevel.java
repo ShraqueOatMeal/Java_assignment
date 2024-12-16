@@ -178,7 +178,7 @@ public class checkStockLevel extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jLabel2.setText("Enter Item ID:");
+        jLabel2.setText("Search:");
 
         belowThresholdButton.setText("Below Threshold");
         belowThresholdButton.addActionListener(new java.awt.event.ActionListener() {

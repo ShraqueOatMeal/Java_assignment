@@ -193,7 +193,7 @@ public class viewSupplier extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        searchLabel.setText("Enter Sup ID:");
+        searchLabel.setText("Search:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

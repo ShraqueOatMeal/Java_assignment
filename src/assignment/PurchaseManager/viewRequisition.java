@@ -239,7 +239,7 @@ public class viewRequisition extends javax.swing.JFrame {
             }
         });
 
-        searchLabel.setText("Enter PR ID:");
+        searchLabel.setText("Search:");
 
         statusLabel.setText("Status:");
 
