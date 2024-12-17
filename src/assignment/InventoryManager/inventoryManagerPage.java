@@ -35,6 +35,7 @@ public class inventoryManagerPage extends javax.swing.JFrame {
   // <editor-fold defaultstate="collapsed" desc="Generated
   // <editor-fold defaultstate="collapsed" desc="Generated
   // <editor-fold defaultstate="collapsed" desc="Generated
+  // <editor-fold defaultstate="collapsed" desc="Generated
   // Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
@@ -56,6 +57,11 @@ public class inventoryManagerPage extends javax.swing.JFrame {
     jButton8.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
     jButton8.setForeground(new java.awt.Color(204, 204, 204));
     jButton8.setText("Main Page");
+    jButton8.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton8ActionPerformed(evt);
+      }
+    });
 
     jButton2.setBackground(new java.awt.Color(0, 0, 0));
     jButton2.setForeground(new java.awt.Color(255, 255, 255));
