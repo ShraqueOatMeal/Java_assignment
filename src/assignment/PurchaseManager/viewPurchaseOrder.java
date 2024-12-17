@@ -100,6 +100,8 @@ public class viewPurchaseOrder extends javax.swing.JFrame {
       }
     });
 
+    jLabel3.setText("Search:");
+
     jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
     jButton7.setBackground(new java.awt.Color(0, 0, 0));
