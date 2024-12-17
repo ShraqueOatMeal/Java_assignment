@@ -34,6 +34,7 @@ public class inventoryManagerPage extends javax.swing.JFrame {
   @SuppressWarnings("unchecked")
   // <editor-fold defaultstate="collapsed" desc="Generated
   // <editor-fold defaultstate="collapsed" desc="Generated
+  // <editor-fold defaultstate="collapsed" desc="Generated
   // Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
@@ -54,12 +55,7 @@ public class inventoryManagerPage extends javax.swing.JFrame {
     jButton8.setBackground(new java.awt.Color(0, 0, 0));
     jButton8.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
     jButton8.setForeground(new java.awt.Color(204, 204, 204));
-    jButton8.setText("Log out");
-    jButton8.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        jButton8ActionPerformed(evt);
-      }
-    });
+    jButton8.setText("Main Page");
 
     jButton2.setBackground(new java.awt.Color(0, 0, 0));
     jButton2.setForeground(new java.awt.Color(255, 255, 255));
@@ -101,6 +97,11 @@ public class inventoryManagerPage extends javax.swing.JFrame {
     });
 
     jButton5.setText("Admin");
+    jButton5.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton5ActionPerformed(evt);
+      }
+    });
 
     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
     jPanel1.setLayout(jPanel1Layout);
