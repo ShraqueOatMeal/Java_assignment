@@ -8,6 +8,9 @@ import javax.swing.JFrame;
 import javax.swing.JTable;
 import javax.swing.JToggleButton;
 import javax.swing.JOptionPane;
+import javax.swing.JComboBox;
+import java.util.HashMap;
+import java.util.Map;
 
 import java.util.List;
 
@@ -109,6 +112,68 @@ public class SalesManager extends UserType {
     for (String[] row : stockData) {
       model.addRow(row);
     }
+  }
+
+  public void comboBoxAddBelowReorderLevel(JComboBox<String> comboBox) {
+    FileHandler stock = new FileHandler("src/assignment/database/stock.txt");
+
+    List<String[]> stocks = stock.readData();
+
+    for (String[] stockData : stocks) {
+      String stockID = stockData[0];
+      int quantity = Integer.parseInt(stockData[2]);
+      int reorderLevel = Integer.parseInt(stockData[3]);
+
+      // Check if quantity is below reorder level
+      if (quantity < reorderLevel) {
+        String itemName = stockData[1];
+        comboBox.addItem(itemName);
+      }
+    }
+
+  }
+
+  public void loadSuppliers(JComboBox<String> jComboBox1, JComboBox<String> supplierCombo) {
+    FileHandler supplier = new FileHandler("src/assignment/database/suppliers.txt");
+    FileHandler bridge = new FileHandler("src/assignment/database/bridge.txt");
+    FileHandler stock = new FileHandler("src/assignment/database/stock.txt");
+
+    List<String[]> suppliers = supplier.readData();
+    List<String[]> bridges = bridge.readData();
+    List<String[]> stocks = stock.readData();
+
+    String selectedItemName = (String) jComboBox1.getSelectedItem();
+    supplierCombo.removeAllItems(); // Clear existing items
+
+    // First find the stockID for the selected item name
+    String stockID = "";
+    for (String[] stockData : stocks) {
+      if (stockData[1].equals(selectedItemName)) {
+        stockID = stockData[0];
+        break;
+      }
+    }
+
+    // Find all supplierIDs from bridge table that match the stockID
+    Map<String, String> supplierPrices = new HashMap<>();
+    for (String[] bridgeData : bridges) {
+      if (bridgeData[0].equals(stockID)) {
+        String supplierID = bridgeData[1]; // bridge[1] contains supplierID
+        String price = bridgeData[2]; // bridge[2] contains price
+
+        for (String[] supplierData : suppliers) {
+          if (supplierData[0].equals(supplierID)) {
+            String displayText = supplierData[1] + "- $" + price;
+            supplierPrices.put(supplierID, displayText);
+          }
+        }
+      }
+    }
+
+    for (String displayText : supplierPrices.values()) {
+      supplierCombo.addItem(displayText);
+    }
+
   }
 
   public void generateReport(JFrame frame, String selectedDate, String salesPerson, DefaultTableModel tableModel) {
