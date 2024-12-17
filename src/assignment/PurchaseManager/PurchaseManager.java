@@ -20,13 +20,6 @@ public class PurchaseManager extends UserType {
     this.purchOrderHandler = new FileHandler("src/assignment/database/purchOrder.txt");
   }
 
-  @Override
-  protected void initializePermissions() {
-    permissions.add("VIEW_PURCHASE");
-    permissions.add("CREATE_ORDER");
-    permissions.add("APPROVE_PURCHASE");
-  }
-
   public void setUsername(String username) {
     this.username = username;
   }

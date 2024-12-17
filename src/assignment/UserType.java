@@ -10,11 +10,7 @@ public abstract class UserType extends User {
   protected User user;
 
   public UserType() {
-    permissions = new ArrayList<>();
-    initializePermissions();
   }
-
-  protected abstract void initializePermissions();
 
   // Setters and getters
   public int getAccessLevel() {
@@ -31,29 +27,6 @@ public abstract class UserType extends User {
 
   public void setDepartment(String department) {
     this.department = department;
-  }
-
-  public List<String> getPermissions() {
-    return permissions;
-  }
-
-  public void setPermissions(List<String> permissions) {
-    this.permissions = permissions;
-  }
-
-  // Methods
-  public boolean hasPermission(String permission) {
-    return permissions.contains(permission);
-  }
-
-  public void addPermission(String permission) {
-    if (!permissions.contains(permission)) {
-      permissions.add(permission);
-    }
-  }
-
-  public void removePermission(String permission) {
-    permissions.remove(permission);
   }
 
   public void setUser(User user) {

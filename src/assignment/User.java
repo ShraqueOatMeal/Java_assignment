@@ -96,9 +96,6 @@ public class User {
     // Set user department
     this.userType.setDepartment(user.userType.getDepartment());
 
-    // Set user permissions
-    this.userType.setPermissions(user.userType.getPermissions());
-
     // Return true if login is successful
     return user.getUserType().validateAccess();
   }

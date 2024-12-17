@@ -17,11 +17,6 @@ public class Administrator extends UserType {
     this.userFileHandler = new FileHandler("src/assignment/database/users.txt");
   }
 
-  @Override
-  protected void initializePermissions() {
-    permissions.add("ALL");
-  }
-
   public void setUsername(String username) {
     this.username = username;
   }

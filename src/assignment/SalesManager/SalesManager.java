@@ -18,16 +18,6 @@ public class SalesManager extends UserType {
     this.fileHandler = new FileHandler("src/assignment/database/requisition.txt");
   }
 
-  @Override
-  protected void initializePermissions() {
-    permissions.add("Create Requisition");
-    permissions.add("View Items");
-    permissions.add("Enter Daily Sales");
-    permissions.add("Generate Sales Report");
-    permissions.add("Check Stock Level");
-    permissions.add("View Purchase Orders");
-  }
-
   public void setUsername(String username) {
     this.username = username;
   }

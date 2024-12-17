@@ -23,13 +23,6 @@ public class InventoryManager extends UserType {
     this.bridgeFileHandler = new FileHandler("src/assignment/database/bridge.txt");
   }
 
-  @Override
-  protected void initializePermissions() {
-    permissions.add("VIEW_INVENTORY");
-    permissions.add("EDIT_INVENTORY");
-    permissions.add("MANAGE_STOCK");
-  }
-
   public void setUsername(String username) {
     this.username = username;
   }

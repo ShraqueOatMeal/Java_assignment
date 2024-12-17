@@ -20,13 +20,6 @@ public class FinanceManager extends UserType {
     this.supplierHandler = new FileHandler("src/assignment/database/suppliers.txt");
   }
 
-  @Override
-  protected void initializePermissions() {
-    permissions.add("VIEW_FINANCE");
-    permissions.add("EDIT_FINANCE");
-    permissions.add("GENERATE_REPORTS");
-  }
-
   public void setUsername(String username) {
     this.username = username;
   }
