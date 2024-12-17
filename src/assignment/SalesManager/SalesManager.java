@@ -18,22 +18,6 @@ public class SalesManager extends UserType {
     this.fileHandler = new FileHandler("src/assignment/database/requisition.txt");
   }
 
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-  public String getUsername() {
-    return username;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public String getUserId() {
-    return userId;
-  }
-
   public void setDate(String date) {
     this.date = date;
   }

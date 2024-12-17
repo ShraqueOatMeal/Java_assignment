@@ -20,27 +20,11 @@ public class PurchaseManager extends UserType {
     this.purchOrderHandler = new FileHandler("src/assignment/database/purchOrder.txt");
   }
 
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-  public String getUsername() {
-    return username;
-  }
-
   public List<String[]> checkStockLevel() {
     FileHandler stockFile = new FileHandler("src/assignment/database/stock.txt");
     List<String[]> stockList = stockFile.readData();
 
     return stockList;
-  }
-
-  public void viewSuppliers() {
-    // Implementation
-  }
-
-  public void createPurchaseOrder() {
-    // Implementation
   }
 
   public List<String[]> viewRequisitions() {

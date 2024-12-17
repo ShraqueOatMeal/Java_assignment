@@ -17,14 +17,6 @@ public class Administrator extends UserType {
     this.userFileHandler = new FileHandler("src/assignment/database/users.txt");
   }
 
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-  public String getUsername() {
-    return username;
-  }
-
   public boolean addUser(String userId, String username, String email, int accessLevel, String password) {
     try {
       // Check if username already exists

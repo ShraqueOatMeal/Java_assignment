@@ -23,14 +23,6 @@ public class InventoryManager extends UserType {
     this.bridgeFileHandler = new FileHandler("src/assignment/database/bridge.txt");
   }
 
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-  public String getUsername() {
-    return username;
-  }
-
   public List<String[]> trackInventoryValue() {
     return fileHandler.readData();
   }
