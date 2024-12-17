@@ -40,12 +40,4 @@ public abstract class UserType extends User {
   public boolean validateAccess() {
     return accessLevel > 0 && !permissions.isEmpty();
   }
-
-  public void logout() {
-    Session.getInstance().clearSession();
-    Login loginFrame = new Login();
-    loginFrame.setVisible(true);
-    loginFrame.pack();
-    loginFrame.setLocationRelativeTo(null);
-  }
 }
