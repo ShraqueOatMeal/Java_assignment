@@ -3,4 +3,4 @@
 3,purchase,purchase@purchase.com,2,password
 4,finance,finance@finance.com,4,password
 5,inventory,inventory@inventory.com,5,password
-SM002,test,test@mail.com,3,noice
+SM002,test,test@mail.com,3,test

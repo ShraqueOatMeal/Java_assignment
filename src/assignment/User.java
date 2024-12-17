@@ -140,22 +140,6 @@ public class User {
     registeredUsers.put(email, this);
   }
 
-  public void changePassword(String oldPassword, String newPassword) throws IllegalArgumentException {
-    // Verify old password
-    if (!this.password.equals(oldPassword)) {
-      throw new IllegalArgumentException("Old password is incorrect");
-    }
-
-    // Validate new password
-    if (!newPassword.matches("(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}")) {
-      throw new IllegalArgumentException(
-          "Password must contain at least one uppercase letter, one lowercase letter, one number and one special character");
-    }
-
-    // Update password
-    this.password = newPassword;
-  }
-
   public void updateProfile(String newUsername, String newEmail) throws IllegalArgumentException {
     // Validate new email if it is differnt
     if (!newEmail.equals(this.email)) {
