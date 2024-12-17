@@ -35,6 +35,7 @@ public class purchaseManagerPage extends javax.swing.JFrame {
   // <editor-fold defaultstate="collapsed" desc="Generated
   // <editor-fold defaultstate="collapsed" desc="Generated
   // <editor-fold defaultstate="collapsed" desc="Generated
+  // <editor-fold defaultstate="collapsed" desc="Generated
   // Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
@@ -63,34 +64,6 @@ public class purchaseManagerPage extends javax.swing.JFrame {
     jButton3.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jButton3ActionPerformed(evt);
-      }
-    });
-
-    logoutButton.setBackground(new java.awt.Color(0, 0, 0));
-    logoutButton.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
-    logoutButton.setForeground(new java.awt.Color(255, 255, 255));
-    logoutButton.setText("Logout");
-    logoutButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-    logoutButton.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        logoutButtonActionPerformed(evt);
-      }
-    });
-
-    viewPurchaseButton.setBackground(new java.awt.Color(0, 0, 0));
-    viewPurchaseButton.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
-    viewPurchaseButton.setForeground(new java.awt.Color(255, 255, 255));
-    viewPurchaseButton.setText("View Purchase Order");
-    viewPurchaseButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-    viewPurchaseButton.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        viewPurchaseButtonActionPerformed(evt);
-      }
-    });
-
-    jButton6.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        jButton6ActionPerformed(evt);
       }
     });
 
@@ -127,33 +100,65 @@ public class purchaseManagerPage extends javax.swing.JFrame {
       }
     });
 
+    logoutButton.setBackground(new java.awt.Color(0, 0, 0));
+    logoutButton.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+    logoutButton.setForeground(new java.awt.Color(255, 255, 255));
+    logoutButton.setText("Logout");
+    logoutButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+    logoutButton.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        logoutButtonActionPerformed(evt);
+      }
+    });
+
+    viewPurchaseButton.setBackground(new java.awt.Color(0, 0, 0));
+    viewPurchaseButton.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+    viewPurchaseButton.setForeground(new java.awt.Color(255, 255, 255));
+    viewPurchaseButton.setText("View Purchase Order");
+    viewPurchaseButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+    viewPurchaseButton.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        viewPurchaseButtonActionPerformed(evt);
+      }
+    });
+
     jButton6.setText("Admin");
+    jButton6.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton6ActionPerformed(evt);
+      }
+    });
 
     javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
     jPanel2.setLayout(jPanel2Layout);
     jPanel2Layout.setHorizontalGroup(
         jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 177,
-                    javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(61, Short.MAX_VALUE)
+                .addContainerGap(52, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton6)
-                    .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 151,
-                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 151,
-                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 151,
-                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
-                .addGap(54, 54, 54)));
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 151,
+                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 151,
+                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 151,
+                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1)
+                            .addComponent(viewPurchaseButton, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(54, 54, 54))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 177,
+                            javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37))))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jButton6)
+                .addGap(0, 0, Short.MAX_VALUE)));
     jPanel2Layout.setVerticalGroup(
         jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(140, 140, 140)
+                .addGap(118, 118, 118)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 50,
                     javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -165,12 +170,14 @@ public class purchaseManagerPage extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 50,
                     javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(viewPurchaseButton)
                 .addGap(18, 18, 18)
                 .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50,
                     javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton6)
-                .addContainerGap(97, Short.MAX_VALUE)));
+                .addContainerGap(71, Short.MAX_VALUE)));
 
     jLabel2.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
     jLabel2.setText("Purchase Manager");
