@@ -2,7 +2,12 @@ package assignment.SalesManager;
 
 import assignment.UserType;
 import assignment.FileHandler;
+import assignment.SalesReportPreview;
+import javax.swing.JFrame;
 import java.util.List;
+
+import javax.swing.table.DefaultTableModel;
+
 import java.util.Arrays;
 
 public class SalesManager extends UserType {
@@ -45,6 +50,11 @@ public class SalesManager extends UserType {
     List<String[]> stockList = stockFile.readData();
 
     return stockList;
+  }
+
+  public void generateReport(JFrame frame, String selectedDate, String salesPerson, DefaultTableModel tableModel) {
+    SalesReportPreview preview = new SalesReportPreview(frame, selectedDate, salesPerson, tableModel);
+    preview.setVisible(true);
   }
 
   public void saveAll() {

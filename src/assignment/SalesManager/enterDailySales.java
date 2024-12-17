@@ -6,7 +6,6 @@
 package assignment.SalesManager;
 
 import assignment.Session;
-import assignment.SalesReportPreview;
 import java.io.*;
 import java.time.*;
 import java.time.format.*;
@@ -34,6 +33,7 @@ public class enterDailySales extends javax.swing.JFrame {
   private DefaultTableModel tableModel;
   private final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
   private List<String> allFileLines;
+  private SalesManager salesManager = new SalesManager();
 
   /**
    * Creates new form enterDailySales
@@ -345,8 +345,7 @@ public class enterDailySales extends javax.swing.JFrame {
     String selectedDate = (String) dateCombo.getSelectedItem();
     String salesPerson = salesText.getText();
 
-    SalesReportPreview preview = new SalesReportPreview(this, selectedDate, salesPerson, tableModel);
-    preview.setVisible(true);
+    salesManager.generateReport(this, selectedDate, salesPerson, tableModel);
   }// GEN-LAST:event_generateReportButtonActionPerformed
 
   private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_deleteButtonActionPerformed
