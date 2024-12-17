@@ -17,6 +17,7 @@ import javax.swing.RowFilter;
  * @author Admin
  */
 public class viewSupplier extends javax.swing.JFrame {
+  private PurchaseManager purchaseManager = new PurchaseManager();
 
   /**
    * Creates new form viewSupplier
@@ -337,13 +338,11 @@ public class viewSupplier extends javax.swing.JFrame {
   }// GEN-LAST:event_searchButtonActionPerformed
 
   private void loadTable() {
-    FileHandler supplier = new FileHandler("src/assignment/database/suppliers.txt");
     FileHandler bridge = new FileHandler("src/assignment/database/bridge.txt");
-    FileHandler stock = new FileHandler("src/assignment/database/stock.txt");
 
-    List<String[]> suppliers = supplier.readData();
+    List<String[]> suppliers = purchaseManager.viewSuppliers();
     List<String[]> bridges = bridge.readData();
-    List<String[]> stocks = stock.readData();
+    List<String[]> stocks = purchaseManager.checkStockLevel();
 
     jTable1.setModel(new javax.swing.table.DefaultTableModel(
         new Object[][] {

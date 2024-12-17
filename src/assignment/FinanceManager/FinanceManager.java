@@ -20,14 +20,6 @@ public class FinanceManager extends UserType {
     this.supplierHandler = new FileHandler("src/assignment/database/suppliers.txt");
   }
 
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-  public String getUsername() {
-    return username;
-  }
-
   public List<String[]> approvePayment() {
     FileHandler fileHandler = new FileHandler("src/assignment/database/purchOrder.txt");
     return fileHandler.readData();

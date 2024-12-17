@@ -27,6 +27,13 @@ public class PurchaseManager extends UserType {
     return stockList;
   }
 
+  public List<String[]> viewSuppliers() {
+    FileHandler supplier = new FileHandler("src/assignment/database/suppliers.txt");
+    List<String[]> suppliers = supplier.readData();
+
+    return suppliers;
+  }
+
   public List<String[]> viewRequisitions() {
     return fileHandler.readData();
   }
