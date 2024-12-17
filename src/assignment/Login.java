@@ -31,6 +31,7 @@ import assignment.Session;
 public class Login extends javax.swing.JFrame {
 
   private Session session;
+  private User user = new User();
 
   /**
    * Creates new form Login
@@ -168,102 +169,8 @@ public class Login extends javax.swing.JFrame {
   }// GEN-LAST:event_jTextField2ActionPerformed
 
   private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton2ActionPerformed
-    String email = jTextField2.getText();
-    String password = new String(jPasswordField1.getPassword()).trim();
-
-    if (email.isEmpty() || password.isEmpty()) {
-      JOptionPane.showMessageDialog(this, "Please enter both email and password");
-      return;
-    }
-
-    UserType user = authenticate(email, password);
-    if (user != null) {
-
-      // Set session data
-      session.setSessionData(user.getUser().getUserId(), user.getUser().getUsername(), user,
-          user.getAccessLevel());
-
-      // Handle user type pages
-      if (user instanceof Administrator) {
-
-        adminstratorPage adminFrame = new adminstratorPage();
-        adminFrame.setVisible(true);
-        adminFrame.pack();
-        adminFrame.setLocationRelativeTo(null);
-        this.dispose();
-
-      } else if (user instanceof SalesManager) {
-
-        salesManagerPage salesFrame = new salesManagerPage();
-        salesFrame.setVisible(true);
-        salesFrame.pack();
-        salesFrame.setLocationRelativeTo(null);
-        this.dispose();
-
-      } else if (user instanceof PurchaseManager) {
-
-        purchaseManagerPage purchaseFrame = new purchaseManagerPage();
-        purchaseFrame.setVisible(true);
-        purchaseFrame.pack();
-        purchaseFrame.setLocationRelativeTo(null);
-        this.dispose();
-
-      } else if (user instanceof FinanceManager) {
-
-        financeManagerPage financeFrame = new financeManagerPage();
-        financeFrame.setVisible(true);
-        financeFrame.pack();
-        financeFrame.setLocationRelativeTo(null);
-        this.dispose();
-
-      } else if (user instanceof InventoryManager) {
-
-        inventoryManagerPage inventoryFrame = new inventoryManagerPage();
-        inventoryFrame.setVisible(true);
-        inventoryFrame.pack();
-        inventoryFrame.setLocationRelativeTo(null);
-        this.dispose();
-
-      }
-    } else {
-      JOptionPane.showMessageDialog(this, "Invalid email or password");
-      jPasswordField1.setText("");
-    }
+    user.login(session, this, jPasswordField1, jTextField2.getText(), new String(jPasswordField1.getPassword()).trim());
   }// GEN-LAST:event_jButton2ActionPerformed
-
-  private UserType authenticate(String email, String password) {
-    FileHandler fileHandler = new FileHandler("src/assignment/database/users.txt");
-    List<String[]> users = fileHandler.readData();
-
-    for (String[] user : users) {
-      if ((user[1].equals(email) || user[2].equals(email)) && user[4].equals(password)) {
-        int accessLevel = Integer.parseInt(user[3]);
-        UserType userType = createUserByAccessLevel(accessLevel);
-        if (userType != null) {
-          userType.setUser(new User(user[0], user[1], user[2], user[4], userType));
-        }
-        return userType;
-      }
-    }
-    return null;
-  }
-
-  private UserType createUserByAccessLevel(int accessLevel) {
-    switch (accessLevel) {
-      case 1:
-        return new Administrator();
-      case 2:
-        return new PurchaseManager();
-      case 3:
-        return new SalesManager();
-      case 4:
-        return new FinanceManager();
-      case 5:
-        return new InventoryManager();
-      default:
-        return null;
-    }
-  }
 
   /**
    * @param args the command line arguments

@@ -4,6 +4,21 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
+import javax.swing.JFrame;
+import javax.swing.JPasswordField;
+import javax.swing.JOptionPane;
+import java.util.List;
+import assignment.Adminstrator.Administrator;
+import assignment.Adminstrator.adminstratorPage;
+import assignment.PurchaseManager.PurchaseManager;
+import assignment.PurchaseManager.purchaseManagerPage;
+import assignment.SalesManager.SalesManager;
+import assignment.SalesManager.salesManagerPage;
+import assignment.FinanceManager.FinanceManager;
+import assignment.FinanceManager.financeManagerPage;
+import assignment.InventoryManager.InventoryManager;
+import assignment.InventoryManager.inventoryManagerPage;
+import assignment.Session;
 
 public class User {
   private String userId;
@@ -11,9 +26,6 @@ public class User {
   private String email;
   private String password;
   private UserType userType;
-
-  // Static map to store all registered users
-  private static Map<String, User> registeredUsers = new HashMap<>();
 
   // Email pattern for validation
   private static final Pattern EMAIL_PATTERN = Pattern.compile(
@@ -73,31 +85,99 @@ public class User {
   }
 
   // methods
-  public boolean login(String email, String password) {
-
-    // Get user from map
-    User user = registeredUsers.get(email);
-
-    if (user == null) {
-      return false;
+  public void login(Session session, JFrame frame, JPasswordField passwordField, String email, String password) {
+    if (email.isEmpty() || password.isEmpty()) {
+      JOptionPane.showMessageDialog(frame, "Please enter both email and password");
+      return;
     }
 
-    // Validate password
-    if (!user.password.equals(password)) {
-      return false;
+    UserType user = authenticate(email, password);
+    if (user != null) {
+
+      // Set session data
+      session.setSessionData(user.getUser().getUserId(), user.getUser().getUsername(), user,
+          user.getAccessLevel());
+
+      // Handle user type pages
+      if (user instanceof Administrator) {
+
+        adminstratorPage adminFrame = new adminstratorPage();
+        adminFrame.setVisible(true);
+        adminFrame.pack();
+        adminFrame.setLocationRelativeTo(null);
+        frame.dispose();
+
+      } else if (user instanceof SalesManager) {
+
+        salesManagerPage salesFrame = new salesManagerPage();
+        salesFrame.setVisible(true);
+        salesFrame.pack();
+        salesFrame.setLocationRelativeTo(null);
+        frame.dispose();
+
+      } else if (user instanceof PurchaseManager) {
+
+        purchaseManagerPage purchaseFrame = new purchaseManagerPage();
+        purchaseFrame.setVisible(true);
+        purchaseFrame.pack();
+        purchaseFrame.setLocationRelativeTo(null);
+        frame.dispose();
+
+      } else if (user instanceof FinanceManager) {
+
+        financeManagerPage financeFrame = new financeManagerPage();
+        financeFrame.setVisible(true);
+        financeFrame.pack();
+        financeFrame.setLocationRelativeTo(null);
+        frame.dispose();
+
+      } else if (user instanceof InventoryManager) {
+
+        inventoryManagerPage inventoryFrame = new inventoryManagerPage();
+        inventoryFrame.setVisible(true);
+        inventoryFrame.pack();
+        inventoryFrame.setLocationRelativeTo(null);
+        frame.dispose();
+
+      }
+    } else {
+      JOptionPane.showMessageDialog(frame, "Invalid email or password");
+      passwordField.setText("");
     }
+  }
 
-    // Set user type
-    this.userType = user.userType;
+  private UserType authenticate(String email, String password) {
+    FileHandler fileHandler = new FileHandler("src/assignment/database/users.txt");
+    List<String[]> users = fileHandler.readData();
 
-    // Set user access level
-    this.userType.setAccessLevel(user.userType.getAccessLevel());
+    for (String[] user : users) {
+      if ((user[1].equals(email) || user[2].equals(email)) && user[4].equals(password)) {
+        int accessLevel = Integer.parseInt(user[3]);
+        UserType userType = createUserByAccessLevel(accessLevel);
+        if (userType != null) {
+          userType.setUser(new User(user[0], user[1], user[2], user[4], userType));
+        }
+        return userType;
+      }
+    }
+    return null;
+  }
 
-    // Set user department
-    this.userType.setDepartment(user.userType.getDepartment());
-
-    // Return true if login is successful
-    return user.getUserType().validateAccess();
+  private UserType createUserByAccessLevel(int accessLevel) {
+    switch (accessLevel) {
+      case 1:
+        return new Administrator();
+      case 2:
+        return new PurchaseManager();
+      case 3:
+        return new SalesManager();
+      case 4:
+        return new FinanceManager();
+      case 5:
+        return new InventoryManager();
+      default:
+        return null;
+    }
   }
 
   public void logout() {
