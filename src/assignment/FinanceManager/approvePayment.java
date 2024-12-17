@@ -35,77 +35,79 @@ public class approvePayment extends javax.swing.JFrame {
    */
   @SuppressWarnings("unchecked")
   // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+  // <editor-fold defaultstate="collapsed" desc="Generated
+  // <editor-fold defaultstate="collapsed" desc="Generated
+  // Code">//GEN-BEGIN:initComponents
+  private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jButton8 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
+    jPanel1 = new javax.swing.JPanel();
+    jPanel2 = new javax.swing.JPanel();
+    jButton8 = new javax.swing.JButton();
+    jButton1 = new javax.swing.JButton();
+    jButton6 = new javax.swing.JButton();
+    jButton4 = new javax.swing.JButton();
+    jScrollPane1 = new javax.swing.JScrollPane();
+    jTable1 = new javax.swing.JTable();
+    jLabel1 = new javax.swing.JLabel();
+    jButton9 = new javax.swing.JButton();
+    jButton10 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1000, 600));
+    setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+    setPreferredSize(new java.awt.Dimension(1000, 600));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setPreferredSize(new java.awt.Dimension(950, 600));
+    jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+    jPanel1.setPreferredSize(new java.awt.Dimension(950, 600));
 
-        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+    jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
-        jButton8.setBackground(new java.awt.Color(0, 0, 0));
-        jButton8.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(255, 255, 255));
-        jButton8.setText("<");
-        jButton8.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
+    jButton8.setBackground(new java.awt.Color(0, 0, 0));
+    jButton8.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+    jButton8.setForeground(new java.awt.Color(255, 255, 255));
+    jButton8.setText("<");
+    jButton8.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+    jButton8.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton8ActionPerformed(evt);
+      }
+    });
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 0));
-        jButton1.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Approve Payment");
-        jButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+    jButton1.setBackground(new java.awt.Color(0, 0, 0));
+    jButton1.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+    jButton1.setForeground(new java.awt.Color(255, 255, 255));
+    jButton1.setText("Approve Payment");
+    jButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+    jButton1.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton1ActionPerformed(evt);
+      }
+    });
 
-        jButton6.setBackground(new java.awt.Color(0, 0, 0));
-        jButton6.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("Check Stock Status");
-        jButton6.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
+    jButton6.setBackground(new java.awt.Color(0, 0, 0));
+    jButton6.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+    jButton6.setForeground(new java.awt.Color(255, 255, 255));
+    jButton6.setText("Check Stock Status");
+    jButton6.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+    jButton6.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton6ActionPerformed(evt);
+      }
+    });
 
-        jButton4.setBackground(new java.awt.Color(0, 0, 0));
-        jButton4.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("Manage Supplier Payment");
-        jButton4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
+    jButton4.setBackground(new java.awt.Color(0, 0, 0));
+    jButton4.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+    jButton4.setForeground(new java.awt.Color(255, 255, 255));
+    jButton4.setText("Manage Supplier Payment");
+    jButton4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+    jButton4.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton4ActionPerformed(evt);
+      }
+    });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+    javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+    jPanel2.setLayout(jPanel2Layout);
+    jPanel2Layout.setHorizontalGroup(
+        jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButton8)
@@ -115,51 +117,62 @@ public class approvePayment extends javax.swing.JFrame {
                 .addComponent(jButton6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+    jPanel2Layout.setVerticalGroup(
+        jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50,
+                            javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 50,
+                            javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 50,
+                            javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jButton8))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+    jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        new Object[][] {
 
-            },
-            new String [] {
-                "PO ID", "Item Name", "Quantity", "Status", "Req ID", "Date Before", "Item ID", "Sup ID", "Price per Item"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false
-            };
+        },
+        new String[] {
+            "PO ID", "Item Name", "Quantity", "Status", "Req ID", "Date Before", "Item ID", "Sup ID", "Price per Item"
+        }) {
+      boolean[] canEdit = new boolean[] {
+          false, false, false, false, false, false, false, false, false
+      };
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(jTable1);
+      public boolean isCellEditable(int rowIndex, int columnIndex) {
+        return canEdit[columnIndex];
+      }
+    });
+    jScrollPane1.setViewportView(jTable1);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel1.setText("Verify and Approve Payment");
+    jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+    jLabel1.setText("Verify and Approve Payment");
 
-        jButton9.setText("Approve");
+    jButton9.setText("Approve");
+    jButton9.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton9ActionPerformed(evt);
+      }
+    });
 
-        jButton10.setText("Reject");
+    jButton10.setText("Reject");
+    jButton10.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton10ActionPerformed(evt);
+      }
+    });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+    javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+    jPanel1.setLayout(jPanel1Layout);
+    jPanel1Layout.setHorizontalGroup(
+        jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
+                Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -167,46 +180,48 @@ public class approvePayment extends javax.swing.JFrame {
                         .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(35, 35, 35)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 873, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 873,
+                            javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(42, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jButton9)
                 .addGap(18, 18, 18)
-                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(67, 67, 67))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 73,
+                    javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(67, 67, 67)));
+    jPanel1Layout.setVerticalGroup(
+        jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
+                    javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addGap(38, 38, 38)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 314,
+                    javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton10)
                     .addComponent(jButton9))
-                .addContainerGap(35, Short.MAX_VALUE))
-        );
+                .addContainerGap(35, Short.MAX_VALUE)));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+    javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+    getContentPane().setLayout(layout);
+    layout.setHorizontalGroup(
+        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
+                Short.MAX_VALUE));
+    layout.setVerticalGroup(
+        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 562,
+                    javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE)));
 
-        pack();
-        setLocationRelativeTo(null);
-    }// </editor-fold>//GEN-END:initComponents
+    pack();
+    setLocationRelativeTo(null);
+  }// </editor-fold>//GEN-END:initComponents
 
   private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
     approvePayment approvePaymentFrame = new approvePayment();
@@ -231,8 +246,6 @@ public class approvePayment extends javax.swing.JFrame {
     manageSupplierPaymentFrame.setLocationRelativeTo(null);
     this.dispose();
   }// GEN-LAST:event_jButton4ActionPerformed
-
-
 
   private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton8ActionPerformed
     financeManagerPage financeManagerFrame = new financeManagerPage();
@@ -277,9 +290,9 @@ public class approvePayment extends javax.swing.JFrame {
         "Are you sure you want to reject purchase order " + purchaseOrder + "?",
         "Confirm Rejection", JOptionPane.YES_NO_OPTION);
 
-        if (confirm == JOptionPane.YES_OPTION) {
-          updatePurchaseOrderStatus(purchaseOrder, "Rejected");
-        }
+    if (confirm == JOptionPane.YES_OPTION) {
+      updatePurchaseOrderStatus(purchaseOrder, "Rejected");
+    }
   }// GEN-LAST:event_jButton10ActionPerformed
 
   private void updatePurchaseOrderStatus(String purchaseOrderId, String newStatus) {
@@ -289,50 +302,51 @@ public class approvePayment extends javax.swing.JFrame {
       boolean found = false;
 
       if (newStatus.equals("Rejected")) {
-          // Remove the rejected purchase order from purchOrder.txt only
-          removePurchaseOrderRow(purchaseOrderId);
-          found = true;
+        // Remove the rejected purchase order from purchOrder.txt only
+        removePurchaseOrderRow(purchaseOrderId);
+        found = true;
       } else {
-          // Update the status for non-rejected cases (e.g., Approved)
-          List<String> updatedRecords = new ArrayList<>();
-          for (String[] row : purchaseOrderData) {
-              if (row[0].trim().equals(purchaseOrderId)) {
-                  row[3] = newStatus; // Update the status
-                  found = true;
-              }
-              StringBuilder record = new StringBuilder();
-              for (int i = 0; i < row.length; i++) {
-                  record.append(row[i]);
-                  if (i < row.length - 1) {
-                      record.append(",");
-                  }
-              }
-              updatedRecords.add(record.toString());
+        // Update the status for non-rejected cases (e.g., Approved)
+        List<String> updatedRecords = new ArrayList<>();
+        for (String[] row : purchaseOrderData) {
+          if (row[0].trim().equals(purchaseOrderId)) {
+            row[3] = newStatus; // Update the status
+            found = true;
           }
+          StringBuilder record = new StringBuilder();
+          for (int i = 0; i < row.length; i++) {
+            record.append(row[i]);
+            if (i < row.length - 1) {
+              record.append(",");
+            }
+          }
+          updatedRecords.add(record.toString());
+        }
 
-          if (found) {
-              try {
-                  writeRecords(updatedRecords); // Only writes for non-rejected updates
-              } catch (Exception e) {
-                  JOptionPane.showMessageDialog(this, "Error updating purchase order status: " + e.getMessage(),
-                      "Error", JOptionPane.ERROR_MESSAGE);
-              }
+        if (found) {
+          try {
+            writeRecords(updatedRecords); // Only writes for non-rejected updates
+          } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error updating purchase order status: " + e.getMessage(),
+                "Error", JOptionPane.ERROR_MESSAGE);
           }
+        }
       }
 
       loadTable(); // Reload table after changes
       if (found && newStatus.equals("Rejected")) {
-          JOptionPane.showMessageDialog(this, "Purchase Order " + purchaseOrderId + " has been rejected and removed.",
-              "Rejection Successful", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this, "Purchase Order " + purchaseOrderId + " has been rejected and removed.",
+            "Rejection Successful", JOptionPane.INFORMATION_MESSAGE);
       } else if (found) {
-          JOptionPane.showMessageDialog(this, "Purchase Order " + purchaseOrderId + " has been " + newStatus.toLowerCase(),
-              "Status Updated", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this,
+            "Purchase Order " + purchaseOrderId + " has been " + newStatus.toLowerCase(),
+            "Status Updated", JOptionPane.INFORMATION_MESSAGE);
       }
-  } catch (Exception e) {
+    } catch (Exception e) {
       JOptionPane.showMessageDialog(this, "Error updating purchase order status: " + e.getMessage(), "Error",
           JOptionPane.ERROR_MESSAGE);
+    }
   }
-}
 
   private void writeRecords(List<String> records) {
     try {
@@ -343,9 +357,6 @@ public class approvePayment extends javax.swing.JFrame {
           JOptionPane.ERROR_MESSAGE);
     }
   }
-
-
-  
 
   private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton9ActionPerformed
     int selectedRow = jTable1.getSelectedRow();
@@ -376,24 +387,24 @@ public class approvePayment extends javax.swing.JFrame {
         String[] rowData = new String[jTable1.getColumnCount()];
         for (int i = 0; i < jTable1.getColumnCount(); i++) {
           rowData[i] = jTable1.getValueAt(selectedRow, i).toString();
-        }   
+        }
 
-       rowData[3] = "Approved";
+        rowData[3] = "Approved";
 
-      appendToApprovePurchaseOrder(rowData);
+        appendToApprovePurchaseOrder(rowData);
 
-      removePurchaseOrderRow(rowData[0]);
+        removePurchaseOrderRow(rowData[0]);
 
-      loadTable();
-      JOptionPane.showMessageDialog(this,
+        loadTable();
+        JOptionPane.showMessageDialog(this,
             "Purchase Order " + rowData[0] + " has been approved and move to Purchase Order",
             "Success",
-             JOptionPane.INFORMATION_MESSAGE);  
-          } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Purchase Order status could not be updated: " + e.getMessage(), "Error",
-                JOptionPane.ERROR_MESSAGE);
-          }
-        }
+            JOptionPane.INFORMATION_MESSAGE);
+      } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Purchase Order status could not be updated: " + e.getMessage(), "Error",
+            JOptionPane.ERROR_MESSAGE);
+      }
+    }
   }// GEN-LAST:event_jButton9ActionPerformed
 
   private void removePurchaseOrderRow(String poId) {
@@ -417,10 +428,10 @@ public class approvePayment extends javax.swing.JFrame {
       for (int i = 0; i < rowData.length; i++) {
         record.append(rowData[i]);
         record.append(","); // Add a comma after each column value
-    }
-    record.append("Payment Approved"); // Add the new "Payment Status" column with "Approved"
+      }
+      record.append("Payment Approved"); // Add the new "Payment Status" column with "Approved"
 
-    fileHandler.appendRecord(record.toString());
+      fileHandler.appendRecord(record.toString());
     } catch (Exception e) {
       JOptionPane.showMessageDialog(this, "Purchase Order status could not be updated: " + e.getMessage(), "Error",
           JOptionPane.ERROR_MESSAGE);
@@ -466,17 +477,17 @@ public class approvePayment extends javax.swing.JFrame {
     });
   }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    // End of variables declaration//GEN-END:variables
+  // Variables declaration - do not modify//GEN-BEGIN:variables
+  private javax.swing.JButton jButton1;
+  private javax.swing.JButton jButton10;
+  private javax.swing.JButton jButton4;
+  private javax.swing.JButton jButton6;
+  private javax.swing.JButton jButton8;
+  private javax.swing.JButton jButton9;
+  private javax.swing.JLabel jLabel1;
+  private javax.swing.JPanel jPanel1;
+  private javax.swing.JPanel jPanel2;
+  private javax.swing.JScrollPane jScrollPane1;
+  private javax.swing.JTable jTable1;
+  // End of variables declaration//GEN-END:variables
 }
