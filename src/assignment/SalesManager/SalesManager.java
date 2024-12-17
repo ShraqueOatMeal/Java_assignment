@@ -114,6 +114,17 @@ public class SalesManager extends UserType {
     }
   }
 
+  public void loadPurchaseOrders(JTable jTable2) {
+    List<String[]> requisitionData = viewPurchaseOrder();
+
+    DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+    model.setRowCount(0);
+
+    for (String[] row : requisitionData) {
+      model.addRow(row);
+    }
+  }
+
   public void comboBoxAddBelowReorderLevel(JComboBox<String> comboBox) {
     FileHandler stock = new FileHandler("src/assignment/database/stock.txt");
 
