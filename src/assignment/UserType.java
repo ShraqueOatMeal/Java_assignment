@@ -3,7 +3,7 @@ package assignment;
 import java.util.List;
 import java.util.ArrayList;
 
-public abstract class UserType {
+public abstract class UserType extends User {
   protected int accessLevel;
   protected String department;
   protected List<String> permissions;
@@ -64,15 +64,15 @@ public abstract class UserType {
     return user;
   }
 
-  public void getDashboard() {
-    // TODO: implement
-  }
-
-  public void getMenuItems() {
-    // TODO: implement
-  }
-
   public boolean validateAccess() {
     return accessLevel > 0 && !permissions.isEmpty();
+  }
+
+  public void logout() {
+    Session.getInstance().clearSession();
+    Login loginFrame = new Login();
+    loginFrame.setVisible(true);
+    loginFrame.pack();
+    loginFrame.setLocationRelativeTo(null);
   }
 }

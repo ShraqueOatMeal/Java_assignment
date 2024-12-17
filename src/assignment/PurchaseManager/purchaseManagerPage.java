@@ -16,6 +16,8 @@ import assignment.Session;
  */
 public class purchaseManagerPage extends javax.swing.JFrame {
 
+  private PurchaseManager purchaseManager = new PurchaseManager();
+
   /**
    * Creates new form purchaseManager
    */
@@ -219,10 +221,7 @@ public class purchaseManagerPage extends javax.swing.JFrame {
   private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_logoutButtonActionPerformed
     if (JOptionPane.showConfirmDialog(null, "Are you sure you want to log out?", "Confirm Logout",
         JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-      Login loginFrame = new Login();
-      loginFrame.setVisible(true);
-      loginFrame.pack();
-      loginFrame.setLocationRelativeTo(null);
+      purchaseManager.logout();
       this.dispose();
     }
   }// GEN-LAST:event_logoutButtonActionPerformed

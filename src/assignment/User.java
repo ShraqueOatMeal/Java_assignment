@@ -104,7 +104,11 @@ public class User {
   }
 
   public void logout() {
-    // TODO: implement logout
+    Session.getInstance().clearSession();
+    Login loginFrame = new Login();
+    loginFrame.setVisible(true);
+    loginFrame.pack();
+    loginFrame.setLocationRelativeTo(null);
   }
 
   public void register() {

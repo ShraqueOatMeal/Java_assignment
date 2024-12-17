@@ -6,6 +6,7 @@
 package assignment.Adminstrator;
 
 import assignment.Login;
+import assignment.Adminstrator.Administrator;
 import assignment.FinanceManager.financeManagerPage;
 import assignment.InventoryManager.inventoryManagerPage;
 import assignment.PurchaseManager.purchaseManagerPage;
@@ -18,6 +19,7 @@ import javax.swing.JOptionPane;
  * @author Admin
  */
 public class adminstratorPage extends javax.swing.JFrame {
+  private Administrator admin = new Administrator();
 
   /**
    * Creates new form adminstrator
@@ -245,10 +247,7 @@ public class adminstratorPage extends javax.swing.JFrame {
   private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_backButtonActionPerformed
     if (JOptionPane.showConfirmDialog(null, "Are you sure you want to log out?", "Confirm Logout",
         JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-      Login loginFrame = new Login();
-      loginFrame.setVisible(true);
-      loginFrame.pack();
-      loginFrame.setLocationRelativeTo(null);
+      admin.logout();
       this.dispose();
     }
   } // GEN-LAST:event_backButtonActionPerformed

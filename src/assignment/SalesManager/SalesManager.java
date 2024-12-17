@@ -66,18 +66,6 @@ public class SalesManager extends UserType {
     return fileHandler.readData();
   }
 
-  public void viewItems() {
-    // Implementation
-  }
-
-  public void enterDailySales() {
-    // Implementation
-  }
-
-  public void generateSalesReport() {
-    // Implementation
-  }
-
   public List<String[]> checkStockLevel() {
     FileHandler stockFile = new FileHandler("src/assignment/database/stock.txt");
     List<String[]> stockList = stockFile.readData();
