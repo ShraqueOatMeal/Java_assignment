@@ -3,7 +3,12 @@ package assignment.SalesManager;
 import assignment.UserType;
 import assignment.FileHandler;
 import assignment.SalesReportPreview;
+
 import javax.swing.JFrame;
+import javax.swing.JTable;
+import javax.swing.JToggleButton;
+import javax.swing.JOptionPane;
+
 import java.util.List;
 
 import javax.swing.table.DefaultTableModel;
@@ -50,6 +55,60 @@ public class SalesManager extends UserType {
     List<String[]> stockList = stockFile.readData();
 
     return stockList;
+  }
+
+  public void showBelowStockLevel(JFrame frame, JToggleButton belowThresholdButton, JTable jTable1) {
+    FileHandler stockFile = new FileHandler("src/assignment/database/stock.txt");
+    DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+
+    if (belowThresholdButton.isSelected()) {
+      belowThresholdButton.setText("Show All");
+      model.setRowCount(0); // Clear existing rows
+      List<String[]> lines = stockFile.readData();
+
+      for (String[] data : lines) {
+        if (data.length >= 4) {
+          try {
+            int quantity = Integer.parseInt(data[2].trim());
+            int threshold = Integer.parseInt(data[3].trim());
+
+            if (quantity < threshold) {
+              model.addRow(new Object[] {
+                  data[0].trim(), // Item ID
+                  data[1].trim(), // Item Name
+                  data[2].trim(), // Item Quantity
+                  data[3].trim() // Restock Level
+              });
+            }
+          } catch (NumberFormatException e) {
+            // Skip invalid number formats
+            continue;
+          }
+        }
+      }
+
+      if (model.getRowCount() == 0) {
+        JOptionPane.showMessageDialog(frame,
+            "No items are currently below their restock level",
+            "Stock Status",
+            JOptionPane.INFORMATION_MESSAGE);
+        belowThresholdButton.setSelected(false);
+      }
+    } else {
+      belowThresholdButton.setText("Below Threshold");
+      loadTable(jTable1);
+    }
+  }
+
+  public void loadTable(JTable jTable1) {
+    List<String[]> stockData = checkStockLevel();
+
+    DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+    model.setRowCount(0);
+
+    for (String[] row : stockData) {
+      model.addRow(row);
+    }
   }
 
   public void generateReport(JFrame frame, String selectedDate, String salesPerson, DefaultTableModel tableModel) {
