@@ -38,9 +38,9 @@ public class PurchaseManager extends UserType {
     return fileHandler.readData();
   }
 
-  public void createRequisition(String itemName, int quantity, String userId, String date, String itemId,
+  public void createPurchaseOrder(String itemName, int quantity, String userId, String date, String itemId,
       String supId, String price) {
-    int newRequisitionID = purchOrderHandler.getLastId() + 1;
+    String newRequisitionID = "PO" + String.valueOf(purchOrderHandler.getLastId() + 1);
     String status = "Approved";
     String[] record = { String.valueOf(newRequisitionID), itemName, String.valueOf(quantity), status,
         userId, date, itemId, supId, price };

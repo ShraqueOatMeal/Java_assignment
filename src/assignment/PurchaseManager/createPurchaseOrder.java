@@ -18,6 +18,7 @@ import java.util.HashMap;
  * @author Admin
  */
 public class createPurchaseOrder extends javax.swing.JFrame {
+  private PurchaseManager purchaseManager = new PurchaseManager();
 
   /**
    * Creates new form createPurchaseOrder
@@ -465,19 +466,18 @@ public class createPurchaseOrder extends javax.swing.JFrame {
         return;
       }
 
-      FileHandler requisition = new FileHandler("src/assignment/database/requisition.txt");
-      List<String[]> requisitions = requisition.readData();
+      FileHandler purchOrder = new FileHandler("src/assignment/database/purchOrder.txt");
+      List<String[]> purchOrders = purchOrder.readData();
       String existingItemID = "";
-      for (String[] requisitionData : requisitions) {
-        if (requisitionData[6].equals(itemId)) {
-          JOptionPane.showMessageDialog(null, "Requisition already exists", "Error", JOptionPane.ERROR_MESSAGE);
+      for (String[] purchOrderData : purchOrders) {
+        if (purchOrderData[6].equals(itemId)) {
+          JOptionPane.showMessageDialog(null, "Purchase Order already made", "Error", JOptionPane.ERROR_MESSAGE);
           return;
         }
       }
 
-      PurchaseManager purchaseManager = new PurchaseManager();
-      purchaseManager.createRequisition(itemName, quantity, userId, date, itemId, supplierId, price);
-      purchaseManager.saveAll();
+      PurchaseOrder purchaseOrder = new PurchaseOrder(itemName, itemId, supplierId, userId, quantity, date, price);
+      purchaseOrder.createPurchaseOrder(purchaseManager);
 
       createSuccess createSuccessFrame = new createSuccess();
       createSuccessFrame.setVisible(true);
