@@ -675,7 +675,7 @@ public class enterDailySales extends javax.swing.JFrame {
       try {
         String selectedItem = (String) itemCombo.getSelectedItem();
         String[] itemInfo = stockItems.get(selectedItem);
-        double quantity = Double.parseDouble(quantityField.getText());
+        int quantity = Integer.parseInt(quantityField.getText());
         double price = Double.parseDouble(itemInfo[1]);
         double total = quantity * price;
 
@@ -694,12 +694,12 @@ public class enterDailySales extends javax.swing.JFrame {
         for (int i = 0; i < stockLines.size(); i++) {
           String[] parts = stockLines.get(i).split(",");
           if (parts[1].equals(selectedItem)) {
-            double currentStock = Double.parseDouble(parts[2]);
+            int currentStock = Integer.parseInt(parts[2]);
             if (currentStock < quantity) {
               JOptionPane.showMessageDialog(null, "Insufficient stock");
               return;
             }
-            double newStock = currentStock - quantity;
+            int newStock = currentStock - quantity;
             parts[2] = String.valueOf(newStock);
             stockLines.set(i, String.join(",", parts));
             stockUpdated = true;
@@ -727,7 +727,7 @@ public class enterDailySales extends javax.swing.JFrame {
             new DecimalFormat("#,###.00").format(price),
             new DecimalFormat("#,###.00").format(total)
         });
-        String newLine = String.format("%s,%s,%.2f,%.2f,%.2f,%s,%s",
+        String newLine = String.format("%s,%s,%s,%.2f,%.2f,%s,%s",
             itemInfo[0],
             selectedItem,
             quantity,
