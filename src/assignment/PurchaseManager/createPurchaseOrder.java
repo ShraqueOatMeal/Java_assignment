@@ -476,8 +476,9 @@ public class createPurchaseOrder extends javax.swing.JFrame {
         }
       }
 
-      PurchaseOrder purchaseOrder = new PurchaseOrder(itemName, itemId, supplierId, userId, quantity, date, price);
-      purchaseOrder.createPurchaseOrder(purchaseManager);
+      purchaseManager.createPurchaseOrder(itemName, quantity, userId, date,
+          itemId, supplierId, price);
+      purchaseManager.saveAll();
 
       createSuccess createSuccessFrame = new createSuccess();
       createSuccessFrame.setVisible(true);

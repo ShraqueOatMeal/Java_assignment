@@ -532,8 +532,8 @@ public class createRequisition extends javax.swing.JFrame {
         }
       }
 
-      Requisition requisitionObj = new Requisition(itemName, itemId, supplierId, userId, quantity, date, price);
-      requisitionObj.createRequisition(salesManager);
+      salesManager.createRequisition(itemName, quantity, userId, date, itemId, supplierId, price);
+      salesManager.saveAll();
 
       createSuccess createSuccessFrame = new createSuccess();
       createSuccessFrame.setVisible(true);

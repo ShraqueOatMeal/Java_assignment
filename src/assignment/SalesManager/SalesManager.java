@@ -16,6 +16,7 @@ import java.util.List;
 
 import javax.swing.table.DefaultTableModel;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class SalesManager extends UserType {
@@ -23,12 +24,14 @@ public class SalesManager extends UserType {
   private String username;
   private String userId;
   private String date;
+  private List<Requisition> requisitions;
 
   public SalesManager() {
     super();
     this.accessLevel = 3;
     this.department = "Sales";
     this.fileHandler = new FileHandler("src/assignment/database/requisition.txt");
+    this.requisitions = loadRequisitions();
   }
 
   public void setDate(String date) {
@@ -41,11 +44,15 @@ public class SalesManager extends UserType {
 
   public void createRequisition(String itemName, int quantity, String userId, String date, String itemId,
       String supId, String price) {
-    String newRequisitionID = "PR" + String.valueOf(fileHandler.getLastId() + 1);
-    String status = "Pending";
-    String[] record = { String.valueOf(newRequisitionID), itemName, String.valueOf(quantity), status,
-        userId, date, itemId, supId, price };
-    fileHandler.addRecord(record);
+    Requisition newRequisition = new Requisition(itemName, itemId, supId, userId, quantity, date, price);
+    requisitions.add(newRequisition);
+    fileHandler.addRecord(newRequisition.toArray());
+  }
+
+  public List<Requisition> loadRequisitions() {
+    List<String[]> records = fileHandler.readData();
+    List<Requisition> requisitions = new ArrayList<>();
+    return requisitions;
   }
 
   public List<String[]> viewPurchaseOrder() {

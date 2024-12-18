@@ -29,7 +29,7 @@ public class PurchaseOrder {
   }
 
   // Method to convert PurchaseOrder to array format for FileHandler
-  public String[] toArray() {
+  protected String[] toArray() {
     return new String[] {
         purchaseOrderId,
         itemName,
@@ -83,19 +83,6 @@ public class PurchaseOrder {
 
   public String getStatus() {
     return status;
-  }
-
-  // Method to save using PurchaseManager
-  public void createPurchaseOrder(PurchaseManager purchaseManager) {
-    purchaseManager.createPurchaseOrder(
-        this.itemName,
-        this.quantity,
-        this.userId,
-        this.date,
-        this.itemId,
-        this.supplierId,
-        this.price);
-    purchaseManager.saveAll();
   }
 
   // Static method to get all purchase orders

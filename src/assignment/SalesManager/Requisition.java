@@ -85,19 +85,6 @@ public class Requisition {
     return status;
   }
 
-  // Method to save using SalesManager
-  public void createRequisition(SalesManager salesManager) {
-    salesManager.createRequisition(
-        this.itemName,
-        this.quantity,
-        this.userId,
-        this.date,
-        this.itemId,
-        this.supplierId,
-        this.price);
-    salesManager.saveAll();
-  }
-
   // Calculate total cost
   public double getTotalCost() {
     return Double.parseDouble(price) * quantity;
