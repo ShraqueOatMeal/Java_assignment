@@ -18,6 +18,7 @@ import java.util.HashMap;
  * @author Admin
  */
 public class createPurchaseOrder extends javax.swing.JFrame {
+  private PurchaseManager purchaseManager = new PurchaseManager();
 
   /**
    * Creates new form createPurchaseOrder
@@ -475,9 +476,13 @@ public class createPurchaseOrder extends javax.swing.JFrame {
         }
       }
 
-      PurchaseManager purchaseManager = new PurchaseManager();
-      purchaseManager.createRequisition(itemName, quantity, userId, date, itemId, supplierId, price);
-      purchaseManager.saveAll();
+      PurchaseOrder purchaseOrder = new PurchaseOrder(itemName, itemId, supplierId, userId, quantity, date, price);
+
+      // purchaseManager.createRequisition(itemName, quantity, userId, date, itemId,
+      // supplierId, price);
+      // purchaseManager.saveAll();
+
+      purchaseOrder.createPurchaseOrder(purchaseManager);
 
       createSuccess createSuccessFrame = new createSuccess();
       createSuccessFrame.setVisible(true);

@@ -1,2 +1,3 @@
 1,Hair Dryer,1,Approved,SM002,2024/01/01,I046,S001,15
 3,Hair Dryer,3,Approved,SM002,2024/01/01,I046,S002,20
+4,Massage Chair,3,Approved,3,2024/01/01,I050,S001,20
