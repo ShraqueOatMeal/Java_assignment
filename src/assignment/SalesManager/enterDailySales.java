@@ -679,6 +679,47 @@ public class enterDailySales extends javax.swing.JFrame {
         double price = Double.parseDouble(itemInfo[1]);
         double total = quantity * price;
 
+        List<String> stockLines = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader("src/assignment/database/stock.txt"))) {
+          String line;
+          while ((line = reader.readLine()) != null) {
+            stockLines.add(line);
+          }
+        } catch (IOException ex) {
+          System.out.println("Error in reading stock.txt");
+        }
+
+        // Update stock quantity
+        boolean stockUpdated = false;
+        for (int i = 0; i < stockLines.size(); i++) {
+          String[] parts = stockLines.get(i).split(",");
+          if (parts[1].equals(selectedItem)) {
+            double currentStock = Double.parseDouble(parts[2]);
+            if (currentStock < quantity) {
+              JOptionPane.showMessageDialog(null, "Insufficient stock");
+              return;
+            }
+            double newStock = currentStock - quantity;
+            parts[2] = String.valueOf(newStock);
+            stockLines.set(i, String.join(",", parts));
+            stockUpdated = true;
+            break;
+          }
+        }
+
+        if (!stockUpdated) {
+          JOptionPane.showMessageDialog(null, "Error: Item not found in stock");
+          return;
+        }
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("src/assignment/database/stock.txt"))) {
+          for (String line : stockLines) {
+            writer.write(line);
+            writer.newLine();
+          }
+        } catch (IOException ex) {
+          System.out.println("Error writing into stock.txt");
+        }
         tableModel.addRow(new Object[] {
             itemInfo[0],
             selectedItem,
