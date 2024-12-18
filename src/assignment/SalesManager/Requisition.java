@@ -1,10 +1,10 @@
-package assignment.PurchaseManager;
+package assignment.SalesManager;
 
 import assignment.FileHandler;
 import java.util.List;
 
-public class PurchaseOrder {
-  private String purchaseOrderId;
+public class Requisition {
+  private String requisitionId;
   private String itemName;
   private String itemId;
   private String supplierId;
@@ -15,9 +15,9 @@ public class PurchaseOrder {
   private String status;
 
   // Constructor
-  public PurchaseOrder(String itemName, String itemId, String supplierId, String userId,
+  public Requisition(String itemName, String itemId, String supplierId, String userId,
       int quantity, String date, String price) {
-    this.purchaseOrderId = generatePurchaseOrderId();
+    this.requisitionId = generateRequisitionId();
     this.itemName = itemName;
     this.itemId = itemId;
     this.supplierId = supplierId;
@@ -25,13 +25,13 @@ public class PurchaseOrder {
     this.quantity = quantity;
     this.date = date;
     this.price = price;
-    this.status = "Approved"; // Default status matching PurchaseManager
+    this.status = "Approved"; // Default status matching SalesManager
   }
 
-  // Method to convert PurchaseOrder to array format for FileHandler
+  // Method to convert Requisition to array format for FileHandler
   public String[] toArray() {
     return new String[] {
-        purchaseOrderId,
+        requisitionId,
         itemName,
         String.valueOf(quantity),
         status,
@@ -43,14 +43,14 @@ public class PurchaseOrder {
     };
   }
 
-  private String generatePurchaseOrderId() {
-    FileHandler purchOrderHandler = new FileHandler("src/assignment/database/purchOrder.txt");
-    return "PO" + String.valueOf(purchOrderHandler.getLastId() + 1);
+  private String generateRequisitionId() {
+    FileHandler purchOrderHandler = new FileHandler("src/assignment/database/requisition.txt");
+    return "PR" + String.valueOf(purchOrderHandler.getLastId() + 1);
   }
 
   // Getters
-  public String getPurchaseOrderId() {
-    return purchaseOrderId;
+  public String getRequisitionId() {
+    return requisitionId;
   }
 
   public String getItemName() {
@@ -85,9 +85,9 @@ public class PurchaseOrder {
     return status;
   }
 
-  // Method to save using PurchaseManager
-  public void createPurchaseOrder(PurchaseManager purchaseManager) {
-    purchaseManager.createPurchaseOrder(
+  // Method to save using SalesManager
+  public void createRequisition(SalesManager salesManager) {
+    salesManager.createRequisition(
         this.itemName,
         this.quantity,
         this.userId,
@@ -95,12 +95,7 @@ public class PurchaseOrder {
         this.itemId,
         this.supplierId,
         this.price);
-    purchaseManager.saveAll();
-  }
-
-  // Static method to get all purchase orders
-  public static List<String[]> getAllPurchaseOrders(PurchaseManager purchaseManager) {
-    return purchaseManager.viewPurchaseOrder();
+    salesManager.saveAll();
   }
 
   // Calculate total cost

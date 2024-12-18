@@ -466,22 +466,17 @@ public class createPurchaseOrder extends javax.swing.JFrame {
         return;
       }
 
-      FileHandler requisition = new FileHandler("src/assignment/database/requisition.txt");
-      List<String[]> requisitions = requisition.readData();
+      FileHandler purchOrder = new FileHandler("src/assignment/database/purchOrder.txt");
+      List<String[]> purchOrders = purchOrder.readData();
       String existingItemID = "";
-      for (String[] requisitionData : requisitions) {
-        if (requisitionData[6].equals(itemId)) {
-          JOptionPane.showMessageDialog(null, "Requisition already exists", "Error", JOptionPane.ERROR_MESSAGE);
+      for (String[] purchOrderData : purchOrders) {
+        if (purchOrderData[6].equals(itemId)) {
+          JOptionPane.showMessageDialog(null, "Purchase Order already made", "Error", JOptionPane.ERROR_MESSAGE);
           return;
         }
       }
 
       PurchaseOrder purchaseOrder = new PurchaseOrder(itemName, itemId, supplierId, userId, quantity, date, price);
-
-      // purchaseManager.createRequisition(itemName, quantity, userId, date, itemId,
-      // supplierId, price);
-      // purchaseManager.saveAll();
-
       purchaseOrder.createPurchaseOrder(purchaseManager);
 
       createSuccess createSuccessFrame = new createSuccess();

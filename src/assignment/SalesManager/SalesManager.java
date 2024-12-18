@@ -41,7 +41,7 @@ public class SalesManager extends UserType {
 
   public void createRequisition(String itemName, int quantity, String userId, String date, String itemId,
       String supId, String price) {
-    int newRequisitionID = fileHandler.getLastId() + 1;
+    String newRequisitionID = "PR" + String.valueOf(fileHandler.getLastId() + 1);
     String status = "Pending";
     String[] record = { String.valueOf(newRequisitionID), itemName, String.valueOf(quantity), status,
         userId, date, itemId, supId, price };
