@@ -84,9 +84,4 @@ public class PurchaseOrder {
   public String getStatus() {
     return status;
   }
-
-  // Static method to get all purchase orders
-  public static List<String[]> getAllPurchaseOrders(PurchaseManager purchaseManager) {
-    return purchaseManager.viewPurchaseOrder();
-  }
 }
