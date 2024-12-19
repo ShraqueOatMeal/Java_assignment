@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 public abstract class UserType extends User {
   protected int accessLevel;
-  protected List<String> permissions;
   protected User user;
 
   public UserType() {
@@ -29,6 +28,6 @@ public abstract class UserType extends User {
   }
 
   public boolean validateAccess() {
-    return accessLevel > 0 && !permissions.isEmpty();
+    return accessLevel > 0;
   }
 }
