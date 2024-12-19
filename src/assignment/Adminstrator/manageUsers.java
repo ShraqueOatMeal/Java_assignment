@@ -352,8 +352,8 @@ public class manageUsers extends javax.swing.JFrame {
     boolean foundMatching = false;
 
     for (String[] row : users) {
-      boolean matchesSearch = searchTerm.isEmpty() || row[1].trim().toLowerCase().contains(searchTerm.toLowerCase())
-          || row[2].trim().toLowerCase().contains(searchTerm.toLowerCase());
+      boolean matchesSearch = searchTerm.isEmpty() || row[0].trim().toLowerCase().contains(searchTerm.toLowerCase())
+          || row[1].trim().toLowerCase().contains(searchTerm.toLowerCase());
 
       boolean matchesRole = selectedRole.equals("Select") || row[3].trim().equals(getRoleNumber(selectedRole));
 
