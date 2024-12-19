@@ -11,7 +11,6 @@ public class PurchaseManager extends UserType {
   private double approvalThreshold;
   private FileHandler fileHandler;
   private FileHandler purchOrderHandler;
-  private String username;
   private List<PurchaseOrder> purchaseOrders;
   // private List<Supplier> assignedSuppliers;
 

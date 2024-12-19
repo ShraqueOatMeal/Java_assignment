@@ -9,7 +9,6 @@ import javax.swing.JOptionPane;
 import assignment.FileHandler;
 
 public class InventoryManager extends UserType {
-  private String username;
   private FileHandler fileHandler;
   private FileHandler supplierFileHandler;
   private FileHandler bridgeFileHandler;
