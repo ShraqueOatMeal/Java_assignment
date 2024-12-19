@@ -148,8 +148,4 @@ public class Administrator extends UserType {
   public List<String[]> viewUsers() {
     return userFileHandler.readData();
   }
-
-  public void changePassword() {
-    // Implementation
-  }
 }
