@@ -7,8 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PurchaseManager extends UserType {
-  private double purchaseLimit;
-  private double approvalThreshold;
   private FileHandler fileHandler;
   private FileHandler purchOrderHandler;
   private List<PurchaseOrder> purchaseOrders;
