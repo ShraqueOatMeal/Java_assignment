@@ -84,9 +84,4 @@ public class Requisition {
   public String getStatus() {
     return status;
   }
-
-  // Calculate total cost
-  public double getTotalCost() {
-    return Double.parseDouble(price) * quantity;
-  }
 }

@@ -89,9 +89,4 @@ public class PurchaseOrder {
   public static List<String[]> getAllPurchaseOrders(PurchaseManager purchaseManager) {
     return purchaseManager.viewPurchaseOrder();
   }
-
-  // Calculate total cost
-  public double getTotalCost() {
-    return Double.parseDouble(price) * quantity;
-  }
 }
