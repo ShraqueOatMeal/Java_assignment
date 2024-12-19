@@ -21,8 +21,8 @@ import assignment.InventoryManager.inventoryManagerPage;
 import assignment.Session;
 
 public class User {
-  private String userId;
-  private String username;
+  protected String userId;
+  protected String username;
   private String email;
   private String password;
   private UserType userType;

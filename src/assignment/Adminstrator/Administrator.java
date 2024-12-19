@@ -8,7 +8,6 @@ import javax.swing.JOptionPane;
 
 public class Administrator extends UserType {
   private FileHandler userFileHandler;
-  private String username;
 
   public Administrator() {
     super();

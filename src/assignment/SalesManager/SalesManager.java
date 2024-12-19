@@ -21,8 +21,6 @@ import java.util.Arrays;
 
 public class SalesManager extends UserType {
   private FileHandler fileHandler;
-  private String username;
-  private String userId;
   private String date;
   private List<Requisition> requisitions;
 
