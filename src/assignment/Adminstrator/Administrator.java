@@ -32,8 +32,15 @@ public class Administrator extends UserType {
       String record = String.format("%s,%s,%s,%d,%s",
           userId,
           username, email, accessLevel, password);
-      userFileHandler.addRecord(record);
-      userFileHandler.saveAllRecords();
+
+      List<String> allRecords = new ArrayList<>();
+      for (String[] user : users) {
+        allRecords.add(String.join(",", user));
+      }
+      allRecords.add(record);
+
+      userFileHandler.clearFileContents();
+      userFileHandler.writeRecords(allRecords);
 
       JOptionPane.showMessageDialog(null,
           "User added successfully!",
@@ -71,12 +78,7 @@ public class Administrator extends UserType {
         return false;
       }
 
-      userFileHandler = new FileHandler("src/assignment/database/users.txt");
       userFileHandler.clearFileContents();
-      // for (int i = 0; i < updatedRecords.size(); i++) {
-      // String[] parts = updatedRecords.get(i).split(",");
-      // userFileHandler.addRecord(i + 1, updatedRecords.get(i));
-      // }
       userFileHandler.writeRecords(updatedRecords);
 
       JOptionPane.showMessageDialog(null,
@@ -124,11 +126,7 @@ public class Administrator extends UserType {
       }
 
       // Create new FileHandler instance and save updated records
-      userFileHandler = new FileHandler("src/assignment/database/users.txt");
       userFileHandler.clearFileContents();
-      // for (int i = 0; i < updatedRecords.size(); i++) {
-      // userFileHandler.addRecord(i + 1, updatedRecords.get(i));
-      // }
       userFileHandler.writeRecords(updatedRecords);
 
       JOptionPane.showMessageDialog(null,
