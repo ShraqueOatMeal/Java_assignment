@@ -3,7 +3,6 @@ package assignment;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.regex.Pattern;
 import javax.swing.JFrame;
 import javax.swing.JPasswordField;
 import javax.swing.JOptionPane;
@@ -26,10 +25,6 @@ public class User {
   private String email;
   private String password;
   private UserType userType;
-
-  // Email pattern for validation
-  private static final Pattern EMAIL_PATTERN = Pattern.compile(
-      "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$");
 
   // Constructor
   public User() {
