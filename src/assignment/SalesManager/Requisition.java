@@ -25,7 +25,7 @@ public class Requisition {
     this.quantity = quantity;
     this.date = date;
     this.price = price;
-    this.status = "Approved"; // Default status matching SalesManager
+    this.status = "Pending"; // Default status matching SalesManager
   }
 
   // Method to convert Requisition to array format for FileHandler
