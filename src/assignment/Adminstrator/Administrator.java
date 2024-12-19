@@ -20,9 +20,9 @@ public class Administrator extends UserType {
       // Check if username already exists
       List<String[]> users = userFileHandler.readData();
       for (String[] user : users) {
-        if (user[1].equals(username)) {
+        if (user[1].equals(username) || user[0].equals(userId) || user[2].equals(email)) {
           JOptionPane.showMessageDialog(null,
-              "Username already exists!",
+              "User ID, username, or email already exists!",
               "Error",
               JOptionPane.ERROR_MESSAGE);
           return false;
