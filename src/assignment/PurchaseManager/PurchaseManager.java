@@ -18,7 +18,6 @@ public class PurchaseManager extends UserType {
   public PurchaseManager() {
     super();
     this.accessLevel = 2;
-    this.department = "Purchase";
     this.fileHandler = new FileHandler("src/assignment/database/requisition.txt");
     this.purchOrderHandler = new FileHandler("src/assignment/database/purchOrder.txt");
     this.purchaseOrders = loadPurchaseOrders();

@@ -17,7 +17,6 @@ public class InventoryManager extends UserType {
   public InventoryManager() {
     super();
     this.accessLevel = 5;
-    this.department = "Inventory";
     this.fileHandler = new FileHandler("src/assignment/database/stock.txt");
     this.supplierFileHandler = new FileHandler("src/assignment/database/suppliers.txt");
     this.bridgeFileHandler = new FileHandler("src/assignment/database/bridge.txt");

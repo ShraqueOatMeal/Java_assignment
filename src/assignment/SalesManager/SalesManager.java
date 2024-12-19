@@ -29,7 +29,6 @@ public class SalesManager extends UserType {
   public SalesManager() {
     super();
     this.accessLevel = 3;
-    this.department = "Sales";
     this.fileHandler = new FileHandler("src/assignment/database/requisition.txt");
     this.requisitions = loadRequisitions();
   }

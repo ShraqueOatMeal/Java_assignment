@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 public abstract class UserType extends User {
   protected int accessLevel;
-  protected String department;
   protected List<String> permissions;
   protected User user;
 
@@ -19,14 +18,6 @@ public abstract class UserType extends User {
 
   public void setAccessLevel(int accessLevel) {
     this.accessLevel = accessLevel;
-  }
-
-  public String getDepartment() {
-    return department;
-  }
-
-  public void setDepartment(String department) {
-    this.department = department;
   }
 
   public void setUser(User user) {

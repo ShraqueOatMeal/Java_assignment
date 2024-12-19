@@ -15,7 +15,6 @@ public class FinanceManager extends UserType {
   public FinanceManager() {
     super();
     this.accessLevel = 4;
-    this.department = "Finance";
     this.fileHandler = new FileHandler("src/assignment/database/stock.txt");
     this.supplierHandler = new FileHandler("src/assignment/database/suppliers.txt");
   }

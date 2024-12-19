@@ -13,7 +13,6 @@ public class Administrator extends UserType {
   public Administrator() {
     super();
     this.accessLevel = 1;
-    this.department = "Administrator";
     this.userFileHandler = new FileHandler("src/assignment/database/users.txt");
   }
 
